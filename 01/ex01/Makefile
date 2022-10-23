@@ -1,4 +1,4 @@
-NAME = hungryZombie	
+NAME = hungryZombies	
 
 SRCS = main.cpp Zombie.cpp zombieHorde.cpp
 
