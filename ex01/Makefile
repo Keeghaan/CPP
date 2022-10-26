@@ -1,14 +1,14 @@
 NAME =	phonebook
 
-SRCS = PhoneBook.cpp Contact.cpp main.cpp
+SRCS = PhoneBook.cpp Contact.cpp main.cpp utils.cpp
 
-CC =	clang++
+CC =	c++
 
 _RED=	$'\033[1;31m
 _GREEN=	$'\033[1;32m
 _END=	$'\033[0m
 
-HEADERS = PhoneBook.hpp Contact.hpp
+HEADERS = PhoneBook.hpp Contact.hpp utils.hpp
 
 OBJS = ${SRCS:.cpp=.o}
 

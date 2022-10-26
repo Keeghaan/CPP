@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Contact.cpp                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jcourtoi <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/10/26 15:12:46 by jcourtoi          #+#    #+#             */
+/*   Updated: 2022/10/26 16:06:08 by jcourtoi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Contact.hpp"
 
 Contact::Contact(void)
@@ -60,13 +72,6 @@ void	Contact::setDarkestSecret(std::string darkestSecret)
 	this->_darkestSecret = darkestSecret;
 }
 
-std::string	cutName(std::string name)
-{
-	if (name.length() > 9)
-		return (name.substr(0, 9) + ".");
-	return (name);
-}
-
 void	Contact::printContact(int index)
 {
 	if (index == 0)
@@ -75,7 +80,7 @@ void	Contact::printContact(int index)
 		std::cout << "|" << std::setw(10) << "LAST NAME" << "|";
 		std::cout << std::setw(10) << "NICKNAME" << "|" << std::endl;
 	}
-	std::cout << "|" << std::setw(5) << index + 1 << "|" << std::setw(10) << cutName(_name) << "|";
+	std::cout << "|" << std::setw(10) << index + 1 << "|" << std::setw(10) << cutName(_name) << "|";
 	std::cout << std::setw(10) << cutName(_lastName)  << "|";
 	std::cout << std::setw(10) << cutName(_nickname) << "|" << std::endl;
 }

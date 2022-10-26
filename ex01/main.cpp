@@ -11,6 +11,8 @@ int	main()
 		std::cout << "SEARCH ? ADD ? EXIT ? : ";
 		std::getline(std::cin, buf);
 		std::cout << std::endl;
+		if (!std::cin)
+			return (1);
 		if (!buf.length())
 			;
 		else if (!buf.compare("SEARCH"))
@@ -18,7 +20,7 @@ int	main()
 		else if (!buf.compare("ADD"))
 			phonebook.addContact();
 		else if (!buf.compare("EXIT"))
-			return (1);
+			return (2);
 		std::cin.clear();
 	}
 	return (0);
