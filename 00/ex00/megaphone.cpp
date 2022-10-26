@@ -6,7 +6,7 @@
 /*   By: jcourtoi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 18:52:57 by jcourtoi          #+#    #+#             */
-/*   Updated: 2022/10/26 15:17:04 by jcourtoi         ###   ########.fr       */
+/*   Updated: 2022/10/26 16:20:06 by jcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ int	main(int ac, char **av)
 {
 	int	j;
 	int	k;
+	std::string	buf;
 
 	j = 1;
 	if (ac > 1)
@@ -25,8 +26,11 @@ int	main(int ac, char **av)
 		while (av[j])
 		{
 			k = 0;
-			while (av[j][k])
-				std::cout << (char)toupper(av[j][k++]);
+			while (av[j][k++])
+			{
+				buf = toupper(av[j][k++]);
+				std::cout << buf;
+			}
 			j++;
 		}
 		std::cout << std::endl;
