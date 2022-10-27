@@ -6,7 +6,7 @@
 /*   By: jcourtoi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 14:59:27 by jcourtoi          #+#    #+#             */
-/*   Updated: 2022/10/26 16:05:26 by jcourtoi         ###   ########.fr       */
+/*   Updated: 2022/10/27 13:47:11 by jcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ class	PhoneBook
 		void	setContact(Contact contact, int index);
 		void	addContact(void);
 		void	searchContact(void);
+		bool	getInfo(std::string tmp[5], int index);
 		PhoneBook(void);
 		~PhoneBook(void);
 	private :

@@ -6,7 +6,7 @@
 /*   By: jcourtoi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 15:12:06 by jcourtoi          #+#    #+#             */
-/*   Updated: 2022/10/26 16:06:03 by jcourtoi         ###   ########.fr       */
+/*   Updated: 2022/10/27 13:45:51 by jcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,30 @@ Contact	PhoneBook::getContact(int index) const
 void	PhoneBook::setContact(Contact contact, int index)
 {
 	this->_contacts[index] = contact;
+}
+
+bool	PhoneBook::getInfo(std::string tmp[5], int index)
+{
+	std::string	choice;
+
+	if (index < 0 || index > 8)
+		return (false);
+	if (index == 8)
+	{
+		std::cout << "Full phonebook, add another contact will erase the last one" << std::endl;
+		std::cout << "Are you sure ? (Y to continue/Any other key to stop): ";
+		std::getline(std::cin, choice);
+		if (!std::cin)
+			return (false);
+		if (choice.compare("Y") != 0)
+			return (false);
+	}
+	enterEntry("First Name : ", tmp, 0);
+	enterEntry("Last Name : ", tmp, 1);
+	enterEntry("Nickname : ", tmp, 2);
+	enterEntry("Phone Number : ", tmp, 3);
+	enterEntry("Darkest Secret : ", tmp, 4);
+	return (true);
 }
 
 void	PhoneBook::addContact(void)
