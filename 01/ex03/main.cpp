@@ -2,13 +2,25 @@
 #include "HumanB.hpp"
 #include "Weapon.hpp"
 
-int	main()
+int main()
 {
-	Weapon	weap("Axe");
-	HumanA	humA("Jo", weap);
-	HumanB	humB("Freddy");
-       
-	humA.attack();
-	humB.setWeapon(weap);	
-	return (0);
+
+	{
+		Weapon club = Weapon("crude spiked club");
+		HumanA bob("Bob", club);
+		bob.attack();
+		club.setType("some other type of club");
+		bob.attack();
+	}
+	std::cout << std::endl;
+	{
+		Weapon club = Weapon("crude spiked club");
+		HumanB jim("Jim");
+		jim.setWeapon(club);
+		jim.attack();
+		club.setType("some other type of club");
+		jim.attack();
+	}
+	return 0;
 }
+

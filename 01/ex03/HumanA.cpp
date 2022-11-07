@@ -1,9 +1,8 @@
 #include "HumanA.hpp"
 
-HumanA::HumanA(std::string name, Weapon weapon)
+HumanA::HumanA(std::string name, Weapon &weapon): _weapon(weapon)
 {
-	this->_name = setName(name);
-	this->_weapon = setWeapon(weapon);
+	HumanA::setName(name);
 	std::cout << "constructor" << std::endl;
 	return ;
 }
@@ -14,6 +13,15 @@ HumanA::~HumanA(void)
 	return ;
 }
 
+std::string	HumanA::getName(void) const
+{
+	return (this->_name);
+}
+
+void	HumanA::setName(std::string name)
+{
+	this->_name = name;
+}
 Weapon	HumanA::getWeapon(void) const
 {
 	return (this->_weapon);
@@ -26,5 +34,6 @@ void	HumanA::setWeapon(Weapon weapon)
 
 void	HumanA::attack(void)
 {
-	std::cout << this->_name << " attacks with their " << this->_weapon << std::endl;
+	std::cout << getName() << " attacks with their "
+		<< this->_weapon.getType() << std::endl;
 }

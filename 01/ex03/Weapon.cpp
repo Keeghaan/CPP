@@ -3,7 +3,7 @@
 Weapon::Weapon(std::string type)
 {
 	std::cout << "Enter Weapon constructor " << std::endl;
-	this->_type = setType(type);
+	setType(type);
 	return ;
 }
 
