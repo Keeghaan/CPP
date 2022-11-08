@@ -6,7 +6,7 @@
 /*   By: jcourtoi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 15:23:04 by jcourtoi          #+#    #+#             */
-/*   Updated: 2022/11/08 15:58:09 by jcourtoi         ###   ########.fr       */
+/*   Updated: 2022/11/08 17:36:57 by jcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,16 +24,18 @@ Harl::~Harl(void)
 
 void Harl::complain(std::string level)
 {
-	if (!level.compare("DEBUG"))
-		Harl::debug();
-	else if (!level.compare("INFO"))
-		Harl::info();
-	else if (!level.compare("WARNING"))
-		Harl::warning();
-	else if (!level.compare("ERROR"))
-		Harl::error();
-	else
-		std::cout << "Harl had a heart attack and died" << std::endl;
+	t_harl	harl[4];
+	std::string	msg[4];
+	int		j;
+
+	j = 0;
+	if (level.empty())
+		std::cout << "Harl feels fine." << std::endl;
+	while (j < 4)
+	{
+		if (level.compare(msg[j].c_str))
+			
+	}
 }
 
 void	Harl::debug(void)

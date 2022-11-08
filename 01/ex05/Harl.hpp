@@ -6,7 +6,7 @@
 /*   By: jcourtoi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 15:18:24 by jcourtoi          #+#    #+#             */
-/*   Updated: 2022/11/08 15:54:34 by jcourtoi         ###   ########.fr       */
+/*   Updated: 2022/11/08 16:44:21 by jcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,10 @@ class	Harl
 		void	warning(void);
 		void	error(void);
 };
+
+typedef struct s_harl
+{
+	void Harl::(*f)(void);
+}	t_harl;
 
 #endif
