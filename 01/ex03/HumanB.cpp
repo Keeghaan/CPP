@@ -1,6 +1,6 @@
 #include "HumanB.hpp"
 
-HumanB::HumanB(std::string name): _weapon(0)
+HumanB::HumanB(std::string name): _weapon(NULL)
 {
 	setName(name);
 	std::cout << "constructor" << std::endl;
@@ -23,15 +23,14 @@ void	HumanB::setName(std::string name)
 	this->_name = name;
 }
 
-Weapon	*HumanB::getWeapon(void) const
+Weapon	HumanB::getWeapon(void) const
 {
-	return (this->_weapon);
+	return (*this->_weapon);
 }
 
-void	HumanB::setWeapon(Weapon weapon)
+void	HumanB::setWeapon(Weapon &weapon)
 {
-	if (!this->_weapon)
-		this->_weapon = new Weapon(weapon.getType());
+	this->_weapon = &weapon;
 }
 
 void	HumanB::attack(void)
