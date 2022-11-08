@@ -10,7 +10,6 @@ class Zombie
 {
 	public :
 		int	count;
-		Zombie	**horde;
 
 		Zombie(std::string name);
 		~Zombie(void);
@@ -19,6 +18,7 @@ class Zombie
 		void	announce(void);
 	private :
 		std::string	_name;
+		Zombie	*_horde;
 };
 
 Zombie	*newZombie(std::string name);

@@ -10,7 +10,7 @@ void killZombies(Zombie **horde, Zombie *zomboy, int count)
 {
 	for (int i = 0; i < count; i++)
 		delete horde[i];
-	delete[] horde;
+	delete [] horde;
 	delete zomboy;
 }
 
