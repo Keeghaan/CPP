@@ -5,14 +5,14 @@
 #                                                     +:+ +:+         +:+      #
 #    By: jcourtoi <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/11/03 19:33:24 by jcourtoi          #+#    #+#              #
-#    Updated: 2022/11/08 15:16:55 by jcourtoi         ###   ########.fr        #
+#    Created: 2022/11/08 15:15:46 by jcourtoi          #+#    #+#              #
+#    Updated: 2022/11/08 15:16:38 by jcourtoi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = Zombie	
+NAME =	Harl
 
-SRCS = main.cpp Zombie.cpp newZombie.cpp randomChump.cpp
+SRCS = main.cpp Harl.cpp
 
 CC =	c++
 
@@ -20,7 +20,7 @@ _RED=	$'\033[1;31m
 _GREEN=	$'\033[1;32m
 _END=	$'\033[0m
 
-HEADERS = Zombie.hpp
+HEADERS = Harl.hpp
 
 OBJS = ${SRCS:.cpp=.o}
 

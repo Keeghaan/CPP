@@ -6,11 +6,11 @@
 #    By: jcourtoi <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/03 19:33:37 by jcourtoi          #+#    #+#              #
-#    Updated: 2022/11/03 19:33:41 by jcourtoi         ###   ########.fr        #
+#    Updated: 2022/11/08 15:17:22 by jcourtoi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = hungryZombies	
+NAME = hungryZombies
 
 SRCS = main.cpp Zombie.cpp zombieHorde.cpp
 
@@ -53,4 +53,5 @@ vtest: ${NAME}
 
 test: ${NAME}
 	./${NAME}
+
 .PHONY: all clean fclean re

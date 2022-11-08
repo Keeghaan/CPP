@@ -6,7 +6,7 @@
 #    By: jcourtoi <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/03 19:33:59 by jcourtoi          #+#    #+#              #
-#    Updated: 2022/11/03 19:34:04 by jcourtoi         ###   ########.fr        #
+#    Updated: 2022/11/08 15:17:35 by jcourtoi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -53,4 +53,5 @@ vtest: ${NAME}
 
 test: ${NAME}
 	./${NAME}
+
 .PHONY: all clean fclean re
