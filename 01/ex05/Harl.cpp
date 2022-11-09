@@ -6,15 +6,23 @@
 /*   By: jcourtoi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 15:23:04 by jcourtoi          #+#    #+#             */
-/*   Updated: 2022/11/08 17:36:57 by jcourtoi         ###   ########.fr       */
+/*   Updated: 2022/11/09 18:42:13 by jcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Harl.hpp"
-
+#include <cstdio>
 Harl::Harl(void)
 {
 	std::cout << "constructor" << std::endl;
+	this->_complain[DEBUG].level = "DEBUG";
+	this->_complain[DEBUG].f = &Harl::debug;
+	this->_complain[INFO].level = "INFO";
+	this->_complain[INFO].f = &Harl::info;
+	this->_complain[WARNING].level = "WARNING";
+	this->_complain[WARNING].f = &Harl::warning;
+	this->_complain[ERROR].level = "ERROR";
+	this->_complain[ERROR].f = &Harl::error;
 }
 
 Harl::~Harl(void)
@@ -24,18 +32,14 @@ Harl::~Harl(void)
 
 void Harl::complain(std::string level)
 {
-	t_harl	harl[4];
-	std::string	msg[4];
-	int		j;
-
-	j = 0;
 	if (level.empty())
 		std::cout << "Harl feels fine." << std::endl;
-	while (j < 4)
+	for (int j = 0; j < 4; j++)
 	{
-		if (level.compare(msg[j].c_str))
-			
+		if (this->_complain[j].level == level)
+			return ((this->*_complain[j].f)());
 	}
+	std::cout << "Unknown level, Harl's probably going crazy" << std::endl;
 }
 
 void	Harl::debug(void)
