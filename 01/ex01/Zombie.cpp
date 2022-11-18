@@ -6,6 +6,12 @@ Zombie::Zombie(std::string name)
 	return ;
 }
 
+
+Zombie::Zombie()
+{
+	return ;
+}
+
 Zombie::~Zombie(void)
 {
 	std::cout << "Looks like " << getName();

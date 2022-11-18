@@ -15,21 +15,8 @@
 int	main(int ac, char **av)
 {
 	Harl	harl;
-	int	j;
-
-	j = 0;
-	if (ac == 1)
-	{
-		harl.complain("DEBUG");
-		harl.complain("INFO");
-		harl.complain("WARNING");
-		harl.complain("ERROR");
-		harl.complain("Hello");
-	}
-	else
-	{
-		while (av[++j])
-			harl.complain(av[j]);
-	}
-return (0);
+	
+	if (ac == 2)
+		harl.complain(av[1]);	
+	return (0);
 }

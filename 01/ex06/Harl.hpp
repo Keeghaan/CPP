@@ -1,35 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Harl.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jcourtoi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/08 15:19:16 by jcourtoi          #+#    #+#             */
-/*   Updated: 2022/11/08 16:00:42 by jcourtoi         ###   ########.fr       */
+/*   Created: 2022/11/08 15:18:24 by jcourtoi          #+#    #+#             */
+/*   Updated: 2022/11/09 18:32:16 by jcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Harl.hpp"
+#ifndef HARL_HPP
+# define HARL_HPP
 
-int	main(int ac, char **av)
+# include <cstdlib>
+# include <string> 
+# include <iostream>
+# include <iomanip>
+
+class	Harl
 {
-	Harl	harl;
-	int	j;
+	public:
+		Harl(void);
+		~Harl(void);
+		void	complain(std::string level);
+	private:
+		void	_debug(void);
+		void	_info(void);
+		void	_warning(void);
+		void	_error(void);
+};
 
-	j = 0;
-	if (ac == 1)
-	{
-		harl.complain("DEBUG");
-		harl.complain("INFO");
-		harl.complain("WARNING");
-		harl.complain("ERROR");
-		harl.complain("Hello");
-	}
-	else
-	{
-		while (av[++j])
-			harl.complain(av[j]);
-	}
-return (0);
-}
+#endif
