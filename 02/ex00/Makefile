@@ -1,6 +1,6 @@
-NAME = 
+NAME = Fixed
 
-SRCS = main.cpp
+SRCS = main.cpp Fixed.cpp
 
 CC =	c++
 
@@ -8,7 +8,7 @@ _RED=	$'\033[1;31m
 _GREEN=	$'\033[1;32m
 _END=	$'\033[0m
 
-HEADERS = 
+HEADERS = Fixed.hpp
 
 OBJS = ${SRCS:.cpp=.o}
 

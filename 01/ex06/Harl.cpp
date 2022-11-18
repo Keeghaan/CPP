@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "Harl.hpp"
-#include <cstdio>
+
 Harl::Harl(void)
 {
 }
@@ -22,10 +22,8 @@ Harl::~Harl(void)
 
 void Harl::complain(std::string level)
 {
-	typedef void(Harl::*harlFunc)();
 	int	level_n = -1;
 	std::string	complaints[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
-	harlFunc	whichFunc[4] = {&Harl::_debug, &Harl::_info, &Harl::_warning, &Harl::_error};	
 
 	if (level.empty())
 		std::cerr << "Harl feels fine." << std::endl;
@@ -38,18 +36,19 @@ void Harl::complain(std::string level)
 				level_n = i;
 				break ;
 			}
-		}						
+		}
+//fall through						
 		switch (level_n)
 		{
 			case (0):
-				(this->*(whichFunc[level_n]))();
+				this->_debug(); // fall through
 			case (1):
-				(this->*(whichFunc[level_n]))();
+				this->_info(); // fall through
 			case (2):
-				(this->*(whichFunc[level_n]))();
+				this->_warning(); // fall through
 			case (3):
 			{
-				(this->*(whichFunc[level_n]))();
+				this->_error(); //fall through
 				break ;
 			}
 			default:
