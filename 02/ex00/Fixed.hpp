@@ -16,7 +16,7 @@ class Fixed
 		Fixed & operator=(const Fixed & rhs);	
 	private:
 		int			_n;
-		//static const int	_cn;
+		static const int	_bits = 8;
 
 };
 
