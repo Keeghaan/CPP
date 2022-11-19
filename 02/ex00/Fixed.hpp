@@ -1,19 +1,23 @@
 #ifndef FIXED_H
 # define FIXED_H
 
+# include <iostream>
+
 class Fixed
 {
 	public:
 		Fixed(void);
-		Fixed(Fixed copy);
+		Fixed(const Fixed &copy);
 		~Fixed(void);
 
 		int	getRawBits(void) const;
-		void	setRawBits(int const raw);	
+		void	setRawBits(const int raw);
+		
+		Fixed & operator=(const Fixed & rhs);	
 	private:
 		int			_n;
-		static const int	_cn;
+		//static const int	_cn;
 
-}
+};
 
 #endif
