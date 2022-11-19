@@ -48,12 +48,92 @@ float	Fixed::toFloat(void) const
 	return (float(this->_n) / (1 << this->_bits));
 }
 
-Fixed	&Fixed::operator=(Fixed const &rhs)
+		//ASSIGNMENT =
+
+Fixed	&Fixed::operator=(const Fixed &rhs)
 {
 	std::cout << "Copy assignment operator called." << std::endl;
 	this->_n = rhs.getRawBits();
 	return (*this);
 }
+
+		//COMPARAISON <, >, <=, >=, ==, !=
+
+Fixed	Fixed::operator<(const Fixed &rhs)
+{
+
+}
+
+Fixed	Fixed::operator>(const Fixed &rhs)
+{
+
+}
+
+Fixed	Fixed::operator<=(const Fixed &rhs)
+{
+
+}
+
+Fixed	Fixed::operator>=(const Fixed &rhs)
+{
+
+}
+
+Fixed	Fixed::operator==(const Fixed &rhs)
+{
+
+}
+
+Fixed	Fixed::operator!=(const Fixed &rhs)
+{
+
+}
+
+		//OPERATION +, -, *, /
+
+Fixed	Fixed::operator+(const Fixed &rhs)
+{
+
+}
+
+Fixed	Fixed::operator-(const Fixed &rhs)
+{
+
+}
+
+Fixed	Fixed::operator*(const Fixed &rhs)
+{
+
+}
+
+Fixed	Fixed::operator/(const Fixed &rhs)
+{
+
+}
+
+		//INCREMENT DECREMENT ++ --
+
+Fixed	Fixed::operator++(const Fixed &rhs) //Pre increment
+{
+
+}
+
+Fixed	Fixed::operator--(const Fixed &rhs) //Pre decrement
+{
+
+}
+
+Fixed	Fixed::operator++const Fixed &rhs) //Post increment
+{
+
+}
+
+Fixed	Fixed::operator--(const Fixed &rhs) //Post decrement
+{
+
+}
+
+		//Flux redirection <<
 
 std::ostream	&operator<<(std::ostream &out, const Fixed &f)
 {
