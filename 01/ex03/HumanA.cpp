@@ -9,7 +9,7 @@ HumanA::HumanA(std::string name, Weapon &weapon): _weapon(weapon)
 
 HumanA::~HumanA(void)
 {
-	std::cout << "Enter the Human B constructor" << std::endl;
+	std::cout << "Enter the Human A destructor" << std::endl;
 }
 
 std::string	HumanA::getName(void) const
