@@ -21,7 +21,7 @@ std::string	replace(std::string &newFile, std::string s1, std::string s2)
 	int	pos = 0;
 
 	pos = newFile.find(s1.c_str());
-	newFile.erase(newFile.begin() + newFile.find(s1.c_str(), 0));
+	newFile.erase(newFile.find(s1.c_str()), s1.length());
 	newFile.insert(pos, s2.c_str());
 	return (newFile);
 }
@@ -57,8 +57,7 @@ int	main(int ac, char **av)
 	}
 	while (getline(infile, newFile))
 	{
-			while (s2.length() > 0
-				&& newFile.find(s1.c_str(), 0) != std::string::npos)
+			while (newFile.find(s1.c_str(), 0) != std::string::npos)
 				replace(newFile, s1, s2);
 			outfile << newFile.c_str() << std::endl;
 	}

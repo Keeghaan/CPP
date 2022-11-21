@@ -47,7 +47,7 @@ float	Fixed::toFloat(void) const
 {
 	return (float(this->_n) / (1 << this->_bits));
 }
-
+/*
 int	Fixed::min(Fixed n1, Fixed n2)
 {
 
@@ -66,7 +66,8 @@ int	Fixed::min(const Fixed n1, const Fixed n2)
 int	Fixed::max(const Fixed n1, const Fixed n2)
 {
 
-} 
+}
+*/
 		//ASSIGNMENT =
 
 Fixed	&Fixed::operator=(const Fixed &rhs)
@@ -77,55 +78,56 @@ Fixed	&Fixed::operator=(const Fixed &rhs)
 }
 
 		//COMPARAISON <, >, <=, >=, ==, !=
-
-Fixed	Fixed::operator<(const Fixed &rhs)
+/*
+Fixed	Fixed::operator<(const Fixed &rhs) const
 {
 
 }
 
-Fixed	Fixed::operator>(const Fixed &rhs)
+Fixed	Fixed::operator>(const Fixed &rhs) const
 {
 
 }
 
-Fixed	Fixed::operator<=(const Fixed &rhs)
+Fixed	Fixed::operator<=(const Fixed &rhs) const
 {
 
 }
 
-Fixed	Fixed::operator>=(const Fixed &rhs)
+Fixed	Fixed::operator>=(const Fixed &rhs) const
 {
 
 }
 
-Fixed	Fixed::operator==(const Fixed &rhs)
+Fixed	Fixed::operator==(const Fixed &rhs) const
 {
 
 }
 
-Fixed	Fixed::operator!=(const Fixed &rhs)
+Fixed	Fixed::operator!=(const Fixed &rhs) const
 {
 
 }
-
+*/
 		//OPERATION +, -, *, /
 
-Fixed	Fixed::operator+(const Fixed &rhs)
+Fixed	Fixed::operator+(const Fixed &rhs) const
+{
+	//std::cout << "assignment operator +" << std::endl;
+	return (Fixed(this->_n + rhs.getRawBits()));
+}
+/*
+Fixed	Fixed::operator-(const Fixed &rhs) const
 {
 
 }
 
-Fixed	Fixed::operator-(const Fixed &rhs)
+Fixed	Fixed::operator*(const Fixed &rhs) const
 {
 
 }
 
-Fixed	Fixed::operator*(const Fixed &rhs)
-{
-
-}
-
-Fixed	Fixed::operator/(const Fixed &rhs)
+Fixed	Fixed::operator/(const Fixed &rhs) const
 {
 
 }
@@ -142,16 +144,16 @@ Fixed	Fixed::operator--(const Fixed &rhs) //Pre decrement
 
 }
 
-Fixed	Fixed::operator++const Fixed &rhs) //Post increment
+Fixed	Fixed::operator++(const Fixed &rhs) const //Post increment
 {
 
 }
 
-Fixed	Fixed::operator--(const Fixed &rhs) //Post decrement
+Fixed	Fixed::operator--(const Fixed &rhs) const //Post decrement
 {
 
 }
-
+*/
 		//Flux redirection <<
 
 std::ostream	&operator<<(std::ostream &out, const Fixed &f)
