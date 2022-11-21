@@ -6,10 +6,8 @@ Zombie::Zombie(std::string name)
 	return ;
 }
 
-
 Zombie::Zombie()
 {
-	return ;
 }
 
 Zombie::~Zombie(void)
@@ -21,7 +19,12 @@ Zombie::~Zombie(void)
 
 void Zombie::setName(std::string name)
 {
-	this->_name = name;
+	if (name.empty())
+		std::cout << "test" << std::endl;
+	if (!name.length())
+		this->_name = "Unknown";
+	else
+		this->_name = name;
 }
 
 std::string	Zombie::getName(void) const

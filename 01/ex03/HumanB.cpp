@@ -2,14 +2,14 @@
 
 HumanB::HumanB(std::string name): _weapon(NULL)
 {
+	std::cout << "Enter the human B constructor" << std::endl;
 	setName(name);
-	std::cout << "constructor" << std::endl;
 	return ;
 }
 
 HumanB::~HumanB(void)
 {
-	std::cout << "destructor" << std::endl;
+	std::cout << "Enter the human B destructor" << std::endl;
 	return ;
 }
 
@@ -20,7 +20,10 @@ std::string	HumanB::getName(void) const
 
 void	HumanB::setName(std::string name)
 {
-	this->_name = name;
+	if (name.empty())
+		this->_name = "Unknown dude B";
+	else
+		this->_name = name;
 }
 
 Weapon	HumanB::getWeapon(void) const

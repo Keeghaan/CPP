@@ -2,15 +2,14 @@
 
 HumanA::HumanA(std::string name, Weapon &weapon): _weapon(weapon)
 {
+	std::cout << "Enter the Human A constructor" << std::endl;
 	HumanA::setName(name);
-	std::cout << "constructor" << std::endl;
 	return ;
 }
 
 HumanA::~HumanA(void)
 {
-	std::cout << "destructor" << std::endl;
-	return ;
+	std::cout << "Enter the Human B constructor" << std::endl;
 }
 
 std::string	HumanA::getName(void) const
@@ -20,7 +19,10 @@ std::string	HumanA::getName(void) const
 
 void	HumanA::setName(std::string name)
 {
-	this->_name = name;
+	if (name.empty())
+		this->_name = "Unknown dude A";
+	else
+		this->_name = name;
 }
 Weapon	HumanA::getWeapon(void) const
 {

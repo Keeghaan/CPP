@@ -2,7 +2,7 @@
 
 Weapon::Weapon(std::string type)
 {
-	std::cout << "Enter Weapon constructor " << std::endl;
+	std::cout << "Enter Weapon constructor" << std::endl;
 	setType(type);
 	return ;
 }
@@ -15,7 +15,10 @@ Weapon::~Weapon(void)
 
 void	Weapon::setType(std::string type)
 {
-	this->_type = type;
+	if (type.empty())
+		this->_type = "Unknown weapon";
+	else
+		this->_type = type;
 }
 
 std::string Weapon::getType(void) const

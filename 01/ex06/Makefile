@@ -6,7 +6,7 @@
 #    By: jcourtoi <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/08 15:15:46 by jcourtoi          #+#    #+#              #
-#    Updated: 2022/11/08 15:16:38 by jcourtoi         ###   ########.fr        #
+#    Updated: 2022/11/21 13:39:36 by jcourtoi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,11 +47,5 @@ fclean: clean
 
 re: fclean
 	@make all
-
-vtest: ${NAME}
-	-valgrind --leak-check=full --track-origins=yes ./${NAME}
-
-test: ${NAME}
-	./${NAME}
 
 .PHONY: all clean fclean re

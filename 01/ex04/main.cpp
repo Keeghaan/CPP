@@ -28,6 +28,11 @@ std::string	replace(std::string &newFile, std::string s1, std::string s2)
 
 int	main(int ac, char **av)
 {
+	if (ac != 4)
+	{
+		std::cout << "Wrong number of arguments." << std::endl;
+		return (-1);
+	}
 	std::string		s1 = av[2];
 	std::string		s2 = av[3];
 	std::string		file = av[1];
@@ -35,12 +40,7 @@ int	main(int ac, char **av)
 	std::ifstream		infile;
 	std::ofstream		outfile;
 
-	if (ac != 4)
-	{
-		std::cout << "Wrong number of arguments." << std::endl;
-		return (-1);
-	}
-	else if (check_args(s1, s2))
+	if (check_args(s1, s2))
 		return (-2);
 	infile.open(file.c_str());
 	if (!infile.is_open())
@@ -48,7 +48,8 @@ int	main(int ac, char **av)
 		std::cout << "infile did not open correctly" << std::endl;
 		return (1);
 	}
-	outfile.open(file.append(".replace").c_str(), std::fstream::in | std::ifstream::trunc);
+	outfile.open(file.append(".replace").c_str(),
+		std::fstream::in | std::ifstream::trunc);
 	if (!outfile.is_open())
 	{
 		std::cout << "outfile did not open correctly" << std::endl;
@@ -56,9 +57,10 @@ int	main(int ac, char **av)
 	}
 	while (getline(infile, newFile))
 	{
-		while (newFile.find(s1.c_str(), 0) != std::string::npos)
-			replace(newFile, s1, s2);
-		outfile << newFile.c_str() << std::endl;
+			while (s2.length() > 0
+				&& newFile.find(s1.c_str(), 0) != std::string::npos)
+				replace(newFile, s1, s2);
+			outfile << newFile.c_str() << std::endl;
 	}
 	infile.close();
 	outfile.close();

@@ -6,7 +6,7 @@
 /*   By: jcourtoi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 15:23:04 by jcourtoi          #+#    #+#             */
-/*   Updated: 2022/11/09 18:42:13 by jcourtoi         ###   ########.fr       */
+/*   Updated: 2022/11/21 13:39:16 by jcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void Harl::complain(std::string level)
 		std::cerr << "Harl feels fine." << std::endl;
 	else
 	{
-		for (int i; i < 4; i++)
+		for (int i = 0; i < 4; i++)
 		{
 			if (!complaints[i].compare(level))
 			{
@@ -37,7 +37,6 @@ void Harl::complain(std::string level)
 				break ;
 			}
 		}
-//fall through						
 		switch (level_n)
 		{
 			case (0):
@@ -59,28 +58,28 @@ void Harl::complain(std::string level)
 
 void	Harl::_debug(void)
 {
-	std::cout << "I love having extra bacon for my "
+	std::cout << "\e[0;32mI love having extra bacon for my "
 		<< "7XL-double-cheese-triple-pickle-specialketchup burger. "
-		<< "I really do !" << std::endl;
+		<< "I really do !\033[0m" << std::endl;
 }
 
 void	Harl::_info(void)
 {
-	std::cout << "I cannot believe adding extra bacon costs more money. "
+	std::cout << "\e[0;34mI cannot believe adding extra bacon costs more money. "
 		<< "You didn’t put enough bacon in my burger ! If you did, "
-		<< "I wouldn’t be asking for more !" << std::endl;
+		<< "I wouldn’t be asking for more !\033[0m" << std::endl;
 }
 
 void	Harl::_warning(void)
 {
-	std::cout << "I think I deserve to have some extra bacon for free. "
+	std::cout << "\e[0;33mI think I deserve to have some extra bacon for free. "
 		<< "I’ve been coming for years whereas you started working "
-		<< "here since last month." << std::endl;
+		<< "here since last month.\033[0m" << std::endl;
 
 }
 
 void	Harl::_error(void)
 {
-	std::cout << "This is unacceptable ! I want to speak to the manager now."
-		<< std::endl;
+	std::cout << "\e[0;31mThis is unacceptable ! "
+		<< "I want to speak to the manager now.\033[0m" << std::endl;
 }

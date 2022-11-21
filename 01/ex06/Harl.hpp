@@ -6,7 +6,7 @@
 /*   By: jcourtoi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 15:18:24 by jcourtoi          #+#    #+#             */
-/*   Updated: 2022/11/09 18:32:16 by jcourtoi         ###   ########.fr       */
+/*   Updated: 2022/11/21 13:37:12 by jcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,14 @@
 # include <iomanip>
 
 
-// fall through
 class	Harl
 {
 	public:
 		Harl(void);
 		~Harl(void);
+	
 		void	complain(std::string level);
+
 	private:
 		void	_debug(void);
 		void	_info(void);
