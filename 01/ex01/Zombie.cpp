@@ -6,8 +6,9 @@ Zombie::Zombie(std::string name)
 	return ;
 }
 
-Zombie::Zombie()
+Zombie::Zombie(void)
 {
+	this->_name = "Unknown";
 }
 
 Zombie::~Zombie(void)
