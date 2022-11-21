@@ -15,7 +15,10 @@ Zombie::~Zombie(void)
 
 void Zombie::setName(std::string name)
 {
-	this->_name = name;
+	if (name.empty())
+		this->_name = "Unknown";
+	else
+		this->_name = name;
 }
 
 std::string	Zombie::getName(void) const
