@@ -17,25 +17,25 @@ class Fixed
 		void	setRawBits(const int);
 		float	toFloat(void) const;
 		int	toInt(void) const;
-/*		static int	min(Fixed&, Fixed&);
+		static int	min(Fixed&, Fixed&);
 		static int	max(Fixed&, Fixed&);
 		static int	min(const Fixed&, const Fixed&);
 		static int	max(const Fixed&, const Fixed&);
-*/		
+		
 		Fixed & operator=(const Fixed & rhs);
-/*
+
 		Fixed operator>(const Fixed &rhs) const;
 		Fixed operator<(const Fixed &rhs) const;
 		Fixed operator>=(const Fixed &rhs) const;
 		Fixed operator<=(const Fixed &rhs) const;
 		Fixed operator==(const Fixed &rhs) const;
 		Fixed operator!=(const Fixed &rhs) const;
-*/
+
 		Fixed operator+(const Fixed &rhs) const;
-/*		Fixed operator-(const Fixed &rhs) const;
+		Fixed operator-(const Fixed &rhs) const;
 		Fixed operator*(const Fixed &rhs) const;
 		Fixed operator/(const Fixed &rhs) const;
-*/	
+	
 //		Fixed operator++(const Fixed &rhs);
 //		Fixed operator--(const Fixed &rhs);
 //		Fixed operator++(const Fixed &rhs) const;

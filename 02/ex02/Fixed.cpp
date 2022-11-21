@@ -47,27 +47,35 @@ float	Fixed::toFloat(void) const
 {
 	return (float(this->_n) / (1 << this->_bits));
 }
-/*
-int	Fixed::min(Fixed n1, Fixed n2)
-{
 
+int	Fixed::min(Fixed &n1, Fixed &n2)
+{
+	if (n1 < n2)
+		return (n1.getRawBits());
+	return (n2.getRawBits());
 }
 
-int	Fixed::max(Fixed n1, Fixed n2)
+int	Fixed::max(Fixed &n1, Fixed &n2)
 {
-
+	if (n1 > n2)
+		return (n1.getRawBits());
+	return (n2.getRawBits());
 } 
 
-int	Fixed::min(const Fixed n1, const Fixed n2)
+int	Fixed::min(const Fixed &n1, const Fixed &n2)
 {
-
+	if (n1 < n2)
+		return (n1.getRawBits());
+	return (n2.getRawBits());
 }
 
-int	Fixed::max(const Fixed n1, const Fixed n2)
+int	Fixed::max(const Fixed &n1, const Fixed &n2)
 {
-
+	if (n1 > n2)
+		return (n1.getRawBits());
+	return (n2.getRawBits());
 }
-*/
+
 		//ASSIGNMENT =
 
 Fixed	&Fixed::operator=(const Fixed &rhs)
@@ -78,37 +86,37 @@ Fixed	&Fixed::operator=(const Fixed &rhs)
 }
 
 		//COMPARAISON <, >, <=, >=, ==, !=
-/*
+
 Fixed	Fixed::operator<(const Fixed &rhs) const
 {
-
+	return (Fixed(this->_n < rhs.getRawBits()));
 }
 
 Fixed	Fixed::operator>(const Fixed &rhs) const
 {
-
+	return (Fixed(this->_n > rhs.getRawBits()));
 }
 
 Fixed	Fixed::operator<=(const Fixed &rhs) const
 {
-
+	return (this->_n <= rhs.getRawBits());
 }
 
 Fixed	Fixed::operator>=(const Fixed &rhs) const
 {
-
+	return (this->_n >= rhs.getRawBits());
 }
 
 Fixed	Fixed::operator==(const Fixed &rhs) const
 {
-
+	return (this->_n == rhs.getRawBits());
 }
 
 Fixed	Fixed::operator!=(const Fixed &rhs) const
 {
-
+	return (this->_n != rhs.getRawBits());
 }
-*/
+
 		//OPERATION +, -, *, /
 
 Fixed	Fixed::operator+(const Fixed &rhs) const
@@ -116,24 +124,24 @@ Fixed	Fixed::operator+(const Fixed &rhs) const
 	//std::cout << "assignment operator +" << std::endl;
 	return (Fixed(this->_n + rhs.getRawBits()));
 }
-/*
+
 Fixed	Fixed::operator-(const Fixed &rhs) const
 {
-
+	return (this->_n - rhs.getRawBits());
 }
 
 Fixed	Fixed::operator*(const Fixed &rhs) const
 {
-
+	return (this->_n * rhs.getRawBits());
 }
 
 Fixed	Fixed::operator/(const Fixed &rhs) const
 {
-
+	return (this->_n / rhs.getRawBits());
 }
 
 		//INCREMENT DECREMENT ++ --
-
+/*
 Fixed	Fixed::operator++(const Fixed &rhs) //Pre increment
 {
 
