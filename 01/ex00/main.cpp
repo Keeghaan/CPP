@@ -3,11 +3,7 @@
 int	main(void)
 {
 	Zombie	*zomboy = newZombie("Johanna");
-	if (!zomboy)
-		return (1);
 	Zombie	*ho = newZombie("Tom");
-	if (!ho)
-	return (delete zomboy, 2);
 
 	zomboy->announce();
 	ho->announce();

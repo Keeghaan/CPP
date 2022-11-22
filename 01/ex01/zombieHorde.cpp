@@ -13,11 +13,6 @@ Zombie *zombieHorde(int N, std::string name)
 	if (!name.length())
 		name = "Unknown";
 	Zombie	*zomboy = new Zombie[N];
-	if (!zomboy)
-	{
-		std::cout << "Allocation failed in zombieHorde func" << std::endl;
-		return (NULL);
-	}
 	for (int i = 0; i < N; i++)
 		zomboy[i].setName(name);
 	return (zomboy);

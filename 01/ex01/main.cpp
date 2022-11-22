@@ -9,14 +9,8 @@ int	main(void)
 	std::string	uniq_name = "Remy";
 	
 	Zombie	*horde = zombieHorde(horde_n, horde_name);
-	if (!horde)
-		return (1);
 	Zombie	*zomb = new Zombie[zombs];
-	if (!zomb)
-		return (delete[] horde, 2);
 	Zombie*	zomboy	= new Zombie("Zomboy");
-	if (!zomboy)
-		return (delete[] zomb, delete[] horde, 3);
 	Zombie	uniq(uniq_name);
 	
 	std::cout << "------> The one and only UNIQUE " << uniq.getName() << std::endl;
