@@ -42,8 +42,8 @@ class Fixed
 		Fixed operator--(int);
 	private:
 		int					_n;
+		bool				_isFloat;
 		static const int	_bits = 8;
-
 };
 
 std::ostream	&operator<<(std::ostream&, const Fixed&);
