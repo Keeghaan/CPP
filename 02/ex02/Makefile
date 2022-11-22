@@ -2,31 +2,31 @@ NAME = Fixed
 
 SRCS = main.cpp Fixed.cpp
 
-CC =	c++
+CXX =	c++
 
 _RED=	$'\033[1;31m
 _GREEN=	$'\033[1;32m
 _END=	$'\033[0m
 
-HEADERS = Fixed.hpp
-
 OBJS = ${SRCS:.cpp=.o}
+DEPS = ${OBJS:.o=.d}
 
-FLAGS = -Wall -Wextra -Werror -std=c++98 
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98 
+CPPFLAGS = -MMD
 
 RM = rm -rf
 
 all: ${NAME}
 
-.cpp.o:
-		$(CC) $(FLAGS) -c $< -o $(<:.cpp=.o)
+#.cpp.o:
+# $(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $< -o $(<:.cpp=.o)
 
-${NAME}: ${OBJS} ${HEADERS}
+${NAME}: ${OBJS}
 	@echo "$(_GREEN)Executable created : ${NAME}$(_END)"
-	${CC} ${FLAGS}  -o $(NAME) $(OBJS)
+	${CXX} ${CXXFLAGS}  -o $(NAME) $(OBJS)
 
 clean:
-	${RM} ${OBJS}
+	${RM} ${OBJS} ${DEPS}
 	@echo "$(_RED).o files removed$'\033[0m"
 
 fclean: clean
@@ -42,4 +42,5 @@ vtest: ${NAME}
 test: ${NAME}
 	./${NAME}
 
+-include $(DEPS)
 .PHONY: all clean fclean re
