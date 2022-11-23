@@ -4,7 +4,7 @@
 # include <iostream>
 # include <cmath>
 
-# define DEBUG 0
+# define DEBUG 1 
 
 class Fixed
 {
@@ -24,7 +24,7 @@ class Fixed
 		static Fixed	min(const Fixed&, const Fixed&);
 		static Fixed	max(const Fixed&, const Fixed&);
 		
-		Fixed & operator=(const Fixed & rhs);
+		Fixed &operator=(const Fixed&);
 
 		bool operator>(const Fixed &rhs) const;
 		bool operator<(const Fixed &rhs) const;
