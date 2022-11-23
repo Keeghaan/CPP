@@ -6,7 +6,7 @@
 /*   By: jcourtoi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 13:42:08 by jcourtoi          #+#    #+#             */
-/*   Updated: 2022/11/23 14:04:03 by jcourtoi         ###   ########.fr       */
+/*   Updated: 2022/11/23 14:22:57 by jcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	main(void)
 		
 		d = a;
 		std::cout << "MAIN DEFAULT"<< d.getX() << std::endl;
-
+		bsp(a, b, c, point);
 
 	return (0);
 }

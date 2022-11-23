@@ -6,13 +6,13 @@
 #    By: jcourtoi <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/23 12:25:04 by jcourtoi          #+#    #+#              #
-#    Updated: 2022/11/23 13:19:35 by jcourtoi         ###   ########.fr        #
+#    Updated: 2022/11/23 14:24:41 by jcourtoi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = Fixed
 
-SRCS = main.cpp Fixed.cpp Point.cpp 
+SRCS = main.cpp Fixed.cpp Point.cpp bsp.cpp
 
 CXX =	c++
 
