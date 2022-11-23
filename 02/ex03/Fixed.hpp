@@ -24,7 +24,7 @@ class Fixed
 		static Fixed	min(const Fixed&, const Fixed&);
 		static Fixed	max(const Fixed&, const Fixed&);
 		
-		Fixed &operator=(const Fixed&);
+		Fixed & operator=(const Fixed & rhs);
 
 		bool operator>(const Fixed &rhs) const;
 		bool operator<(const Fixed &rhs) const;

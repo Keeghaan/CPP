@@ -6,7 +6,7 @@
 /*   By: jcourtoi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 15:23:04 by jcourtoi          #+#    #+#             */
-/*   Updated: 2022/11/21 13:36:31 by jcourtoi         ###   ########.fr       */
+/*   Updated: 2022/11/23 12:33:48 by jcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,8 @@ void Harl::complain(std::string level)
 		if (complaint_level[j] == level)
 			return ((this->*_complaint[j].f)());
 	}
-	std::cout << "Unknown level, Harl's probably going crazy" << std::endl;
+	if (!level.empty())
+		std::cout << "Unknown level, Harl's probably going crazy" << std::endl;
 }
 
 void	Harl::_debug(void)
