@@ -6,7 +6,7 @@
 /*   By: jcourtoi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 13:42:08 by jcourtoi          #+#    #+#             */
-/*   Updated: 2022/11/23 15:05:42 by jcourtoi         ###   ########.fr       */
+/*   Updated: 2022/11/23 16:15:21 by jcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 int	main(void)
 {
-		Point	a(4.0, 3.0), b(2.3, 1.1), c(6.8, 0.7), point(3.7, 1.7);
+		Point	a(4.0, 3.0), b(2.26, 1.15), c(6.74, 0.67), point(3.56, 1.59);
 		Point	d;
-		Point	f(b);
-		Point	e(6.2, 2.7);
+		Point	f(4.58, 0.90);
+		Point	e(6.3, 2.61);
 		
 		d = a;
 		std::cout << "Point in the triangle : " << std::endl;

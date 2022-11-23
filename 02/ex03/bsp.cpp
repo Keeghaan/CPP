@@ -6,7 +6,7 @@
 /*   By: jcourtoi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 12:59:01 by jcourtoi          #+#    #+#             */
-/*   Updated: 2022/11/23 15:00:08 by jcourtoi         ###   ########.fr       */
+/*   Updated: 2022/11/23 16:03:10 by jcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,11 @@ float	area(const Point a, const Point b, const Point c)
 
 bool bsp( Point const a, Point const b, Point const c, Point const point)
 {
-	if (area(a, b, point) + area(b, c, point) + area(a, c, point) >= 0)
+	std::cout << area(a, b, point) + area(b, c, point) + area(a, c, point) << std::endl;
+	if (area(a, b, point) + area(b, c, point) + area(a, c, point) == 0)
 		return (false);
+	if (area(a, b, point) + area(b , c, point)  + area(a, c, point) > 0)
+		return (false);
+	
 	return (true);
 }
