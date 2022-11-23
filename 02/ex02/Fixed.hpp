@@ -4,6 +4,8 @@
 # include <iostream>
 # include <cmath>
 
+# define DEBUG 0
+
 class Fixed
 {
 	public:
@@ -42,7 +44,6 @@ class Fixed
 		Fixed operator--(int);
 	private:
 		int					_n;
-		bool				_isFloat;
 		static const int	_bits = 8;
 };
 
