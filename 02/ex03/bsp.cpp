@@ -6,50 +6,46 @@
 /*   By: jcourtoi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 12:59:01 by jcourtoi          #+#    #+#             */
-/*   Updated: 2022/11/23 17:22:00 by jcourtoi         ###   ########.fr       */
+/*   Updated: 2022/11/23 17:41:53 by jcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Point.hpp"
 #include <cstdio>
 
-bool	is_neg(const Point a, const Point b, const Point c)
-{
-	if (a.getX() < 0 || a.getY() < 0 || b.getX() < 0 ||  b.getY() < 0
-		|| c.getX() < 0 || c.getY() < 0)
-		return (true);
-	return (false);
-}
-
 Fixed	area(const Point a, const Point b, const Point c)
 {
-	Point	tmp(0.5, 1.5);
-	Fixed	result;
+	float	area;
 
-	if (!is_neg(a, b, c))
-		result = (tmp.getX() * (b.getX() - a.getX()) * (c.getY() - a.getY()) -
-			(c.getX() - a.getX()) * (b.getY() - a.getY()));
-	else
-	{
-		result = a.getX() * (b.getY() - c.getY()) +  b.getX() *
-			(a.getY() - c.getY()) + c.getX() * (b.getY() - c.getY());
-		std::abs(result.toFloat());
-	}
+	area = 0.5 * (a.getX().toFloat() * ((b.getY().toFloat()) - c.getY().toFloat()) +
+			b.getX().toFloat() * (c.getY().toFloat() - a.getY().toFloat()) +
+			c.getX().toFloat() * (a.getY().toFloat() - b.getY().toFloat()));
+	Fixed	result(std::abs(area));
 	return (result);
 }
 
 bool bsp( Point const a, Point const b, Point const c, Point const point)
 {
-	std::cout << area(a, b, c) << std::endl;
-	std::cout << area(a, b, point) << std::endl;
-	std::cout << area(b, c, point) << std::endl;
-	std::cout << area(a, c, point) << std::endl;
-	std::cout << area(a, b, point) + area(b, c, point) + area(a, c, point) << std::endl;
+	Fixed	bigArea;
+	Fixed	area1;
+	Fixed	area2;
+	Fixed	area3;
 
-	if ((area(a, b, point) + area(b, c, point) + area(a, c, point)) > 0)//> area(a, b, c))
-		return (printf("ici\n"), false);
-	if (area(a, b, point) == 0 || area(b, c, point) == 0
-		|| area(a, c, point) == 0)
-		return (printf("la\n"), false);
+	bigArea = area(a, b, c);
+	area1 = area(point, b, c);
+	area2 = area(a, point, c);
+	area3 = area(a, b, point);
+	if (DEBUG)
+	{
+		std::cout << "bigArea = " << bigArea << std::endl;
+		std::cout << "area1 = " << area1 << std::endl;
+		std::cout << "area2 = " << area2 << std::endl;
+		std::cout << "area3 = " << area3 << std::endl;
+		std::cout << "a1 + a2 + a3 = " << area1 + area2 + area3 << std::endl;
+	}
+	if (!area1.getRawBits() || !area2.getRawBits() || !area3.getRawBits())
+		return (false);
+	if (area1 + area2 + area3 > bigArea)
+		return (false);
 	return (true);
 }

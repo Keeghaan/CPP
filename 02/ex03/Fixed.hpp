@@ -5,6 +5,11 @@
 # include <cmath>
 
 # define DEBUG 0
+# define GR \e[0;32m 
+# define RD \e[0;31m
+# define BL \e[0;34m
+# define YL \e[0;33m
+# define END \033[0m
 
 class Fixed
 {
