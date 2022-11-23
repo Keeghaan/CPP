@@ -6,7 +6,7 @@
 /*   By: jcourtoi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 17:28:24 by jcourtoi          #+#    #+#             */
-/*   Updated: 2022/11/23 19:13:02 by jcourtoi         ###   ########.fr       */
+/*   Updated: 2022/11/23 19:20:16 by jcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define CLAPTRAP_HPP
 
 # include <iostream>
+# include <climits>
 
 # define DEBUG 1
 

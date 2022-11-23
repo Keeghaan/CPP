@@ -6,17 +6,18 @@
 /*   By: jcourtoi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 18:29:31 by jcourtoi          #+#    #+#             */
-/*   Updated: 2022/11/23 19:14:08 by jcourtoi         ###   ########.fr       */
+/*   Updated: 2022/11/23 19:20:59 by jcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap(std::string name="Unknown"): _name(name), _hitPoints(10),
-	_energyPoints(10), _attackDamage(0)
+ClapTrap::ClapTrap(std::string name):  _hitPoints(10), _energyPoints(10),
+	_attackDamage(0)
 {
 	if (DEBUG)
 		std::cout << "ClapTrap default constructor called" << std::endl;
+	setName(name);
 }
 
 ClapTrap::ClapTrap(const ClapTrap &copy)
@@ -36,42 +37,59 @@ ClapTrap::~ClapTrap(void)
 
 std::string	ClapTrap::getName(void) const
 {
-
+	if (DEBUG)
+		std::cout << "ClapTrap getName func called" << std::endl;
+	return (this->_name);
 }
 
-void	ClapTrap::setName(const std::string name)
+void	ClapTrap::setName(const std::string name="Unknown")
 {
-
+	if (DEBUG)
+		std::cout << "ClapTrap setName func called" << std::endl;
+	this->_name = name;
 }
 
 unsigned int	ClapTrap::getHit(void) const
 {
-
+	if (DEBUG)
+		std::cout << "ClapTrap getHit func called" << std::endl;
+	return (this->_hitPoints);
 }
 
 void	ClapTrap::setHit(const unsigned int hit)
 {
-
+	if (DEBUG)
+		std::cout << "ClapTrap setHit func called" << std::endl;
+	this->_hitPoints = hit;
 }
 
 unsigned int	ClapTrap::getEn(void) const
 {
-
+	if (DEBUG)
+		std::cout << "ClapTrap getEn func called" << std::endl;
+	return (this->_energyPoints);
 }
+
 
 void	ClapTrap::setEn(const unsigned int en)
 {
-
+	if (DEBUG)
+		std::cout << "ClapTrap setEn func called" << std::endl;
+	this->_energyPoints = en;
 }
 
 unsigned int	ClapTrap::getDam(void) const
 {
-
+	if (DEBUG)
+		std::cout << "ClapTrap getDam func called" << std::endl;
+	return (this->_attackDamage);
 }
 
 void	ClapTrap::setDam(const unsigned int dam)
 {
-
+	if (DEBUG)
+		std::cout << "ClapTrap setDam func called" << std::endl;
+	this->_attackDamage = dam;
 }
 
 void	ClapTrap::attack(const std::string &target)
@@ -138,18 +156,6 @@ void	ClapTrap::beRepaired(unsigned int amount)
 			this->_hitPoints = INT_MAX - 2;
 		}
 	}
-}
-
-void	ClapTrap::takeDamage(unsigned int amount)
-{
-	if (DEBUG)
-		std::cout << "ClapTrap takeDamage func called" << std::endl;
-}
-
-void	ClapTrap::beRepaired(unsigned int amount)
-{
-	if (DEBUG)
-		std::cout << "ClapTrap beRepaired func called" << std::endl;
 }
 
 ClapTrap &ClapTrap::operator=(const ClapTrap &rhs)
