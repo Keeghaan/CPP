@@ -6,7 +6,7 @@
 /*   By: jcourtoi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 12:54:25 by jcourtoi          #+#    #+#             */
-/*   Updated: 2022/11/23 14:05:01 by jcourtoi         ###   ########.fr       */
+/*   Updated: 2022/11/23 14:11:50 by jcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@ class	Point
 
 		Point	&operator=(const Point&);
 	private:
-		Fixed	_x;
-		Fixed	_y;
+		const	Fixed	_x;
+		const	Fixed	_y;
 };
 
 #endif

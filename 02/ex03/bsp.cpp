@@ -6,7 +6,7 @@
 /*   By: jcourtoi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 12:59:01 by jcourtoi          #+#    #+#             */
-/*   Updated: 2022/11/23 13:34:49 by jcourtoi         ###   ########.fr       */
+/*   Updated: 2022/11/23 14:10:36 by jcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ float	area(float b, float h)
 
 bool bsp( Point const a, Point const b, Point const c, Point const point)
 {
-	if 
+	//if 
 
 	return (true);
 }
