@@ -5,8 +5,8 @@
 #                                                     +:+ +:+         +:+      #
 #    By: jcourtoi <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/11/23 12:26:27 by jcourtoi          #+#    #+#              #
-#    Updated: 2022/11/23 12:27:19 by jcourtoi         ###   ########.fr        #
+#    Created: 2022/11/23 12:25:04 by jcourtoi          #+#    #+#              #
+#    Updated: 2022/11/23 12:25:11 by jcourtoi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,15 +24,16 @@ OBJS = ${SRCS:.cpp=.o}
 DEPS = ${OBJS:.o=.d}
 
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98 
+CPPFLAGS = -MMD
 
 RM = rm -rf
 
 all: ${NAME}
 
 #.cpp.o:
-#		$(CXX) $(CXXFLAGS) -c $< -o $(<:.cpp=.o)
+# $(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $< -o $(<:.cpp=.o)
 
-${NAME}: ${OBJS} 
+${NAME}: ${OBJS}
 	@echo "$(_GREEN)Executable created : ${NAME}$(_END)"
 	${CXX} ${CXXFLAGS}  -o $(NAME) $(OBJS)
 
@@ -53,5 +54,5 @@ vtest: ${NAME}
 test: ${NAME}
 	./${NAME}
 
--include ${DEPS}
+-include $(DEPS)
 .PHONY: all clean fclean re
