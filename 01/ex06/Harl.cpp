@@ -6,7 +6,7 @@
 /*   By: jcourtoi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 15:23:04 by jcourtoi          #+#    #+#             */
-/*   Updated: 2022/11/21 13:39:16 by jcourtoi         ###   ########.fr       */
+/*   Updated: 2022/11/23 12:33:14 by jcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void Harl::complain(std::string level)
 		switch (level_n)
 		{
 			case (0):
-				this->_debug(); // fall through
+				this->_debug(); //fall through
 			case (1):
 				this->_info(); // fall through
 			case (2):
