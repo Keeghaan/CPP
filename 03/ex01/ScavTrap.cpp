@@ -6,7 +6,7 @@
 /*   By: jcourtoi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 15:28:01 by jcourtoi          #+#    #+#             */
-/*   Updated: 2022/11/24 16:50:05 by jcourtoi         ###   ########.fr       */
+/*   Updated: 2022/11/24 17:42:16 by jcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,7 @@
 
 ScavTrap::ScavTrap(std::string name): ClapTrap::ClapTrap(name)
 {
-	if (DEBUG)
-		std::cout << "ScavTrap default constructor called" << std::endl;
+	std::cout << name << "\e[0;31m ScavTrap default constructor called\033[0m" << std::endl;
 	this->ClapTrap::setHit(100);
 	this->ClapTrap::setEn(50);
 	this->ClapTrap::setDam(20);
@@ -23,18 +22,12 @@ ScavTrap::ScavTrap(std::string name): ClapTrap::ClapTrap(name)
 
 ScavTrap::ScavTrap(const ScavTrap &copy): ClapTrap::ClapTrap(copy)
 {
-	if (DEBUG)
-		std::cout << "ScavTrap copy constructor called" << std::endl;
-/*	this->_name = copy.getName();
-	this->_hitPoints = copy.getHit();
-	this->_energyPoints = copy.getEn();
-	this->_attackDamage = copy.getDam();
-*/}
+	std::cout << getName() << "\e[0;31m ScavTrap copy constructor called\033[0m" << std::endl;
+}
 
 ScavTrap::~ScavTrap(void)
 {
-	if (DEBUG)
-		std::cout << "ScavTrap destructor called" << std::endl;
+	std::cout << getName() << "\e[0;31m ScavTrap destructor called\033[0m" << std::endl;
 }
 
 void	ScavTrap::attack(const std::string &target)
@@ -44,6 +37,6 @@ void	ScavTrap::attack(const std::string &target)
 
 void	ScavTrap::guardGate(void)
 {
-	std::cout << "ScavTrap " << getName() << ": Gate keeper mode on" << std::endl;
+	std::cout << "\e[0;31mScavTrap " << getName() << ": Gate keeper mode on\033[0m" << std::endl;
 }
 
