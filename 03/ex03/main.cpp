@@ -6,11 +6,11 @@
 /*   By: jcourtoi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 18:35:24 by jcourtoi          #+#    #+#             */
-/*   Updated: 2022/11/24 17:36:40 by jcourtoi         ###   ########.fr       */
+/*   Updated: 2022/11/24 20:00:12 by jcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "FragTrap.hpp"
+#include "DiamondTrap.hpp"
 
 int	main(void)
 {
@@ -20,6 +20,7 @@ int	main(void)
 	ScavTrap	scav("\e[31mLynette\033[0m");
 	FragTrap	frag("\e[32mTony\033[0m");
 	FragTrap	nope("\e[32mJohn\033[0m");
+	DiamondTrap	diams("Melanie");
 
 	std::cout << "Name : " << test.getName() << std::endl;
 	std::cout << "Hit Points : " << test.getHit() << std::endl;
@@ -51,6 +52,13 @@ int	main(void)
 	std::cout << "Energy Points : " << nope.getEn() << std::endl;
 	std::cout << "Attack Damage : " << nope.getDam() << std::endl;
 	std::cout << std::endl;
+	std::cout << "Name : " << diams.getName() << std::endl;
+	std::cout << "Hit Points : " << diams.getHit() << std::endl;
+	std::cout << "Energy Points : " << diams.getEn() << std::endl;
+	std::cout << "Attack Damage : " << diams.getDam() << std::endl;
+	std::cout << std::endl;
+
+
 
 
 
@@ -78,5 +86,8 @@ int	main(void)
 	frag.attack(nope.getName());
 	frag.highFivesGuys();
 	nope.takeDamage(frag.getDam());
+	std::cout << std::endl;
+	diams.whoAmI();
+	diams.attack("Johanna");
 	return (0);
 }

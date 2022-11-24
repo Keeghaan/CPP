@@ -6,7 +6,7 @@
 /*   By: jcourtoi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 17:12:21 by jcourtoi          #+#    #+#             */
-/*   Updated: 2022/11/24 17:23:00 by jcourtoi         ###   ########.fr       */
+/*   Updated: 2022/11/24 19:47:49 by jcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include "ScavTrap.hpp"
 
-class	FragTrap: public ClapTrap
+class	FragTrap:virtual public ClapTrap
 {
 	public:
 		FragTrap(std::string);
