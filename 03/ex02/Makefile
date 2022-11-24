@@ -6,11 +6,11 @@
 #    By: jcourtoi <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/23 17:28:00 by jcourtoi          #+#    #+#              #
-#    Updated: 2022/11/24 17:23:11 by jcourtoi         ###   ########.fr        #
+#    Updated: 2022/11/24 21:23:13 by jcourtoi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = ClapTrap
+NAME = ClapScavFragTrap
 
 SRCS = main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp
 
