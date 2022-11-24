@@ -6,7 +6,7 @@
 /*   By: jcourtoi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 15:28:01 by jcourtoi          #+#    #+#             */
-/*   Updated: 2022/11/24 17:42:16 by jcourtoi         ###   ########.fr       */
+/*   Updated: 2022/11/24 18:41:21 by jcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,23 @@ ScavTrap::~ScavTrap(void)
 
 void	ScavTrap::attack(const std::string &target)
 {
-	std::cout << "ScavTrap " << getName() << " attacks " << target << std::endl;
+	if (DEBUG)
+		std::cout << "ScavTrap attack func called" << std::endl;
+	if (!getHit())
+		std::cout << "A dead ScavTrap can't attack anything. Sorry" << std::endl;
+	else if (!getEn() && getHit())
+		std::cout << "A tired ScavTrap is as useless as a tired ClapTrap, can't attack. Sorry"
+			<< std::endl;
+	else 
+	{
+		_energyPoints--;
+		std::cout << "This action cost 1 energy point(" << getEn() << " left) : ";
+		if (getHit() > 0 && getEn() > 0)
+		{
+			std::cout << "ScavTrap " << getName() << " attacks " << target << ", causing "
+				<< getDam() << " points of damage!" << std::endl;
+		}
+	}
 }
 
 void	ScavTrap::guardGate(void)
