@@ -6,7 +6,7 @@
 /*   By: jcourtoi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 18:35:24 by jcourtoi          #+#    #+#             */
-/*   Updated: 2022/11/24 20:00:12 by jcourtoi         ###   ########.fr       */
+/*   Updated: 2022/11/24 20:24:34 by jcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	main(void)
 	ScavTrap	scav("\e[31mLynette\033[0m");
 	FragTrap	frag("\e[32mTony\033[0m");
 	FragTrap	nope("\e[32mJohn\033[0m");
-	DiamondTrap	diams("Melanie");
+	DiamondTrap	diams("\e[0;33mMelanie\033[0m");
 
 	std::cout << "Name : " << test.getName() << std::endl;
 	std::cout << "Hit Points : " << test.getHit() << std::endl;

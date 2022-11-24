@@ -6,7 +6,7 @@
 /*   By: jcourtoi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 18:21:30 by jcourtoi          #+#    #+#             */
-/*   Updated: 2022/11/24 20:00:58 by jcourtoi         ###   ########.fr       */
+/*   Updated: 2022/11/24 20:23:51 by jcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ DiamondTrap::DiamondTrap(std::string name): ClapTrap::ClapTrap(name),
 {
 	std::cout << getName()
 		<< "\e[0;33m DiamondTrap default constructor called\033[0m" << std::endl;
-	this->_hitPoints = this->FragTrap::ClapTrap::getHit();
-	this->_energyPoints = this->ScavTrap::ClapTrap::getEn();
-	this->_attackDamage = this->FragTrap::ClapTrap::getDam();
+	this->_hitPoints = this->FragTrap::getHit();
+	this->_energyPoints = this->ScavTrap::getEn();
+	this->_attackDamage = this->FragTrap::getDam();
 }
 
 DiamondTrap::DiamondTrap(const DiamondTrap &copy): ClapTrap::ClapTrap(copy),
@@ -43,6 +43,6 @@ void	DiamondTrap::attack(const std::string &target)
 
 void	DiamondTrap::whoAmI(void)
 {
-	std::cout << "I am " << getName() << " AND " << ClapTrap::getName()
-		<< std::endl;
+	std::cout << YL << "I am " << getName() << " AND " << ClapTrap::getName()
+		<< END << std::endl;
 }
