@@ -6,7 +6,7 @@
 /*   By: jcourtoi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 18:29:31 by jcourtoi          #+#    #+#             */
-/*   Updated: 2022/11/23 19:20:59 by jcourtoi         ###   ########.fr       */
+/*   Updated: 2022/11/24 13:00:50 by jcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,10 @@ void	ClapTrap::setName(const std::string name="Unknown")
 {
 	if (DEBUG)
 		std::cout << "ClapTrap setName func called" << std::endl;
-	this->_name = name;
+	if (name.empty())
+		this->_name = "Unknown";
+	else
+		this->_name = name;
 }
 
 unsigned int	ClapTrap::getHit(void) const
@@ -123,15 +126,16 @@ void	ClapTrap::takeDamage(unsigned int amount)
 	if (getHit() > 0 && getHit() > amount)
 	{
 		this->_hitPoints -= amount;
-		std::cout << getName() << " took " << amount << " damage and has now "
+		std::cout << getName() << " took " << amount << " damage(s) and has now "
 			<< getHit() << " hit points left" << std::endl;
 	}
 	else if (!getHit())
 		std::cout << getName() << " is already dead. Stop now !" << std::endl;
-	else if (getHit() >= amount)
+	else if (getHit() <= amount)
 	{
 		this->_hitPoints = 0;
-		std::cout << getName() << " is dead." << std::endl;
+		std::cout << getName() << " took " << amount << " damages and is now dead."
+			<< std::endl;
 	}
 }
 

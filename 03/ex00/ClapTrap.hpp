@@ -6,7 +6,7 @@
 /*   By: jcourtoi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 17:28:24 by jcourtoi          #+#    #+#             */
-/*   Updated: 2022/11/23 19:20:16 by jcourtoi         ###   ########.fr       */
+/*   Updated: 2022/11/24 12:54:39 by jcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <iostream>
 # include <climits>
 
-# define DEBUG 1
+# define DEBUG 0
 
 class	ClapTrap
 {
