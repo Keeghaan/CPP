@@ -6,7 +6,7 @@
 /*   By: jcourtoi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 18:29:31 by jcourtoi          #+#    #+#             */
-/*   Updated: 2022/11/24 17:42:54 by jcourtoi         ###   ########.fr       */
+/*   Updated: 2022/11/24 21:07:19 by jcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,13 +56,6 @@ unsigned int	ClapTrap::getHit(void) const
 	return (this->_hitPoints);
 }
 
-void	ClapTrap::setHit(const unsigned int hit)
-{
-	if (DEBUG)
-		std::cout << "ClapTrap setHit func called" << std::endl;
-	this->_hitPoints = hit;
-}
-
 unsigned int	ClapTrap::getEn(void) const
 {
 	if (DEBUG)
@@ -70,26 +63,11 @@ unsigned int	ClapTrap::getEn(void) const
 	return (this->_energyPoints);
 }
 
-
-void	ClapTrap::setEn(const unsigned int en)
-{
-	if (DEBUG)
-		std::cout << "ClapTrap setEn func called" << std::endl;
-	this->_energyPoints = en;
-}
-
 unsigned int	ClapTrap::getDam(void) const
 {
 	if (DEBUG)
 		std::cout << "ClapTrap getDam func called" << std::endl;
 	return (this->_attackDamage);
-}
-
-void	ClapTrap::setDam(const unsigned int dam)
-{
-	if (DEBUG)
-		std::cout << "ClapTrap setDam func called" << std::endl;
-	this->_attackDamage = dam;
 }
 
 void	ClapTrap::attack(const std::string &target)
