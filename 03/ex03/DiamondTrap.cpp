@@ -6,20 +6,19 @@
 /*   By: jcourtoi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 18:21:30 by jcourtoi          #+#    #+#             */
-/*   Updated: 2022/11/25 11:08:57 by jcourtoi         ###   ########.fr       */
+/*   Updated: 2022/11/25 12:42:51 by jcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "DiamondTrap.hpp"
 
-DiamondTrap::DiamondTrap(std::string name): ClapTrap::ClapTrap(name),
-	ScavTrap::ScavTrap(name), FragTrap::FragTrap(name)
+DiamondTrap::DiamondTrap(std::string name): ClapTrap::ClapTrap(name), ScavTrap::ScavTrap(name), FragTrap::FragTrap(name)
 {
-	std::cout << YL << getName()
+	std::cout << YL << getName() 
 		<< " DiamondTrap default constructor called" << END << std::endl;
-	this->_hitPoints = 100;//this->FragTrap::getHit();
-	this->_energyPoints = 50;//this->ScavTrap::getEn();
-	this->_attackDamage = 30;//this->FragTrap::getDam();
+	setHit(FRAG_HP);
+	setEn(SCAV_EN);
+	setDam(FRAG_AD);
 }
 
 DiamondTrap::DiamondTrap(const DiamondTrap &copy): ClapTrap::ClapTrap(copy),
@@ -37,12 +36,25 @@ DiamondTrap::~DiamondTrap(void)
 
 void	DiamondTrap::attack(const std::string &target)
 {
-//	std::cout << "In DiamondTrap attack :";
+	std::cout << YL << "In DiamondTrap attack :" << END;
 	this->ScavTrap::attack(target);
 }
 
 void	DiamondTrap::whoAmI(void)
 {
-	std::cout << YL << "I am " << getName() << " AND " << ClapTrap::getName()
+	std::string	name = getName() + "_clap_name";
+
+	std::cout << YL << "I am " << getName() << " AND my subObject name is " << name
 		<< END << std::endl;
+}
+
+DiamondTrap &DiamondTrap::operator=(const DiamondTrap &rhs)
+{
+	if (DEBUG)
+		std::cout << "DiamondTrap assignment overload called" << std::endl;
+	this->_name = rhs.getName();
+	this->_hitPoints = rhs.getHit();
+	this->_energyPoints = rhs.getEn();
+	this->_attackDamage = rhs.getDam();
+	return (*this);
 }

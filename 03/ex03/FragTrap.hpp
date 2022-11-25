@@ -6,7 +6,7 @@
 /*   By: jcourtoi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 17:12:21 by jcourtoi          #+#    #+#             */
-/*   Updated: 2022/11/24 21:13:10 by jcourtoi         ###   ########.fr       */
+/*   Updated: 2022/11/25 12:36:21 by jcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ class	FragTrap:virtual public ClapTrap
 		~FragTrap(void);
 
 		void	highFivesGuys(void);
+		
+		FragTrap	&operator=(const FragTrap&);
 };
 
 #endif
