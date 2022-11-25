@@ -6,7 +6,7 @@
 /*   By: jcourtoi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 18:29:31 by jcourtoi          #+#    #+#             */
-/*   Updated: 2022/11/24 17:42:54 by jcourtoi         ###   ########.fr       */
+/*   Updated: 2022/11/25 10:58:02 by jcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,18 +16,18 @@ ClapTrap::ClapTrap(std::string name):  _hitPoints(10), _energyPoints(10),
 	_attackDamage(0)
 {
 	setName(name);
-	std::cout << name << "\e[0;34m ClapTrap default constructor called\033[0m" << std::endl;
+	std::cout << BL << getName() << " ClapTrap default constructor called" << END << std::endl;
 }
 
 ClapTrap::ClapTrap(const ClapTrap &copy)
 {
-	std::cout << getName() << "\e[0;34m ClapTrap copy constructor called\033[0m" << std::endl;
+	std::cout << BL << getName() << " ClapTrap copy constructor called" << END << std::endl;
 	*this = copy;
 }
 
 ClapTrap::~ClapTrap(void)
 {
-	std::cout << getName() << "\e[0;34m ClapTrap destructor called\033[0m" << std::endl;
+	std::cout << BL << getName() << " ClapTrap destructor called" << END << std::endl;
 }
 
 //ACCESSORS
@@ -35,14 +35,14 @@ ClapTrap::~ClapTrap(void)
 std::string	ClapTrap::getName(void) const
 {
 	if (DEBUG)
-		std::cout << "ClapTrap getName func called" << std::endl;
+		std::cout << "getName func called" << std::endl;
 	return (this->_name);
 }
 
 void	ClapTrap::setName(const std::string name)
 {
 	if (DEBUG)
-		std::cout << "ClapTrap setName func called" << std::endl;
+		std::cout << "setName func called" << std::endl;
 	if (name.empty())
 		this->_name = "Unknown";
 	else
@@ -52,21 +52,21 @@ void	ClapTrap::setName(const std::string name)
 unsigned int	ClapTrap::getHit(void) const
 {
 	if (DEBUG)
-		std::cout << "ClapTrap getHit func called" << std::endl;
+		std::cout << "getHit func called" << std::endl;
 	return (this->_hitPoints);
 }
 
 void	ClapTrap::setHit(const unsigned int hit)
 {
 	if (DEBUG)
-		std::cout << "ClapTrap setHit func called" << std::endl;
+		std::cout << "setHit func called" << std::endl;
 	this->_hitPoints = hit;
 }
 
 unsigned int	ClapTrap::getEn(void) const
 {
 	if (DEBUG)
-		std::cout << "ClapTrap getEn func called" << std::endl;
+		std::cout << "getEn func called" << std::endl;
 	return (this->_energyPoints);
 }
 
@@ -74,21 +74,21 @@ unsigned int	ClapTrap::getEn(void) const
 void	ClapTrap::setEn(const unsigned int en)
 {
 	if (DEBUG)
-		std::cout << "ClapTrap setEn func called" << std::endl;
+		std::cout << "setEn func called" << std::endl;
 	this->_energyPoints = en;
 }
 
 unsigned int	ClapTrap::getDam(void) const
 {
 	if (DEBUG)
-		std::cout << "ClapTrap getDam func called" << std::endl;
+		std::cout << "getDam func called" << std::endl;
 	return (this->_attackDamage);
 }
 
 void	ClapTrap::setDam(const unsigned int dam)
 {
 	if (DEBUG)
-		std::cout << "ClapTrap setDam func called" << std::endl;
+		std::cout << "setDam func called" << std::endl;
 	this->_attackDamage = dam;
 }
 

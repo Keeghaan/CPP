@@ -6,7 +6,7 @@
 /*   By: jcourtoi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 18:35:24 by jcourtoi          #+#    #+#             */
-/*   Updated: 2022/11/24 17:36:40 by jcourtoi         ###   ########.fr       */
+/*   Updated: 2022/11/25 11:03:05 by jcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 int	main(void)
 {
-	ClapTrap	test("\e[34mOla\033[0m");
+	ClapTrap	test("Ola");
 	ClapTrap	clap("");
-	ScavTrap	trap("\e[31mBoo\033[0m");
-	ScavTrap	scav("\e[31mLynette\033[0m");
-	FragTrap	frag("\e[32mTony\033[0m");
-	FragTrap	nope("\e[32mJohn\033[0m");
+	ScavTrap	trap("Boo");
+	ScavTrap	scav("Lynette");
+	FragTrap	frag("Tony");
+	FragTrap	nope("John");
 
 	std::cout << "Name : " << test.getName() << std::endl;
 	std::cout << "Hit Points : " << test.getHit() << std::endl;
