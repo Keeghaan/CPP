@@ -6,7 +6,7 @@
 /*   By: jcourtoi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 17:28:24 by jcourtoi          #+#    #+#             */
-/*   Updated: 2022/11/25 11:06:46 by jcourtoi         ###   ########.fr       */
+/*   Updated: 2022/11/25 12:44:45 by jcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,18 @@
 # define YL "\e[0;33m"
 # define BL "\e[0;34m"
 # define END "\033[0m"
+
+# define CLAP_EN 10
+# define CLAP_HP 10
+# define CLAP_AD 0
+
+# define SCAV_EN 50
+# define SCAV_HP 100
+# define SCAV_AD 20
+
+# define FRAG_EN 100
+# define FRAG_HP 100
+# define FRAG_AD 30
 
 class	ClapTrap
 {
@@ -46,9 +58,9 @@ class	ClapTrap
 	ClapTrap	&operator=(const ClapTrap&);
 	protected:
 		std::string		_name;
-	unsigned int	_hitPoints;
-	unsigned int	_energyPoints;
-	unsigned int	_attackDamage;
+		unsigned int	_hitPoints;
+		unsigned int	_energyPoints;
+		unsigned int	_attackDamage;
 
 };
 

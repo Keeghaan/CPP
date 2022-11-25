@@ -6,7 +6,7 @@
 /*   By: jcourtoi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 18:35:24 by jcourtoi          #+#    #+#             */
-/*   Updated: 2022/11/25 11:07:55 by jcourtoi         ###   ########.fr       */
+/*   Updated: 2022/11/25 12:04:04 by jcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,6 @@ int	main(void)
 	nope.takeDamage(frag.getDam());
 	std::cout << std::endl;
 	diams.whoAmI();
-	diams.attack("Johanna");
+	diams.attack(test.getName());
 	return (0);
 }

@@ -6,20 +6,19 @@
 /*   By: jcourtoi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 18:21:30 by jcourtoi          #+#    #+#             */
-/*   Updated: 2022/11/25 11:45:29 by jcourtoi         ###   ########.fr       */
+/*   Updated: 2022/11/25 12:42:51 by jcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "DiamondTrap.hpp"
 
-DiamondTrap::DiamondTrap(std::string name): ClapTrap::ClapTrap(name),
-	ScavTrap::ScavTrap(name), FragTrap::FragTrap(name)
+DiamondTrap::DiamondTrap(std::string name): ClapTrap::ClapTrap(name), ScavTrap::ScavTrap(name), FragTrap::FragTrap(name)
 {
-	std::cout << YL <<	getName() 
+	std::cout << YL << getName() 
 		<< " DiamondTrap default constructor called" << END << std::endl;
-	this->ClapTrap::setHit(FragTrap::_hitPoints);
-	this->ClapTrap::setEn(ScavTrap::_energyPoints);
-	this->ClapTrap::setDam(FragTrap::_attackDamage);
+	setHit(FRAG_HP);
+	setEn(SCAV_EN);
+	setDam(FRAG_AD);
 }
 
 DiamondTrap::DiamondTrap(const DiamondTrap &copy): ClapTrap::ClapTrap(copy),
@@ -37,7 +36,7 @@ DiamondTrap::~DiamondTrap(void)
 
 void	DiamondTrap::attack(const std::string &target)
 {
-//	std::cout << "In DiamondTrap attack :";
+	std::cout << YL << "In DiamondTrap attack :" << END;
 	this->ScavTrap::attack(target);
 }
 
@@ -47,4 +46,15 @@ void	DiamondTrap::whoAmI(void)
 
 	std::cout << YL << "I am " << getName() << " AND my subObject name is " << name
 		<< END << std::endl;
+}
+
+DiamondTrap &DiamondTrap::operator=(const DiamondTrap &rhs)
+{
+	if (DEBUG)
+		std::cout << "DiamondTrap assignment overload called" << std::endl;
+	this->_name = rhs.getName();
+	this->_hitPoints = rhs.getHit();
+	this->_energyPoints = rhs.getEn();
+	this->_attackDamage = rhs.getDam();
+	return (*this);
 }
