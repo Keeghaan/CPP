@@ -6,13 +6,14 @@
 /*   By: jcourtoi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 21:26:58 by jcourtoi          #+#    #+#             */
-/*   Updated: 2022/11/25 18:47:27 by jcourtoi         ###   ########.fr       */
+/*   Updated: 2022/11/25 20:23:59 by jcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ANIMAL_HPP
 # define ANIMAL_HPP
 
+# include <climits>
 # include <iostream>
 # include "Brain.hpp"
 
