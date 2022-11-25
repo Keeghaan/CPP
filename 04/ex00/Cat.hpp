@@ -6,7 +6,7 @@
 /*   By: jcourtoi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 21:50:04 by jcourtoi          #+#    #+#             */
-/*   Updated: 2022/11/24 22:00:24 by jcourtoi         ###   ########.fr       */
+/*   Updated: 2022/11/25 15:54:28 by jcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,11 @@ class	Cat: public Animal
 	public:
 		Cat(void);
 		Cat(const Cat&);
-		~Cat(void);
+		virtual ~Cat(void);
+
+		void	makeSound(void) const;
+		
+		Cat	&operator=(const Cat&);
 };
 
 #endif

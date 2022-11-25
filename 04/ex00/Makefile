@@ -6,13 +6,13 @@
 #    By: jcourtoi <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/24 21:25:32 by jcourtoi          #+#    #+#              #
-#    Updated: 2022/11/24 21:44:21 by jcourtoi         ###   ########.fr        #
+#    Updated: 2022/11/25 19:31:08 by jcourtoi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME =	polymorphism
 
-SRCS = main.cpp Animal.cpp Dog.cpp Cat.cpp
+SRCS = main.cpp Animal.cpp Dog.cpp Cat.cpp WrongAnimal.cpp WrongCat.cpp
 
 CXX =	c++
 
@@ -22,7 +22,7 @@ _END=	$'\033[0m
 
 OBJS = ${SRCS:.cpp=.o}
 
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98 
+CXXFLAGS = -Wall -Wextra -Werror -Wshadow -std=c++98 
 
 RM = rm -rf
 
@@ -47,7 +47,7 @@ re: fclean
 	@make all
 
 vtest: ${NAME}
-	-valgrind --leak-check=full --track-origins=yes ./${NAME}
+	-valgrind --leak-check=full --show-leak-kinds=all ./${NAME}
 
 test: ${NAME}
 	./${NAME}

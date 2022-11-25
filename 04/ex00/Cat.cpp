@@ -6,7 +6,7 @@
 /*   By: jcourtoi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 21:41:40 by jcourtoi          #+#    #+#             */
-/*   Updated: 2022/11/24 21:57:44 by jcourtoi         ###   ########.fr       */
+/*   Updated: 2022/11/25 19:30:40 by jcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,27 @@
 
 Cat::Cat(void): Animal::Animal()
 {
-	std::cout << GR << getType() << " Cat default constructor" << END << std::endl;
-	this->_type = "feline";
+	this->_type = "Cat";
+	std::cout << GR << "Cat default constructor" << END << std::endl;
 }
 
 Cat::Cat(const Cat &copy): Animal::Animal(copy)
 {
-	std::cout << GR << getType() << " Cat copy constructor" << END << std::endl;
+	std::cout << GR << "Cat copy constructor" << END << std::endl;
 }
 
 Cat::~Cat(void)
 {
-	std::cout << GR << getType() << " Cat destructor" << END << std::endl;
+	std::cout << GR << "Cat destructor" << END << std::endl;
 }
 
-void	makeSound(void)
+void	Cat::makeSound(void) const
 {
-	std::cout << "MeaoOoOow" << std::endl;
+	std::cout << GR << "Cat: MeaoOoOow" << END << std::endl;
+}
+
+Cat	&Cat::operator=(const Cat &rhs)
+{
+	this->_type = rhs.getType();
+	return (*this);
 }

@@ -6,7 +6,7 @@
 /*   By: jcourtoi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 21:37:46 by jcourtoi          #+#    #+#             */
-/*   Updated: 2022/11/24 21:57:20 by jcourtoi         ###   ########.fr       */
+/*   Updated: 2022/11/25 19:30:23 by jcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,27 @@
 
 Dog::Dog(void): Animal::Animal()
 {
-	std::cout << BL << getType() << " Dog default constructor" << END << std::endl;
-	this->_type = "canidae";
+	this->_type = "Dog";
+	std::cout << BL << "Dog default constructor" << END << std::endl;
 }
 
 Dog::Dog(const Dog &copy): Animal::Animal(copy)
 {
-	std::cout << BL << getType() << " Dog copy constructor" << END <<  std::endl;
+	std::cout << BL << "Dog copy constructor" << END <<  std::endl;
 }
 
 Dog::~Dog(void)
 {
-	std::cout << BL << getType() << " Dog destructor" << END << std::endl;
+	std::cout << BL << "Dog destructor" << END << std::endl;
 }
 
-void	makeSound(void)
+void	Dog::makeSound(void) const
 {
-	std::cout << "WOOF WOOF" << std::endl;
+	std::cout << BL << "Dog: WOOF WOOF" << END << std::endl;
+}
+
+Dog	&Dog::operator=(const Dog &rhs)
+{
+	this->_type = rhs.getType();
+	return (*this);
 }
