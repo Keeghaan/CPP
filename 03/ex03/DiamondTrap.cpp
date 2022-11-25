@@ -6,7 +6,7 @@
 /*   By: jcourtoi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 18:21:30 by jcourtoi          #+#    #+#             */
-/*   Updated: 2022/11/25 11:08:57 by jcourtoi         ###   ########.fr       */
+/*   Updated: 2022/11/25 11:45:29 by jcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,11 @@
 DiamondTrap::DiamondTrap(std::string name): ClapTrap::ClapTrap(name),
 	ScavTrap::ScavTrap(name), FragTrap::FragTrap(name)
 {
-	std::cout << YL << getName()
+	std::cout << YL <<	getName() 
 		<< " DiamondTrap default constructor called" << END << std::endl;
-	this->_hitPoints = 100;//this->FragTrap::getHit();
-	this->_energyPoints = 50;//this->ScavTrap::getEn();
-	this->_attackDamage = 30;//this->FragTrap::getDam();
+	this->ClapTrap::setHit(FragTrap::_hitPoints);
+	this->ClapTrap::setEn(ScavTrap::_energyPoints);
+	this->ClapTrap::setDam(FragTrap::_attackDamage);
 }
 
 DiamondTrap::DiamondTrap(const DiamondTrap &copy): ClapTrap::ClapTrap(copy),
@@ -43,6 +43,8 @@ void	DiamondTrap::attack(const std::string &target)
 
 void	DiamondTrap::whoAmI(void)
 {
-	std::cout << YL << "I am " << getName() << " AND " << ClapTrap::getName()
+	std::string	name = getName() + "_clap_name";
+
+	std::cout << YL << "I am " << getName() << " AND my subObject name is " << name
 		<< END << std::endl;
 }
