@@ -6,14 +6,13 @@
 #    By: jcourtoi <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/24 21:25:32 by jcourtoi          #+#    #+#              #
-#    Updated: 2022/11/25 17:41:30 by jcourtoi         ###   ########.fr        #
+#    Updated: 2022/11/25 19:37:54 by jcourtoi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME =	Brain
 
-SRCS =	main.cpp Animal.cpp Dog.cpp Cat.cpp WrongAnimal.cpp WrongCat.cpp\
-		Brain.cpp
+SRCS =	main.cpp Animal.cpp Dog.cpp Cat.cpp Brain.cpp
 
 CXX =	c++
 
@@ -22,6 +21,7 @@ _GREEN=	$'\033[1;32m
 _END=	$'\033[0m
 
 OBJS = ${SRCS:.cpp=.o}
+DEPS = ${OBJS:.o=.d}
 
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98 
 

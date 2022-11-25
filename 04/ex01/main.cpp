@@ -6,13 +6,12 @@
 /*   By: jcourtoi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 21:44:25 by jcourtoi          #+#    #+#             */
-/*   Updated: 2022/11/25 19:10:55 by jcourtoi         ###   ########.fr       */
+/*   Updated: 2022/11/25 19:37:12 by jcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Dog.hpp"
 #include "Cat.hpp"
-#include "WrongCat.hpp"
 
 int main()
 {

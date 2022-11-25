@@ -6,7 +6,7 @@
 #    By: jcourtoi <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/24 21:25:32 by jcourtoi          #+#    #+#              #
-#    Updated: 2022/11/25 19:31:08 by jcourtoi         ###   ########.fr        #
+#    Updated: 2022/11/25 19:38:31 by jcourtoi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,6 +21,7 @@ _GREEN=	$'\033[1;32m
 _END=	$'\033[0m
 
 OBJS = ${SRCS:.cpp=.o}
+DEPS = ${OBJS:.o=.d}
 
 CXXFLAGS = -Wall -Wextra -Werror -Wshadow -std=c++98 
 
