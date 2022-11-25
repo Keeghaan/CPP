@@ -6,7 +6,7 @@
 /*   By: jcourtoi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 17:28:24 by jcourtoi          #+#    #+#             */
-/*   Updated: 2022/11/24 12:54:39 by jcourtoi         ###   ########.fr       */
+/*   Updated: 2022/11/25 10:55:18 by jcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,11 @@
 # include <climits>
 
 # define DEBUG 0
+# define RD "\e[0;31m"
+# define GR "\e[0;32m"
+# define YL "\e[0;33m"
+# define BL "\e[0;34m"
+# define END "\033[0m"
 
 class	ClapTrap
 {
