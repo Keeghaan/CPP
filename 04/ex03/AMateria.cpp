@@ -17,12 +17,6 @@ AMateria::AMateria(const std::string &type): _type(type)
 	std::cout << "AMateria default constructor" << std::endl;
 }
 
-AMateria::AMateria(const AMateria &copy)
-{
-	std::cout << "AMateria default constructor" << std::endl;
-	*this = copy;
-}
-
 AMateria::~AMateria(void)
 {
 	std::cout << "AMateria destructor" << std::endl;
@@ -35,13 +29,5 @@ const std::string	&AMateria::getType(void) const
 
 void	AMateria::use(ICharacter &target)
 {
-	std::cout << "use " << getType() << " on " << target << std::endl;
-}
-
-//OVERLOAD
-
-AMateria	&AMateria::operator=(const AMateria &rhs)
-{
-	(void)rhs;
-	return (*this);
+	std::cout << "use " << getType() << " on " << target.getName() << std::endl;
 }

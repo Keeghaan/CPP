@@ -6,7 +6,7 @@
 /*   By: jcourtoi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 10:25:01 by jcourtoi          #+#    #+#             */
-/*   Updated: 2022/11/26 12:43:19 by jcourtoi         ###   ########.fr       */
+/*   Updated: 2022/11/26 13:34:39 by jcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include "AMateria.hpp"
 
-class	Ice: public AMateria
+class	Ice
 {
 	public:
 		Ice(void);

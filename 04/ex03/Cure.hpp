@@ -6,7 +6,7 @@
 /*   By: jcourtoi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 10:36:41 by jcourtoi          #+#    #+#             */
-/*   Updated: 2022/11/26 12:43:29 by jcourtoi         ###   ########.fr       */
+/*   Updated: 2022/11/26 13:26:51 by jcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 
 # include "AMateria.hpp"
 
-class	Cure: public AMateria
+
+class	Cure
 {
 	public:
 		Cure(void);

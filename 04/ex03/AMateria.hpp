@@ -14,22 +14,21 @@
 # define AMATERIA_HPP
 
 # include <iostream>
-
-# include "ICharacter.hpp"
+# include "includes.hpp"
 
 class	AMateria
 {
 	public:
 		AMateria(std::string const&);
-		AMateria(const AMateria&);
 		virtual ~AMateria(void);
 
 		const std::string& getType(void) const;
 
 		virtual AMateria*	clone(void) const = 0;
 		virtual void		use(ICharacter&);
+
 	protected:
-		const std::string	_type;
+		std::string	_type;
 };
 
 #endif
