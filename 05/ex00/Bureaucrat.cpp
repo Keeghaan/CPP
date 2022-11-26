@@ -6,7 +6,7 @@
 /*   By: jcourtoi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 14:26:39 by jcourtoi          #+#    #+#             */
-/*   Updated: 2022/11/26 15:08:42 by jcourtoi         ###   ########.fr       */
+/*   Updated: 2022/11/26 15:45:18 by jcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,14 +29,20 @@ Bureaucrat::Bureaucrat(const std::string name, unsigned int grade): _name(name)
 {
 	if (DEBUG)
 		std::cout << "Bureaucrat parametric constructor" << std::endl;
-	if (grade > 0 && grade <= 150)
-		this->_grade = grade;
-	else
+	try
 	{
-		std::cout << "You entered an invalid grade "
-			<< "(Grades from 1(highest) to 150(lowest))" << std::endl
-			<< " The default grade is 150" << std::endl;
-		this->_grade = 150;
+		if (grade > 0 && grade <= 150)
+			this->_grade = grade;
+		else
+			throw (std::exception());
+	}
+	catch (std::exception &e)
+	{
+		std::cout << "test1" << std::endl;
+		/*if (grade < 1)
+			Bureaucrat::GradeTooHighException::what();
+		else if (grade > 150)
+			Bureaucrat::GradeTooLowException::what();*/
 	}
 }
 
@@ -55,6 +61,41 @@ unsigned	Bureaucrat::getGrade(void) const
 {
 	return (this->_grade);
 }
+
+void	Bureaucrat::promote(void)
+{
+	try
+	{
+		if (this->_grade > 1)
+			(*this)++;
+		else
+			throw Bureaucrat::GradeTooHighException();
+	}
+	catch (std::exception &e)
+	{
+		std::cout << "test exception" << std::endl; //
+	}
+/*	catch (Bureaucrat::GradeTooHighException &eb)
+	{
+		Bureaucrat::GradeTooLowException::what();
+	}*/
+}
+
+void	Bureaucrat::demote(void)
+{
+	try
+	{
+		if (this->_grade < 150)
+			(*this)--;
+		else
+			throw Bureaucrat::GradeTooLowException();
+	}
+	catch (std::exception &e)
+	{
+		std::cout <<"test" << std::endl; //
+	}
+}
+
 
 //OVERLOAD
 
@@ -75,13 +116,13 @@ Bureaucrat	&Bureaucrat::operator++(int)
 Bureaucrat	&Bureaucrat::operator--(int)
 {
 	this->_grade++;
-	std::cout << getName() << " has been downgraded. He is now grade "
+	std::cout << getName() << " has been demoted. He is now grade "
 		<< getGrade() << std::endl;
 	return (*this);
 }
 
 std::ostream	&operator<<(std::ostream &out, const Bureaucrat &bur)
 {
-	out << "Name: " << bur.getName() << ", Grade: "<< bur.getGrade() << std::endl;
+	out << bur.getName() << ", bureaucrat grade "<< bur.getGrade() << std::endl;
 	return (out);
 }

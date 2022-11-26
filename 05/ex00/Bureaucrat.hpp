@@ -6,7 +6,7 @@
 /*   By: jcourtoi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 14:20:35 by jcourtoi          #+#    #+#             */
-/*   Updated: 2022/11/26 15:02:51 by jcourtoi         ###   ########.fr       */
+/*   Updated: 2022/11/26 15:44:53 by jcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <cstdlib>
 # include <iostream>
 # include <string>
+# include <stdexcept>
 
 # define DEBUG 1
 
@@ -29,6 +30,26 @@ class	Bureaucrat
 
 		const std::string		getName(void) const;
 		unsigned int	getGrade(void) const;
+
+		class	GradeTooHighException: public std::exception
+		{
+			public:
+				virtual const char *what(void) const throw()
+				{
+					return ("This grade is too high");
+				}
+		};
+		class	GradeTooLowException: public std::exception
+		{
+			public:
+				virtual const char *what(void) const throw()
+				{
+					return ("This grade is too low");
+				}
+		};
+
+		void	promote(void);
+		void	demote(void);
 
 		Bureaucrat	&operator=(const Bureaucrat&);
 		Bureaucrat	&operator++(int);
