@@ -1,33 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   MateriaSource.hpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jcourtoi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/26 10:46:23 by jcourtoi          #+#    #+#             */
-/*   Updated: 2022/11/26 12:21:54 by jcourtoi         ###   ########.fr       */
+/*   Created: 2022/11/26 12:27:28 by jcourtoi          #+#    #+#             */
+/*   Updated: 2022/11/26 12:51:01 by jcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef MATERIASOURCE_HPP
+# define MATERIASOURCE_HPP
+
 #include "includes.hpp"
 
-int	main(void)
+class	MateriaSource: public IMateriaSource
 {
-//	IMateriaSource* src = new MateriaSource();
-//	src->learnMateria(new Ice());
-//	src->learnMateria(new Cure());
-	ICharacter* me = new Character("me");
-	AMateria* tmp;
-//	tmp = src->createMateria("ice");
-	me->equip(tmp);
-//	tmp = src->createMateria("cure");
-	me->equip(tmp);
-	ICharacter* bob = new Character("bob");
-	me->use(0, *bob);
-	me->use(1, *bob);
-	delete bob;
-	delete me;
-//	delete src;
-	return (0);
-}
+	public:
+		MateriaSource(void);
+		MateriaSource(const MateriaSource&);
+		virtual ~MateriaSource(void);
+
+		virtual void learnMateria(AMateria*);
+		virtual AMateria	*createMateria(const std::string&);
+	
+		MateriaSource	&operator=(const MateriaSource&);
+};
+
+#endif

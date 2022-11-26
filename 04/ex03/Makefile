@@ -6,13 +6,14 @@
 #    By: jcourtoi <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/26 09:38:28 by jcourtoi          #+#    #+#              #
-#    Updated: 2022/11/26 09:38:58 by jcourtoi         ###   ########.fr        #
+#    Updated: 2022/11/26 12:34:32 by jcourtoi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME =	inter&recap
 
-SRCS =	main.cpp
+SRCS =	main.cpp AMateria.cpp Character.cpp Cure.cpp Ice.cpp ICharacter.cpp \
+		IMateriaSource.cpp MateriaSource.cpp
 
 CXX =	c++
 
