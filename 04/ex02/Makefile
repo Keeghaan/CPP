@@ -6,11 +6,11 @@
 #    By: jcourtoi <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/24 21:25:32 by jcourtoi          #+#    #+#              #
-#    Updated: 2022/11/25 19:37:54 by jcourtoi         ###   ########.fr        #
+#    Updated: 2022/11/26 09:40:42 by jcourtoi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME =	Brain
+NAME =	Aclass
 
 SRCS =	main.cpp Animal.cpp Dog.cpp Cat.cpp Brain.cpp
 

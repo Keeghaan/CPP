@@ -5,14 +5,14 @@
 #                                                     +:+ +:+         +:+      #
 #    By: jcourtoi <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/11/24 21:25:32 by jcourtoi          #+#    #+#              #
-#    Updated: 2022/11/26 09:40:14 by jcourtoi         ###   ########.fr        #
+#    Created: 2022/11/26 09:38:28 by jcourtoi          #+#    #+#              #
+#    Updated: 2022/11/26 09:38:58 by jcourtoi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME =	rainingCatsAndDogs
+NAME =	inter&recap
 
-SRCS =	main.cpp Animal.cpp Dog.cpp Cat.cpp Brain.cpp
+SRCS =	main.cpp
 
 CXX =	c++
 
