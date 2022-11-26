@@ -6,7 +6,7 @@
 /*   By: jcourtoi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 21:26:58 by jcourtoi          #+#    #+#             */
-/*   Updated: 2022/11/25 20:56:32 by jcourtoi         ###   ########.fr       */
+/*   Updated: 2022/11/26 09:59:27 by jcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,17 +23,17 @@
 # define GR "\e[0;32m"
 # define END "\033[0m"
 
-class	Animal
+class	AAnimal
 {
 	public:
-		Animal(void);
-		Animal(const Animal&);
-		virtual ~Animal(void);
+		AAnimal(void);
+		AAnimal(const AAnimal&);
+		virtual ~AAnimal(void);
 
 		std::string		getType(void) const;
 		virtual void	makeSound(void) const = 0;
 
-		Animal	&operator=(const Animal &);
+		AAnimal	&operator=(const AAnimal &);
 	protected:
 		std::string	_type;
 };

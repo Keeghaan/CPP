@@ -6,20 +6,20 @@
 /*   By: jcourtoi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 21:37:46 by jcourtoi          #+#    #+#             */
-/*   Updated: 2022/11/25 18:54:44 by jcourtoi         ###   ########.fr       */
+/*   Updated: 2022/11/26 10:00:07 by jcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Dog.hpp"
 
-Dog::Dog(void): Animal::Animal()
+Dog::Dog(void): AAnimal::AAnimal()
 {
 	this->_type = "Dog";
 	this->_brain = new Brain();
 	std::cout << BL << "Dog default constructor" << END << std::endl;
 }
 
-Dog::Dog(const Dog &copy): Animal::Animal(copy)
+Dog::Dog(const Dog &copy): AAnimal::AAnimal(copy)
 {
 	*this = copy;
 	std::cout << BL << "Dog copy constructor" << END <<  std::endl;

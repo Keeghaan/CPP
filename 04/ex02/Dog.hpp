@@ -6,7 +6,7 @@
 /*   By: jcourtoi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 21:36:15 by jcourtoi          #+#    #+#             */
-/*   Updated: 2022/11/25 19:28:52 by jcourtoi         ###   ########.fr       */
+/*   Updated: 2022/11/26 09:58:40 by jcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include "Animal.hpp"
 
-class	Dog: public Animal
+class	Dog: public AAnimal
 {
 	public:
 		Dog(void);

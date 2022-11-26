@@ -6,7 +6,7 @@
 /*   By: jcourtoi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 21:44:25 by jcourtoi          #+#    #+#             */
-/*   Updated: 2022/11/25 20:52:19 by jcourtoi         ###   ########.fr       */
+/*   Updated: 2022/11/26 09:59:43 by jcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@
 int main()
 {
 	{
-		const Animal	*one = new Cat();
-		const Animal	*two = new Dog();
+		const AAnimal	*one = new Cat();
+		const AAnimal	*two = new Dog();
 	
 		delete two;
 		delete one;
@@ -32,7 +32,7 @@ int main()
 			if (NUM % 2 == 0)
 			{
 				std::cout << "Nb of animals : " << NUM << std::endl << std::endl;
-				Animal	*animal[NUM];// = {0};
+				AAnimal	*animal[NUM];// = {0};
 
 				for (;i < NUM / 2; i++)
 					animal[i] = new Cat();
@@ -46,7 +46,7 @@ int main()
 			{
 				int newNum = 4;
 				std::cout << "Default Nb of animals : " << newNum << std::endl << std::endl;
-				Animal	*animal[NUM] = {0};
+				AAnimal	*animal[NUM] = {0};
 	
 				for (;i < newNum / 2; i++)
 					animal[i] = new Cat();
