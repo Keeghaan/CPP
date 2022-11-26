@@ -6,7 +6,7 @@
 /*   By: jcourtoi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 14:26:39 by jcourtoi          #+#    #+#             */
-/*   Updated: 2022/11/26 15:45:18 by jcourtoi         ###   ########.fr       */
+/*   Updated: 2022/11/26 15:57:19 by jcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ Bureaucrat::Bureaucrat(const std::string name, unsigned int grade): _name(name)
 	}
 	catch (std::exception &e)
 	{
-		std::cout << "test1" << std::endl;
 		/*if (grade < 1)
 			Bureaucrat::GradeTooHighException::what();
 		else if (grade > 150)
@@ -67,18 +66,18 @@ void	Bureaucrat::promote(void)
 	try
 	{
 		if (this->_grade > 1)
-			(*this)++;
+			(*this)--;
 		else
 			throw Bureaucrat::GradeTooHighException();
 	}
-	catch (std::exception &e)
+//	catch (std::exception &e)
+//	{
+//	}
+	catch (Bureaucrat::GradeTooHighException &eb)
 	{
-		std::cout << "test exception" << std::endl; //
+		eb.what();
+		//Bureaucrat::GradeTooLowException::what();
 	}
-/*	catch (Bureaucrat::GradeTooHighException &eb)
-	{
-		Bureaucrat::GradeTooLowException::what();
-	}*/
 }
 
 void	Bureaucrat::demote(void)
@@ -86,7 +85,7 @@ void	Bureaucrat::demote(void)
 	try
 	{
 		if (this->_grade < 150)
-			(*this)--;
+			(*this)++;
 		else
 			throw Bureaucrat::GradeTooLowException();
 	}

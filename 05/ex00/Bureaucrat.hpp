@@ -6,7 +6,7 @@
 /*   By: jcourtoi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 14:20:35 by jcourtoi          #+#    #+#             */
-/*   Updated: 2022/11/26 15:44:53 by jcourtoi         ###   ########.fr       */
+/*   Updated: 2022/11/26 15:55:31 by jcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,10 @@ class	Bureaucrat
 		class	GradeTooHighException: public std::exception
 		{
 			public:
-				virtual const char *what(void) const throw()
+				virtual const char	*what(void) const throw()
 				{
-					return ("This grade is too high");
+					std::cout << "this grade is too high" << std::endl;
+					return ("too high");
 				}
 		};
 		class	GradeTooLowException: public std::exception
@@ -44,7 +45,8 @@ class	Bureaucrat
 			public:
 				virtual const char *what(void) const throw()
 				{
-					return ("This grade is too low");
+					std::cout << "This grade is too low" << std::endl;
+					return ("too low");
 				}
 		};
 

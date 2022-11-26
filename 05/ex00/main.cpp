@@ -6,7 +6,7 @@
 /*   By: jcourtoi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 14:18:02 by jcourtoi          #+#    #+#             */
-/*   Updated: 2022/11/26 15:43:25 by jcourtoi         ###   ########.fr       */
+/*   Updated: 2022/11/26 15:56:11 by jcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	main(int ac, char **av)
 		Bureaucrat	testAv(av[1], atoi(av[2]));
 
 		std::cout << testAv << std::endl;
-		testAv.promote();
+		testAv.demote();
 	
 		std::cout << testAv << std::endl;
 	}
