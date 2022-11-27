@@ -29,19 +29,14 @@ Bureaucrat::Bureaucrat(const std::string name, unsigned int grade): _name(name)
 {
 	if (DEBUG)
 		std::cout << "Bureaucrat parametric constructor" << std::endl;
-	try
+	if (grade > 0 && grade <= 150)
+		this->_grade = grade;
+	else
 	{
-		if (grade > 0 && grade <= 150)
-			this->_grade = grade;
-		else
-			throw (std::exception());
-	}
-	catch (std::exception &e)
-	{
-		/*if (grade < 1)
-			Bureaucrat::GradeTooHighException::what();
+		if (grade < 1)
+			throw Bureaucrat::GradeTooHighException();
 		else if (grade > 150)
-			Bureaucrat::GradeTooLowException::what();*/
+			throw Bureaucrat::GradeTooLowException();
 	}
 }
 
@@ -63,38 +58,29 @@ unsigned	Bureaucrat::getGrade(void) const
 
 void	Bureaucrat::promote(void)
 {
-	try
-	{
-		if (this->_grade > 1)
-			(*this)--;
-		else
-			throw Bureaucrat::GradeTooHighException();
-	}
-//	catch (std::exception &e)
-//	{
-//	}
-	catch (Bureaucrat::GradeTooHighException &eb)
-	{
-		eb.what();
-		//Bureaucrat::GradeTooLowException::what();
-	}
+	if (this->_grade > 1)
+		(*this)++;
+	else
+		throw Bureaucrat::GradeTooHighException();
 }
 
 void	Bureaucrat::demote(void)
 {
-	try
-	{
-		if (this->_grade < 150)
-			(*this)++;
-		else
-			throw Bureaucrat::GradeTooLowException();
-	}
-	catch (std::exception &e)
-	{
-		std::cout <<"test" << std::endl; //
-	}
+	if (this->_grade > 0 && this->_grade < 150)
+		(*this)--;
+	else
+		throw Bureaucrat::GradeTooLowException();
 }
 
+const char	*Bureaucrat::GradeTooHighException::what(void) const throw()
+{
+	return ("Grade too high");
+}
+
+const char	*Bureaucrat::GradeTooLowException::what(void) const throw()
+{
+	return ("Grade too low");
+}
 
 //OVERLOAD
 

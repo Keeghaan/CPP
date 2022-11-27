@@ -16,25 +16,39 @@ int	main(int ac, char **av)
 {
 	if (ac == 3)
 	{
-		Bureaucrat	testAv(av[1], atoi(av[2]));
-
-		std::cout << testAv << std::endl;
-		testAv.demote();
+		try
+		{	
+			Bureaucrat	testAv(av[1], atoi(av[2]));
 	
-		std::cout << testAv << std::endl;
+			std::cout << testAv << std::endl;
+			testAv.promote();
+		
+			std::cout << testAv << std::endl;
+		}
+		catch (const std::exception &e)
+		{
+			std::cerr << e.what() << std::endl;
+		}
 	}
 	else
 	{
-		Bureaucrat	test;
-		Bureaucrat	testAussi("Truc", 15);
+		try
+		{
+			Bureaucrat	test;
+			Bureaucrat	testAussi("Truc", 15);
 		
-		std::cout << std::endl;
-		std::cout << test << std::endl;
-		std::cout << testAussi << std::endl;
-		test++;
-		testAussi--;
-		std::cout << test << std::endl;
-		std::cout << testAussi << std::endl;
+			std::cout << std::endl;
+			std::cout << test << std::endl;
+			std::cout << testAussi << std::endl;
+			test.promote();
+			testAussi.demote();
+			std::cout << test << std::endl;
+			std::cout << testAussi << std::endl;
+		}
+		catch (const std::exception	&e)
+		{
+			std::cerr << e.what() << std::endl;	
+		}
 	}
 	return (0);
 }
