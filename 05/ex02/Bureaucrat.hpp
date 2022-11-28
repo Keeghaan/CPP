@@ -45,6 +45,7 @@ class	Bureaucrat
 				virtual const char *what(void) const throw();
 		};
 
+		bool	executeForm(const AForm&);
 		void	signForm(AForm&);
 		void	promote(void);
 		void	demote(void);

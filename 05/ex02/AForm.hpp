@@ -19,6 +19,7 @@ class	AForm
 		unsigned int	whichSignGrade(void) const;
 		unsigned int	whichExecGrade(void) const;
 
+		virtual void	execute(const Bureaucrat&) const;
 		virtual void	beSigned(Bureaucrat&) = 0;
 
 		AForm	&operator=(const AForm&);

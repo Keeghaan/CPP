@@ -10,6 +10,8 @@ class	PresidentialPardonForm: public AForm
 		PresidentialPardonForm(const PresidentialPardonForm&);
 		virtual ~PresidentialPardonForm(void);
 
+		virtual void	beSigned(Bureaucrat&);
+		virtual void	execute(const Bureaucrat&) const;
 };
 
 #endif

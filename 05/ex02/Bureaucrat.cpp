@@ -56,6 +56,18 @@ unsigned	Bureaucrat::getGrade(void) const
 	return (this->_grade);
 }
 
+bool	Bureaucrat::executeForm(const AForm &form)
+{
+	if (form.whichExecGrade() >= this->_grade)
+	{
+		std::cout << this->getName() << " executed " << form.getName() << std::endl;
+		return (true);
+	}
+	std::cout << "Grade too low to execute this form" << std::endl;
+	//	throw Bureaucrat::GradeTooLowException();
+	return (false);
+}
+
 void	Bureaucrat::signForm(AForm &f)
 {
 	if (f.isSigned())

@@ -38,7 +38,7 @@ int	main(int ac, char **av)
 			Bureaucrat			test("Edgar", 130);
 			Bureaucrat			&ref = test;
 			Bureaucrat			testAussi("Truc", 15);
-			ShrubberyCreationForm		shForm;
+			ShrubberyCreationForm		shForm("jojo");
 	
 			std::cout << std::endl;
 			std::cout << test << " " << shForm << std::endl;
@@ -50,6 +50,7 @@ int	main(int ac, char **av)
 			{
 				std::cerr << ef.what() << std::endl;
 			}
+			shForm.createShrub();
 			std::cout << std::endl;
 			std::cout << testAussi << std::endl;
 			test.promote();

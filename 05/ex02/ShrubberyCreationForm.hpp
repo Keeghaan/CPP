@@ -12,7 +12,7 @@ class	ShrubberyCreationForm: public AForm
 		virtual ~ShrubberyCreationForm(void);
 		
 		virtual void	beSigned(Bureaucrat&);
-		void		createShrub(void);		
+		void		execute(const Bureaucrat&) const;		
 };
 
 #endif
