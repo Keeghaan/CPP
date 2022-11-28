@@ -56,6 +56,17 @@ unsigned	Bureaucrat::getGrade(void) const
 	return (this->_grade);
 }
 
+void	Bureaucrat::signForm(Form &f)
+{
+	if (f.isSigned())
+		std::cout << "Form " << f.getName() << " already signed" << std::endl;
+	else if (f.whichSignGrade() > this->_grade)
+		std::cout << this->_name << " couldn't sign the form "
+			<< f.getName() << " because his grade if too low" << std::endl;
+	else
+		std::cout << this->getName() << " signed the form " << f.getName() << std::endl;
+}
+
 void	Bureaucrat::promote(void)
 {
 	if (this->_grade > 1)

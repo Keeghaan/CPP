@@ -50,12 +50,11 @@ unsigned int	Form::whichExecGrade(void) const
 
 void	Form::beSigned(Bureaucrat &b)
 {
-	std::cout << "Grade " << b.getGrade() << std::endl;
+	b.signForm(*this);
 	if (b.getGrade() > this->_signGrade)
 		throw	Bureaucrat::GradeTooLowException();
 	else
 		this->_signed = 1;
-	std::cout << "Signed ? " << this->_signed << std::endl;
 }
 
 //OVERLOAD

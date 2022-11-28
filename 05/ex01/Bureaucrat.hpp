@@ -21,6 +21,8 @@
 
 # define DEBUG 1
 
+class Form;
+
 class	Bureaucrat
 {
 	public:
@@ -43,6 +45,7 @@ class	Bureaucrat
 				virtual const char *what(void) const throw();
 		};
 
+		void	signForm(Form&);
 		void	promote(void);
 		void	demote(void);
 
