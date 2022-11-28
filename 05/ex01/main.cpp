@@ -35,11 +35,21 @@ int	main(int ac, char **av)
 		try
 		{
 			Bureaucrat	test;
+			Bureaucrat	&ref = test;
 			Bureaucrat	testAussi("Truc", 15);
 			Form		form("562A6", 30, 16);
 	
 			std::cout << std::endl;
 			std::cout << test << " " << form << std::endl;
+			try
+			{
+				form.beSigned(ref);
+			}
+			catch (std::exception &ef)
+			{
+				std::cerr << ef.what() << std::endl;
+			}
+			std::cout << std::endl;
 			std::cout << testAussi << std::endl;
 			test.promote();
 			testAussi.demote();

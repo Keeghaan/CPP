@@ -3,6 +3,8 @@
 
 # include "Bureaucrat.hpp"
 
+class	Bureaucrat;
+
 class	Form
 {
 	public:
@@ -14,6 +16,8 @@ class	Form
 		bool		isSigned(void) const;
 		unsigned int	whichSignGrade(void) const;
 		unsigned int	whichExecGrade(void) const;
+
+		void	beSigned(Bureaucrat&);
 
 		Form	&operator=(const Form&);
 	private:

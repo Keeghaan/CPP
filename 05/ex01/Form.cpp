@@ -23,6 +23,9 @@ Form::Form(const Form &copy)
 	*this = copy;
 }
 
+
+//ACCESSORS
+
 std::string	Form::getName(void) const
 {
 	return (this->_name);
@@ -41,6 +44,18 @@ unsigned int	Form::whichSignGrade(void) const
 unsigned int	Form::whichExecGrade(void) const
 {
 	return (this->_execGrade);
+}
+
+//OTHER FUNC
+
+void	Form::beSigned(Bureaucrat &b)
+{
+	std::cout << "Grade " << b.getGrade() << std::endl;
+	if (b.getGrade() > this->_signGrade)
+		throw	Bureaucrat::GradeTooLowException();
+	else
+		this->_signed = 1;
+	std::cout << "Signed ? " << this->_signed << std::endl;
 }
 
 //OVERLOAD
