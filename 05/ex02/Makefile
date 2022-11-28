@@ -12,7 +12,7 @@
 
 NAME =	ActiveForm
 
-SRCS =	main.cpp Bureaucrat.cpp Form.cpp ShrubberyCreationForm.cpp \
+SRCS =	main.cpp Bureaucrat.cpp AForm.cpp ShrubberyCreationForm.cpp \
 	RobotomyRequestForm.cpp PresidentialPardonForm.cpp
 
 CXX =	c++

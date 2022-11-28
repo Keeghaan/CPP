@@ -1,6 +1,6 @@
 #include "RobotomyRequestForm.hpp"
 
-RobotomyRequestForm::RobotomyRequestForm(void): Form::Form()
+RobotomyRequestForm::RobotomyRequestForm(void): AForm::AForm()
 {
 	if (DEBUG)
 		std::cout << "RobotomyRequestForm default constructor" << std::endl;
@@ -8,7 +8,7 @@ RobotomyRequestForm::RobotomyRequestForm(void): Form::Form()
 
 
 RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &copy):
-	Form::Form(copy)
+	AForm::AForm(copy)
 {
 	if (DEBUG)
 		std::cout << "RobotomyRequestForm copy constructor" << std::endl;

@@ -56,7 +56,7 @@ unsigned	Bureaucrat::getGrade(void) const
 	return (this->_grade);
 }
 
-void	Bureaucrat::signForm(Form &f)
+void	Bureaucrat::signForm(AForm &f)
 {
 	if (f.isSigned())
 		std::cout << "Form " << f.getName() << " already signed" << std::endl;

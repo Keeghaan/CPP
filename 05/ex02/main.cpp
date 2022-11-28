@@ -37,7 +37,7 @@ int	main(int ac, char **av)
 			Bureaucrat	test;
 			Bureaucrat	&ref = test;
 			Bureaucrat	testAussi("Truc", 15);
-			Form		form("562A6", 30, 16);
+			AForm		form("562A6", 30, 16);
 	
 			std::cout << std::endl;
 			std::cout << test << " " << form << std::endl;

@@ -17,11 +17,11 @@
 # include <iostream>
 # include <string>
 # include <stdexcept>
-# include "Form.hpp"
+# include "AForm.hpp"
 
 # define DEBUG 1
 
-class Form;
+class AForm;
 
 class	Bureaucrat
 {
@@ -45,7 +45,7 @@ class	Bureaucrat
 				virtual const char *what(void) const throw();
 		};
 
-		void	signForm(Form&);
+		void	signForm(AForm&);
 		void	promote(void);
 		void	demote(void);
 
