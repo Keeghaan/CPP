@@ -20,7 +20,7 @@ Ice::Ice(void): AMateria::AMateria("ice")
 Ice::Ice(const Ice &copy): AMateria::AMateria(copy.getType())
 {
 	std::cout << "Ice copy constructor" << std::endl;
-	*this = copy;
+	//*this = copy;
 }
 
 Ice::~Ice(void)
@@ -28,22 +28,13 @@ Ice::~Ice(void)
 	std::cout << "Ice destructor" << std::endl;
 }
 
-AMateria	*Ice::clone(void) const
+Ice	*Ice::clone(void) const
 {
-	AMateria	*newIce = new Ice();
-	return (newIce);
+	return (new Ice());
 }
 
 void	Ice::use(ICharacter &target)
 {
 	std::cout << "Ice : \"* shoots an ice bolt at " << target.getName() << " *\""
 		<< std::endl;
-}
-
-//OVERLOAD
-
-Ice	&Ice::operator=(const Ice &rhs)
-{
-	this->_type = rhs.getType();
-	return (*this);
 }

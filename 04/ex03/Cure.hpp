@@ -16,17 +16,15 @@
 # include "AMateria.hpp"
 
 
-class	Cure: private AMateria
+class	Cure: public AMateria
 {
 	public:
 		Cure(void);
 		Cure(const Cure&);
 		virtual ~Cure(void);
 
-		virtual AMateria	*clone(void) const;
+		virtual Cure	*clone(void) const;
 		virtual void		use(ICharacter&);
-		
-		Cure	&operator=(const Cure&);
 };
 
 #endif

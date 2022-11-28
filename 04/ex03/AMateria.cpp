@@ -31,3 +31,8 @@ void	AMateria::use(ICharacter &target)
 {
 }*/
 
+AMateria	&AMateria::operator=(const AMateria &rhs)
+{
+	this->_type = rhs.getType();
+	return (*this);
+}

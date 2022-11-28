@@ -10,9 +10,9 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME =	inter&recap
+NAME =	interRecap
 
-SRCS =	main.cpp AMateria.cpp Character.cpp Cure.cpp Ice.cpp 
+SRCS =	main.cpp AMateria.cpp Character.cpp Cure.cpp Ice.cpp MateriaSource.cpp
 
 CXX =	c++
 
@@ -48,7 +48,7 @@ re: fclean
 	@make all
 
 vtest: ${NAME}
-	-valgrind --leak-check=full --show-leak-kinds=all ./${NAME}
+	-valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./${NAME}
 
 test: ${NAME}
 	./${NAME}

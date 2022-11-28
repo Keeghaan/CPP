@@ -28,7 +28,8 @@ class	AMateria
 
 		virtual AMateria*	clone(void) const = 0;
 		virtual void		use(ICharacter&) = 0;
-	
+
+		AMateria	&operator=(const AMateria&);	
 	protected:
 		std::string	_type;
 };

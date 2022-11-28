@@ -39,7 +39,7 @@ class	Character: public ICharacter
 	private:
 		std::string	_name;
 		unsigned int	_idx;
-		AMateria	**_inventory;
+		AMateria	*_inventory[INV];
 };
 
 #endif

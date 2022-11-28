@@ -15,17 +15,15 @@
 
 # include "AMateria.hpp"
 
-class	Ice: private AMateria
+class	Ice: public AMateria
 {
 	public:
 		Ice(void);
 		Ice(const Ice&);
 		virtual ~Ice(void);
 
-		virtual AMateria	*clone(void) const;
+		virtual Ice	*clone(void) const;
 		virtual void		use(ICharacter&);
-	
-		Ice	&operator=(const Ice&);
 };
 
 #endif

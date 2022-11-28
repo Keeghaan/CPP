@@ -12,7 +12,7 @@
 
 #include "Character.hpp"
 
-Character::Character(void): _idx(0)
+Character::Character(void): _name("Jamie"), _idx(0)
 {
 	std::cout << "Character default constructor" << std::endl;
 }
@@ -35,15 +35,10 @@ Character::Character(const Character &copy)
 Character::~Character(void)
 {
 	std::cout << "Character destructor" << std::endl;
-	for (unsigned int i = 0; i < this->_idx; i++)
-		delete this->_inventory[i];
+//	for (unsigned int i = 0; i < this->_idx; i++)
+//		delete this->_inventory[i];
 }
-/*
-AMateria	*Character::getInventory(void) const
-{
-	return (this->_inventory);
-}
-*/
+
 //ICHARACTER FUNC
 
 const std::string	&Character::getName(void) const
@@ -53,16 +48,11 @@ const std::string	&Character::getName(void) const
 
 void	Character::equip(AMateria *m)
 {
-	for (int i = 0; i < INV; i++)
-	{
-		if (!this->_inventory[i])
-		{
-			this->_inventory[i] = m;
-			this->_idx++;
-			std::cout << m->getType() << " equiped in slot " << i << std::endl;
-			break ;
-		}
-	}
+	if (m == NULL)
+		return ;
+	this->_inventory[this->_idx] = m;
+	std::cout << m->getType() << " equiped in slot " << this->_idx << std::endl;
+	this->_idx++;
 }
 
 void	Character::unequip(int idx)
@@ -77,19 +67,29 @@ void	Character::unequip(int idx)
 
 void	Character::use(int idx, ICharacter &target)
 {
-	if (this->_inventory[idx])
-		std::cout << "Use " << this->_inventory[idx] << " on " << target.getName() << std::endl;
+	if ((idx < 0 && idx > 3) || target.getName().empty())
+		std::cout << "Something is not valid" << std::endl;
+	else if (unsigned(idx) >= this->_idx)
+		std::cout << "No item here" << std::endl;
 	else
-		std::cout << "Use nothing on " << target.getName() << std::endl;
+	{
+		if (this->_inventory[idx])
+			std::cout << "Use " << this->_inventory[idx]->getType() << " on " << target.getName() << std::endl;
+		else
+			std::cout << "Use nothing on " << target.getName() << std::endl;
+	}
 }
+
 
 //OVERLOAD
 
 Character	&Character::operator=(const Character &rhs)
 {
 	this->_name = rhs.getName();
-	for (int i = 0; i < INV; i++)
+	for (unsigned int i = 0; i < this->_idx; i++)
 		delete this->_inventory[i];
-	this->_inventory = rhs._inventory;
+	for (unsigned int j = 0; j < this->_idx; j++)
+		this->_inventory[j] = rhs._inventory[j];
 	return (*this);
 }
+
