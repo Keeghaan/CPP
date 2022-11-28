@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "ShrubberyCreationForm.hpp"
 
 int	main(int ac, char **av)
 {
@@ -34,16 +35,16 @@ int	main(int ac, char **av)
 	{
 		try
 		{
-			Bureaucrat	test;
-			Bureaucrat	&ref = test;
-			Bureaucrat	testAussi("Truc", 15);
-			AForm		form("562A6", 30, 16);
+			Bureaucrat			test("Edgar", 130);
+			Bureaucrat			&ref = test;
+			Bureaucrat			testAussi("Truc", 15);
+			ShrubberyCreationForm		shForm;
 	
 			std::cout << std::endl;
-			std::cout << test << " " << form << std::endl;
+			std::cout << test << " " << shForm << std::endl;
 			try
 			{
-				form.beSigned(ref);
+				shForm.beSigned(ref);
 			}
 			catch (std::exception &ef)
 			{

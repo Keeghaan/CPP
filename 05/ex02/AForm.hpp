@@ -2,6 +2,7 @@
 # define FORM_HPP
 
 # include "Bureaucrat.hpp"
+# include <fstream>
 
 class	Bureaucrat;
 
@@ -18,14 +19,15 @@ class	AForm
 		unsigned int	whichSignGrade(void) const;
 		unsigned int	whichExecGrade(void) const;
 
-		void	beSigned(Bureaucrat&);
+		virtual void	beSigned(Bureaucrat&) = 0;
 
 		AForm	&operator=(const AForm&);
-	private:
+	protected:
 		std::string	_name;
 		bool		_signed;
 		unsigned int	_signGrade;
-		unsigned int	_execGrade;	 
+		unsigned int	_execGrade;
+		std::string	_target; 
 };
 
 std::ostream	&operator<<(std::ostream&, const AForm&);

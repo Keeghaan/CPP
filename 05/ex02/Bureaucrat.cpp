@@ -25,7 +25,7 @@ Bureaucrat::Bureaucrat(const Bureaucrat &copy)
 	*this = copy;
 }
 
-Bureaucrat::Bureaucrat(const std::string name, unsigned int grade): _name(name)
+Bureaucrat::Bureaucrat(std::string name, unsigned int grade): _name(name)
 {
 	if (DEBUG)
 		std::cout << "Bureaucrat parametric constructor" << std::endl;
