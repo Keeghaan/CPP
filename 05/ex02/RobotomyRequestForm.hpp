@@ -7,7 +7,7 @@ class	RobotomyRequestForm: public Form
 {
 	public:
 		RobotomyRequestForm(void);
-		RobotomyRequestForm(const RobotomyRequestForm&)
+		RobotomyRequestForm(const RobotomyRequestForm&);
 		virtual ~RobotomyRequestForm(void);
 
 };

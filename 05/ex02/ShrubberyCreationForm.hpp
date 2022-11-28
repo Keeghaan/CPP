@@ -8,7 +8,7 @@ class	ShrubberyCreationForm: public Form
 	public:
 		ShrubberyCreationForm(void);
 		ShrubberyCreationForm(const ShrubberyCreationForm&);
-		virtual ~ShruberyCreationForm(void);
+		virtual ~ShrubberyCreationForm(void);
 		
 };
 

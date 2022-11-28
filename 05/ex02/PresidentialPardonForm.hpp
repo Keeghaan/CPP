@@ -7,7 +7,7 @@ class	PresidentialPardonForm: public Form
 {
 	public:
 		PresidentialPardonForm(void);
-		PresidentialPardonForm(const PresidentialPardonForm&)
+		PresidentialPardonForm(const PresidentialPardonForm&);
 		virtual ~PresidentialPardonForm(void);
 
 };
