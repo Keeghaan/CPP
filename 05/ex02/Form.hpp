@@ -11,7 +11,7 @@ class	Form
 		Form(void);
 		Form(const std::string&, int, int);
 		Form(const Form&);
-		virtual ~Form(void;
+		~Form(void);
 	
 		std::string	getName(void) const;
 		bool		isSigned(void) const;
