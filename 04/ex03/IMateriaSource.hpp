@@ -13,13 +13,12 @@
 #ifndef IMATERIASOURCE_HPP
 # define IMATERIASOURCE_HPP
 
-# include "includes.hpp"
+# include "AMateria.hpp"
+# define INV 4
 
 class	IMateriaSource
 {
 	public:
-		IMateriaSource(void);
-		IMateriaSource(const IMateriaSource&);
 		virtual ~IMateriaSource() {}
 
 		virtual void learnMateria(AMateria*) = 0;

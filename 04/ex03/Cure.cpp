@@ -12,12 +12,12 @@
 
 #include "Cure.hpp"
 
-Cure::Cure(void): AMateria::AMateria(), _type("cure");
+Cure::Cure(void): AMateria::AMateria("cure")
 {
 	std::cout << "Cure default constructor" << std::endl;
 }
 
-Cure::Cure(const Cure &copy)
+Cure::Cure(const Cure &copy): AMateria::AMateria(copy.getType())
 {
 	std::cout << "Cure copy constructor" << std::endl;
 	*this = copy;
@@ -36,7 +36,7 @@ AMateria	*Cure::clone(void) const
 
 void	Cure::use(ICharacter &target)
 {
-	std::cout << "Cure : \"* heals " << target << "'s wounds *\""
+	std::cout << "Cure : \"* heals " << target.getName() << "'s wounds *\""
 		<< std::endl;
 }
 

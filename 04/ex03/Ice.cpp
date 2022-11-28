@@ -12,12 +12,12 @@
 
 #include "Ice.hpp"
 
-Ice::Ice(void): AMateria::AMateria(), _type("ice");
+Ice::Ice(void): AMateria::AMateria("ice")
 {
 	std::cout << "Ice default constructor" << std::endl;
 }
 
-Ice::Ice(const Ice &copy)
+Ice::Ice(const Ice &copy): AMateria::AMateria(copy.getType())
 {
 	std::cout << "Ice copy constructor" << std::endl;
 	*this = copy;
@@ -36,7 +36,7 @@ AMateria	*Ice::clone(void) const
 
 void	Ice::use(ICharacter &target)
 {
-	std::cout << "Ice : \"* shoots an ice bolt at " << target << " *\""
+	std::cout << "Ice : \"* shoots an ice bolt at " << target.getName() << " *\""
 		<< std::endl;
 }
 

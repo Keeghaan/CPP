@@ -13,7 +13,9 @@
 #ifndef CHARACTER_HPP
 # define CHARACTER_HPP
 
-# include "includes.hpp"
+# include "ICharacter.hpp"
+# include "Ice.hpp"
+# include "Cure.hpp"
 
 # define INV 4
 
@@ -36,6 +38,7 @@ class	Character: public ICharacter
 
 	private:
 		std::string	_name;
+		unsigned int	_idx;
 		AMateria	**_inventory;
 };
 

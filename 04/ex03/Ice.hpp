@@ -15,7 +15,7 @@
 
 # include "AMateria.hpp"
 
-class	Ice
+class	Ice: private AMateria
 {
 	public:
 		Ice(void);
@@ -23,7 +23,8 @@ class	Ice
 		virtual ~Ice(void);
 
 		virtual AMateria	*clone(void) const;
-
+		virtual void		use(ICharacter&);
+	
 		Ice	&operator=(const Ice&);
 };
 

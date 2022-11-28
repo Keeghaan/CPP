@@ -13,7 +13,9 @@
 #ifndef MATERIASOURCE_HPP
 # define MATERIASOURCE_HPP
 
-#include "includes.hpp"
+# include "IMateriaSource.hpp"
+# include "Ice.hpp"
+# include "Cure.hpp"
 
 class	MateriaSource: public IMateriaSource
 {
@@ -22,10 +24,15 @@ class	MateriaSource: public IMateriaSource
 		MateriaSource(const MateriaSource&);
 		virtual ~MateriaSource(void);
 
+		unsigned int	getN(void) const;
+
 		virtual void learnMateria(AMateria*);
 		virtual AMateria	*createMateria(const std::string&);
 	
 		MateriaSource	&operator=(const MateriaSource&);
+		private:
+			unsigned int	_nMateria;
+			AMateria		*_materias[INV];
 };
 
 #endif

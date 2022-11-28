@@ -16,7 +16,7 @@
 # include "AMateria.hpp"
 
 
-class	Cure
+class	Cure: private AMateria
 {
 	public:
 		Cure(void);
@@ -24,7 +24,8 @@ class	Cure
 		virtual ~Cure(void);
 
 		virtual AMateria	*clone(void) const;
-
+		virtual void		use(ICharacter&);
+		
 		Cure	&operator=(const Cure&);
 };
 

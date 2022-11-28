@@ -26,8 +26,8 @@ const std::string	&AMateria::getType(void) const
 {
 	return (this->_type);
 }
-
+/*
 void	AMateria::use(ICharacter &target)
 {
-	std::cout << "use " << getType() << " on " << target.getName() << std::endl;
-}
+}*/
+

@@ -12,8 +12,7 @@
 
 NAME =	inter&recap
 
-SRCS =	main.cpp AMateria.cpp Character.cpp Cure.cpp Ice.cpp  \
-		IMateriaSource.cpp MateriaSource.cpp
+SRCS =	main.cpp AMateria.cpp Character.cpp Cure.cpp Ice.cpp 
 
 CXX =	c++
 

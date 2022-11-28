@@ -12,12 +12,12 @@
 
 #include "Character.hpp"
 
-Character::Character(void): ICharacter::ICharacter()
+Character::Character(void): _idx(0)
 {
 	std::cout << "Character default constructor" << std::endl;
 }
 
-Character::Character(const std::string &name): ICharacter::ICharacter()
+Character::Character(const std::string &name): _idx(0)
 {
 	std::cout << "Character parametric constructor" << std::endl;
 	if (name.empty())
@@ -26,7 +26,7 @@ Character::Character(const std::string &name): ICharacter::ICharacter()
 		this->_name = name;
 }
 
-Character::Character(const Character &copy)//: ICharacter::ICharacter(copy)
+Character::Character(const Character &copy)
 {
 	std::cout << "Character copy constructor" << std::endl;
 	*this = copy;
@@ -35,7 +35,7 @@ Character::Character(const Character &copy)//: ICharacter::ICharacter(copy)
 Character::~Character(void)
 {
 	std::cout << "Character destructor" << std::endl;
-	for (int i = 0; i < INV; i++)
+	for (unsigned int i = 0; i < this->_idx; i++)
 		delete this->_inventory[i];
 }
 /*
@@ -58,6 +58,7 @@ void	Character::equip(AMateria *m)
 		if (!this->_inventory[i])
 		{
 			this->_inventory[i] = m;
+			this->_idx++;
 			std::cout << m->getType() << " equiped in slot " << i << std::endl;
 			break ;
 		}
