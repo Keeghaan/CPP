@@ -43,16 +43,14 @@ void	RobotomyRequestForm::execute(const Bureaucrat &executor)
 	{
 		if (executor.getGrade() <= this->_execGrade)
 		{
-			static int	succeed = 1;
+			static int	succeed = 0;
 			
 			std::cout << "ZZZZZZZZZZZZZZ" << std::endl;
-			if (succeed)
-			{
+			if (succeed % 2 == 0)
 				std::cout << this->_name << " has been robotomised" << std::endl;
-					succeed = 0;
-			}
 			else
 				std::cout << "The robotomy didnt work" << std::endl;
+			succeed++;
 		}
 		else
 			throw GradeTooLowException();

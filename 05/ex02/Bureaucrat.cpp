@@ -56,11 +56,12 @@ unsigned	Bureaucrat::getGrade(void) const
 	return (this->_grade);
 }
 
-void	Bureaucrat::executeForm(const AForm &form)
+void	Bureaucrat::executeForm(AForm &form)
 {
+	Bureaucrat	&ref = *this;
 	try
 	{
-		form.execute(*this);
+		form.execute(ref);
 		std::cout << "Bureaucrat " << this->getName() << " executed "
 			<< form.getName() << " form" << std::endl;
 	}
@@ -73,9 +74,10 @@ void	Bureaucrat::executeForm(const AForm &form)
 
 void	Bureaucrat::signForm(AForm &f)
 {
+	Bureaucrat	&ref = *this;
 	try
 	{
-		f.beSigned(*this);
+		f.beSigned(ref);
 		std::cout << "Bureaucrat " << this->getName() << " signed "
 			<< f.getName() << " form" << std::endl;
 	}

@@ -12,6 +12,8 @@
 
 #include "Bureaucrat.hpp"
 #include "ShrubberyCreationForm.hpp"
+#include "PresidentialPardonForm.hpp"
+#include "RobotomyRequestForm.hpp"
 
 int	main(int ac, char **av)
 {
@@ -35,17 +37,27 @@ int	main(int ac, char **av)
 	{
 		try
 		{
-			Bureaucrat			test("Edgar", 130);
-			const Bureaucrat			&ref = test;
-			Bureaucrat			testAussi("Truc", 15);
-			ShrubberyCreationForm		shForm("jojo");
+			Bureaucrat			test("Edgar", 1);
+			const Bureaucrat		&ref = test;
+			Bureaucrat			testAussi("Truc", 2);
+			const Bureaucrat		&refA = testAussi;
+			ShrubberyCreationForm		shForm("garden");
+			PresidentialPardonForm		prForm("Ford Prefect");
+			RobotomyRequestForm		rForm("Slartibartfast");
 	
 			std::cout << std::endl;
 			std::cout << test << " " << shForm << std::endl;
 			try
 			{
 				shForm.beSigned(ref);
-				shForm.execute(ref);
+				prForm.beSigned(refA);
+				rForm.beSigned(refA);
+				shForm.execute(refA);
+				prForm.execute(refA);
+				rForm.execute(refA);
+				rForm.execute(refA);
+				rForm.execute(refA);
+				rForm.execute(refA);
 			}
 			catch (std::exception &ef)
 			{

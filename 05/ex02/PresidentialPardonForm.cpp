@@ -37,7 +37,7 @@ PresidentialPardonForm::~PresidentialPardonForm(void)
 		std::cout << "PresidentialPardonForm destructor" << std::endl;
 }
 
-void	PresidentialPardonForm::execute(const Bureaucrat &executor) const
+void	PresidentialPardonForm::execute(const Bureaucrat &executor)
 {
 	if (this->_signed)
 	{
