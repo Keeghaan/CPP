@@ -47,8 +47,8 @@ class	Bureaucrat
 
 		void	executeForm(const AForm&);
 		void	signForm(AForm&);
-		void	promote(void) const;
-		void	demote(void) const;
+		void	promote(void);
+		void	demote(void);
 
 		Bureaucrat	&operator=(const Bureaucrat&);
 		Bureaucrat	&operator++(int);

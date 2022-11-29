@@ -4,12 +4,24 @@ RobotomyRequestForm::RobotomyRequestForm(void): AForm::AForm()
 {
 	if (DEBUG)
 		std::cout << "RobotomyRequestForm default constructor" << std::endl;
-	this->AForm::_name = "robotomy";
+	this->AForm::_name = "target";
 	this->AForm::_signGrade = 72;
 	this->AForm::_execGrade = 45;
 	this->AForm::_signed = 0;
 }
 
+RobotomyRequestForm::RobotomyRequestForm(const std::string &target): AForm::AForm(target, 72, 45)
+{
+	if (DEBUG)
+		std::cout << "RobotomyRequestForm parametric constructor" << std::endl;
+	if (target.empty())
+		this->AForm::_name = "target";
+	else
+		this->AForm::_name = target;
+	this->AForm::_signGrade = 72;
+	this->AForm::_execGrade = 45;
+	this->AForm::_signed = 0;
+}
 
 RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &copy):
 	AForm::AForm(copy)

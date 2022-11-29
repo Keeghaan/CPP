@@ -4,21 +4,19 @@ ShrubberyCreationForm::ShrubberyCreationForm(void): AForm::AForm()
 {
 	if (DEBUG)
 		std::cout << "ShrubberyCreationForm default constructor" << std::endl;
-	this->AForm::_name = "shrubbery";
+	this->AForm::_name = "target";
 	this->AForm::_signGrade = 145;
 	this->AForm::_execGrade = 137;
-	this->AForm::_target = "garden";
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(const std::string &target): AForm::AForm()
+ShrubberyCreationForm::ShrubberyCreationForm(const std::string &target): AForm::AForm(target, 145, 137)
 {
 	if (DEBUG)
 		std::cout << "ShrubberyCreationForm default constructor" << std::endl;
 	if (target.empty())
-		this->_target = "garden";
+		this->_name = "target";
 	else
-		this->_target = target;
-	this->AForm::_name = "shrubbery";
+		this->_name = target;
 	this->AForm::_signGrade = 145;
 	this->AForm::_execGrade = 137;
 }
@@ -36,7 +34,7 @@ ShrubberyCreationForm::~ShrubberyCreationForm(void)
 		std::cout << "ShrubberyCreationForm destructor" << std::endl;
 }
 
-void	ShrubberyCreationForm::execute(const Bureaucrat &executor) const
+void	ShrubberyCreationForm::execute(Bureaucrat &executor) const
 {
 	if (this->_signed)
 	{
@@ -44,7 +42,8 @@ void	ShrubberyCreationForm::execute(const Bureaucrat &executor) const
 		{
 			std::ofstream	outfile;
 
-			outfile.open(this->_name.append("_shrubbery"));
+			outfile.open(this->_name.append("_shrubbery").c_str(),
+				std::fstream::in | std::ifstream::trunc);
 			if (outfile.is_open())
 			{
 				outfile <<" 	                                             .\n"

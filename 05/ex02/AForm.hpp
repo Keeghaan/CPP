@@ -3,6 +3,8 @@
 
 # include "Bureaucrat.hpp"
 # include <fstream>
+# include <iomanip>
+# include <string>
 
 class	Bureaucrat;
 
@@ -39,7 +41,6 @@ class	AForm
 		bool		_signed;
 		unsigned int	_signGrade;
 		unsigned int	_execGrade;
-		std::string	_target; 
 };
 
 std::ostream	&operator<<(std::ostream&, const AForm&);

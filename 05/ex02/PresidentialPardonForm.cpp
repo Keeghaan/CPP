@@ -4,12 +4,24 @@ PresidentialPardonForm::PresidentialPardonForm(void): AForm::AForm()
 {
 	if (DEBUG)
 		std::cout << "PresidentialPardonForm default constructor" << std::endl;
-	this->AForm::_name = "presidential";
+	this->AForm::_name = "target";
 	this->AForm::_signGrade = 25;
 	this->AForm::_execGrade = 5;
 	this->AForm::_signed = 0;
 }
 
+PresidentialPardonForm::PresidentialPardonForm(const std::string &target): AForm::AForm(target, 25, 5)
+{
+	if (DEBUG)
+		std::cout << "PresidentialPardonForm default constructor" << std::endl;
+	if (target.empty())
+		this->AForm::_name = "target";
+	else
+		this->AForm::_name = target;
+	this->AForm::_signGrade = 25;
+	this->AForm::_execGrade = 5;
+	this->AForm::_signed = 0;
+}
 
 PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &copy):
 	AForm::AForm(copy)
@@ -28,5 +40,5 @@ PresidentialPardonForm::~PresidentialPardonForm(void)
 void	PresidentialPardonForm::execute(const Bureaucrat &executor) const
 {
 	if (this->_signed && executor.executeForm(*this))
-		std::cout << this->_target << " has been pardoned by Zaphod Beeblebrox" << std::endl;
+		std::cout << this->_name << " has been pardoned by Zaphod Beeblebrox" << std::endl;
 }
