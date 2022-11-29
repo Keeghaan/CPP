@@ -53,7 +53,7 @@ unsigned int	AForm::whichExecGrade(void) const
 
 //OTHER FUNC
 
-void	AForm::beSigned(Bureaucrat &b)
+void	AForm::beSigned(const Bureaucrat &b)
 {
 	if (b.getGrade() > this->_signGrade)
 		throw AForm::GradeTooLowException();

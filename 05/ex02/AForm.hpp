@@ -21,7 +21,7 @@ class	AForm
 		unsigned int	whichSignGrade(void) const;
 		unsigned int	whichExecGrade(void) const;
 
-		virtual void	execute(const Bureaucrat&) const = 0;
+		virtual void	execute(const Bureaucrat&) = 0;
 		virtual void	beSigned(const Bureaucrat&);
 		
 		class	GradeTooHighException: public std::exception

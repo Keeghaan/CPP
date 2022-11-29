@@ -37,7 +37,7 @@ RobotomyRequestForm::~RobotomyRequestForm(void)
 		std::cout << "RobotomyRequestForm destructor" << std::endl;
 }
 
-void	RobotomyRequestForm::execute(const Bureaucrat &executor) const
+void	RobotomyRequestForm::execute(const Bureaucrat &executor)
 {
 	if (this->_signed)
 	{
@@ -48,7 +48,7 @@ void	RobotomyRequestForm::execute(const Bureaucrat &executor) const
 			std::cout << "ZZZZZZZZZZZZZZ" << std::endl;
 			if (succeed)
 			{
-				std::cout << this->_target << " has been robotomised" << std::endl;
+				std::cout << this->_name << " has been robotomised" << std::endl;
 					succeed = 0;
 			}
 			else

@@ -34,51 +34,54 @@ ShrubberyCreationForm::~ShrubberyCreationForm(void)
 		std::cout << "ShrubberyCreationForm destructor" << std::endl;
 }
 
-void	ShrubberyCreationForm::execute(Bureaucrat &executor) const
+void	ShrubberyCreationForm::createShrub(void)
+{
+	std::ofstream	outfile;
+
+	outfile.open(this->_name.append("_shrubbery").c_str(),
+		std::fstream::in | std::ifstream::trunc);
+	if (outfile.is_open())
+	{
+		outfile <<" 	                                             .\n"
+				"                                   .         ;\n"
+				"      .              .              ;%     ;;\n"
+				"        ,           ,                :;%  %;\n"
+				"         :         ;                   :;%;'     .,\n"
+				",.        %;     %;            ;        %;'    ,;\n"
+				"  ;       ;%;  %%;        ,     %;    ;%;    ,%'\n"
+				"   %;       %;%;      ,  ;       %;  ;%;   ,%;'\n"
+				"    ;%;      %;        ;%;        % ;%;  ,%;'\n"
+				"     `%;.     ;%;     %;'         `;%%;.%;'\n"
+				"      `:;%.    ;%%. %@;        %; ;@%;%'\n"
+				"         `:%;.  :;bd%;          %;@%;'\n"
+				"           `@%:.  :;%.         ;@@%;'\n"
+				"             `@%.  `;@%.      ;@@%;\n"
+				"               `@%%. `@%%    ;@@%;\n"
+				"                 ;@%. :@%%  %@@%;\n"
+				"                   %@bd%%%bd%%:;\n"
+				"                     #@%%%%%:;;\n"
+				"                     %@@%%%::;\n"
+				"                     %@@@%(o);  . '\n"
+				"                     %@@@o%;:(.,'\n"
+				"                 `.. %@@@o%::;\n"
+				"                    `)@@@o%::;\n"
+				"                     %@@(o)::;\n"
+				"                    .%@@@@%::;\n"
+				"                    ;%@@@@%::;.\n"
+				"                   ;%@@@@%%:;;;.\n"
+				"               ...;%@@@@@%%:;;;;,..";
+		outfile.close();
+	}
+	else
+		std::cerr << "Something went bad with the outfile" << std::endl;
+}
+
+void	ShrubberyCreationForm::execute(const Bureaucrat &executor)
 {
 	if (this->_signed)
 	{
 		if (executor.getGrade() <= this->_execGrade)
-		{
-			std::ofstream	outfile;
-
-			outfile.open(this->_name.append("_shrubbery").c_str(),
-				std::fstream::in | std::ifstream::trunc);
-			if (outfile.is_open())
-			{
-				outfile <<" 	                                             .\n"
-						"                                   .         ;\n"
-						"      .              .              ;%     ;;\n"
-						"        ,           ,                :;%  %;\n"
-						"         :         ;                   :;%;'     .,\n"
-						",.        %;     %;            ;        %;'    ,;\n"
-						"  ;       ;%;  %%;        ,     %;    ;%;    ,%'\n"
-						"   %;       %;%;      ,  ;       %;  ;%;   ,%;'\n"
-						"    ;%;      %;        ;%;        % ;%;  ,%;'\n"
-						"     `%;.     ;%;     %;'         `;%%;.%;'\n"
-						"      `:;%.    ;%%. %@;        %; ;@%;%'\n"
-						"         `:%;.  :;bd%;          %;@%;'\n"
-						"           `@%:.  :;%.         ;@@%;'\n"
-						"             `@%.  `;@%.      ;@@%;\n"
-						"               `@%%. `@%%    ;@@%;\n"
-						"                 ;@%. :@%%  %@@%;\n"
-						"                   %@bd%%%bd%%:;\n"
-						"                     #@%%%%%:;;\n"
-						"                     %@@%%%::;\n"
-						"                     %@@@%(o);  . '\n"
-						"                     %@@@o%;:(.,'\n"
-						"                 `.. %@@@o%::;\n"
-						"                    `)@@@o%::;\n"
-						"                     %@@(o)::;\n"
-						"                    .%@@@@%::;\n"
-						"                    ;%@@@@%::;.\n"
-						"                   ;%@@@@%%:;;;.\n"
-						"               ...;%@@@@@%%:;;;;,..";
-				outfile.close();
-			}
-			else
-				std::cerr << "Something went bad with the outfile" << std::endl;
-		}
+			createShrub();
 		else
 			throw GradeTooLowException();
 	}

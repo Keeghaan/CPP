@@ -35,7 +35,7 @@ int	main(int ac, char **av)
 	{
 		try
 		{
-			const Bureaucrat			test("Edgar", 130);
+			Bureaucrat			test("Edgar", 130);
 			const Bureaucrat			&ref = test;
 			Bureaucrat			testAussi("Truc", 15);
 			ShrubberyCreationForm		shForm("jojo");
