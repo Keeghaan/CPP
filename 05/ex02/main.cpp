@@ -35,8 +35,8 @@ int	main(int ac, char **av)
 	{
 		try
 		{
-			Bureaucrat			test("Edgar", 130);
-			Bureaucrat			&ref = test;
+			const Bureaucrat			test("Edgar", 130);
+			const Bureaucrat			&ref = test;
 			Bureaucrat			testAussi("Truc", 15);
 			ShrubberyCreationForm		shForm("jojo");
 	
@@ -45,12 +45,12 @@ int	main(int ac, char **av)
 			try
 			{
 				shForm.beSigned(ref);
+				shForm.execute(ref);
 			}
 			catch (std::exception &ef)
 			{
 				std::cerr << ef.what() << std::endl;
 			}
-			shForm.createShrub();
 			std::cout << std::endl;
 			std::cout << testAussi << std::endl;
 			test.promote();

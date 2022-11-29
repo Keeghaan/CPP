@@ -55,11 +55,20 @@ unsigned int	AForm::whichExecGrade(void) const
 
 void	AForm::beSigned(Bureaucrat &b)
 {
-	b.signForm(*this);
 	if (b.getGrade() > this->_signGrade)
-		throw	Bureaucrat::GradeTooLowException();
+		throw AForm::GradeTooLowException();
 	else
 		this->_signed = 1;
+}
+
+const char	*AForm::GradeTooHighException::what(void) const throw()
+{
+	return ("Grade too high");
+}
+
+const char	*AForm::GradeTooLowException::what(void) const throw()
+{
+	return ("Grade too low");
 }
 
 //OVERLOAD

@@ -25,16 +25,6 @@ PresidentialPardonForm::~PresidentialPardonForm(void)
 		std::cout << "PresidentialPardonForm destructor" << std::endl;
 }
 
-void	PresidentialPardonForm::beSigned(Bureaucrat &b)
-{
-	std::cout << this->getName();
-	b.signForm(*this);
-	if (b.getGrade() > this->_signGrade)
-		throw	Bureaucrat::GradeTooLowException();
-	else
-		this->_signed = 1;
-}
-
 void	PresidentialPardonForm::execute(const Bureaucrat &executor) const
 {
 	if (this->_signed && executor.executeForm(*this))

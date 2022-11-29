@@ -10,8 +10,7 @@ class	RobotomyRequestForm: public AForm
 		RobotomyRequestForm(const RobotomyRequestForm&);
 		virtual ~RobotomyRequestForm(void);
 
-		void	robotomise(void);
-		void	beSigned(Bureaucrat&);
+		virtual void	execute(const Bureaucrat&);
 };
 
 #endif

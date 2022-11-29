@@ -1,5 +1,5 @@
-#ifndef FORM_HPP
-# define FORM_HPP
+#ifndef AFORM_HPP
+# define AFORM_HPP
 
 # include "Bureaucrat.hpp"
 # include <fstream>
@@ -19,9 +19,20 @@ class	AForm
 		unsigned int	whichSignGrade(void) const;
 		unsigned int	whichExecGrade(void) const;
 
-		virtual void	execute(const Bureaucrat&) const;
-		virtual void	beSigned(Bureaucrat&) = 0;
-
+		virtual void	execute(const Bureaucrat&) const = 0;
+		virtual void	beSigned(const Bureaucrat&);
+		
+		class	GradeTooHighException: public std::exception
+		{
+			public:
+				virtual const char	*what(void) const throw();
+		};
+		class	GradeTooLowException: public std::exception
+		{
+			public:
+				virtual const char *what(void) const throw();
+		};
+	
 		AForm	&operator=(const AForm&);
 	protected:
 		std::string	_name;

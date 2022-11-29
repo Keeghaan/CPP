@@ -56,27 +56,34 @@ unsigned	Bureaucrat::getGrade(void) const
 	return (this->_grade);
 }
 
-bool	Bureaucrat::executeForm(const AForm &form)
+void	Bureaucrat::executeForm(const AForm &form)
 {
-	if (form.whichExecGrade() >= this->_grade)
+	try
 	{
-		std::cout << this->getName() << " executed " << form.getName() << std::endl;
-		return (true);
+		form.execute(*this);
+		std::cout << "Bureaucrat " << this->getName() << " executed "
+			<< form.getName() << " form" << std::endl;
 	}
-	std::cout << "Grade too low to execute this form" << std::endl;
-	//	throw Bureaucrat::GradeTooLowException();
-	return (false);
+	catch (std::exception &e)
+	{
+		std::cout << "Bureaucrat " << this->_name << " couldnt execute "
+			<< form.getName() << " form because of " << e.what() << std::endl;
+	}
 }
 
 void	Bureaucrat::signForm(AForm &f)
 {
-	if (f.isSigned())
-		std::cout << "Form " << f.getName() << " already signed" << std::endl;
-	else if (f.whichSignGrade() > this->_grade)
-		std::cout << this->_name << " couldn't sign the form "
-			<< f.getName() << " because his grade if too low" << std::endl;
-	else
-		std::cout << this->getName() << " signed the form " << f.getName() << std::endl;
+	try
+	{
+		f.beSigned(*this);
+		std::cout << "Bureaucrat " << this->getName() << " signed "
+			<< f.getName() << " form" << std::endl;
+	}
+	catch (std::exception &e)
+	{
+		std::cout << "Bureaucrat " << this->_name << " couldnt sign "
+			<< f.getName() << " form because of " << e.what() << std::endl;
+	}
 }
 
 void	Bureaucrat::promote(void)
