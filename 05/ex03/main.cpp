@@ -6,7 +6,7 @@
 /*   By: jcourtoi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 14:18:02 by jcourtoi          #+#    #+#             */
-/*   Updated: 2022/11/30 15:38:19 by jcourtoi         ###   ########.fr       */
+/*   Updated: 2022/11/30 17:13:18 by jcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,9 @@ int	main(int ac, char **av)
 			RobotomyRequestForm		rForm("Slartibartfast");
 			Intern					newbie;
 			AForm					*prff;
+			AForm					*shff;
+			AForm					*rff;
+			ShrubberyCreationForm	tssst;
 
 			std::cout << std::endl;
 			std::cout << test << " " << shForm << std::endl;
@@ -56,8 +59,23 @@ int	main(int ac, char **av)
 				prForm.beSigned(refA);
 				rForm.beSigned(refA);
 				prff = newbie.makePrForm("Hyde");
+		
+				prff->execute(refA);
+				prff->beSigned(refA);
+				prff->execute(refA);
+				
+				shff = newbie.makeShForm("kitchen");
+				shff->beSigned(ref);
+				shff->execute(ref);
 
-			/*	shForm.execute(refA);
+				rff = newbie.makeRForm("Arthur");
+				rff->beSigned(ref);
+				rff->execute(refA);
+
+				tssst = shForm;
+				tssst.beSigned(ref);
+				tssst.execute(refA);
+	/*	shForm.execute(refA);
 				prForm.execute(refA);
 				rForm.execute(refA);
 				rForm.execute(refA);
@@ -66,10 +84,13 @@ int	main(int ac, char **av)
 			}
 			catch (std::exception &ef)
 			{
+				delete rff;
+				delete shff;
 				delete prff;
 				std::cerr << ef.what() << std::endl;
 			}
-
+			delete rff;
+			delete shff;
 			delete prff;
 			std::cout << std::endl;
 			std::cout << testAussi << std::endl;
