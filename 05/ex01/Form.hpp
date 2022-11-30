@@ -11,12 +11,18 @@ class	Form
 		Form(void);
 		Form(const std::string&, int, int);
 		Form(const Form&);
-		virtual ~Form(void;
+		virtual ~Form(void);
 	
 		std::string	getName(void) const;
 		bool		isSigned(void) const;
 		unsigned int	whichSignGrade(void) const;
 		unsigned int	whichExecGrade(void) const;
+
+		class	GradeTooLowException: public std::exception
+		{
+			public:
+				const char	*what(void) const throw();
+		};
 
 		void	beSigned(Bureaucrat&);
 

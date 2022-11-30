@@ -6,7 +6,7 @@
 /*   By: jcourtoi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 14:26:39 by jcourtoi          #+#    #+#             */
-/*   Updated: 2022/11/26 15:57:19 by jcourtoi         ###   ########.fr       */
+/*   Updated: 2022/11/30 15:23:24 by jcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,14 +58,27 @@ unsigned	Bureaucrat::getGrade(void) const
 
 void	Bureaucrat::signForm(Form &f)
 {
+	Bureaucrat	&ref = *this;
+	try
+	{
+		f.beSigned(ref);
+		std::cout << "Bureaucrat " << this->getName() << " signed "
+			<< f.getName() << " form" << std::endl;
+	}
+	catch (std::exception &e)
+	{
+		std::cout << "Bureaucrat " << this->_name << " couldnt sign "
+			<< f.getName() << " form because of " << e.what() << std::endl;
+	}
+/*
 	if (f.isSigned())
 		std::cout << "Form " << f.getName() << " already signed" << std::endl;
 	else if (f.whichSignGrade() > this->_grade)
 		std::cout << this->_name << " couldn't sign the form "
 			<< f.getName() << " because his grade if too low" << std::endl;
 	else
-		std::cout << this->getName() << " signed the form " << f.getName() << std::endl;
-}
+		std::cout << this->_name << " signed the form " << f.getName() << std::endl;
+*/}
 
 void	Bureaucrat::promote(void)
 {
