@@ -6,7 +6,7 @@
 /*   By: jcourtoi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 10:51:25 by jcourtoi          #+#    #+#             */
-/*   Updated: 2022/11/26 13:33:34 by jcourtoi         ###   ########.fr       */
+/*   Updated: 2022/11/30 13:27:53 by jcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,7 @@ class	Character: public ICharacter
 		Character(const Character&);
 		virtual ~Character(void);
 
-	//	AMateria	**getInventory(void) const;
-		
+	
 		virtual std::string const & getName() const;
 		virtual void equip(AMateria* m);
 		virtual void unequip(int idx);
@@ -37,9 +36,11 @@ class	Character: public ICharacter
 		Character	&operator=(const Character&);
 
 	private:
-		std::string	_name;
+		std::string		_name;
+		AMateria		*_inventory[INV];
+		unsigned int	_nFloor;
 		unsigned int	_idx;
-		AMateria	*_inventory[INV];
+		AMateria		*_onFloor[INV];
 };
 
 #endif

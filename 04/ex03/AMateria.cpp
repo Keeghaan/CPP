@@ -6,7 +6,7 @@
 /*   By: jcourtoi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 10:18:05 by jcourtoi          #+#    #+#             */
-/*   Updated: 2022/11/26 12:24:29 by jcourtoi         ###   ########.fr       */
+/*   Updated: 2022/11/30 13:33:16 by jcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,20 @@
 
 AMateria::AMateria(const std::string &type): _type(type)
 {
-	std::cout << "AMateria default constructor" << std::endl;
+	if (DEBUG)
+		std::cout << "AMateria default constructor" << std::endl;
 }
 
 AMateria::~AMateria(void)
 {
-	std::cout << "AMateria destructor" << std::endl;
+	if (DEBUG)
+		std::cout << "AMateria destructor" << std::endl;
 }
 
 const std::string	&AMateria::getType(void) const
 {
 	return (this->_type);
 }
-/*
-void	AMateria::use(ICharacter &target)
-{
-}*/
 
 AMateria	&AMateria::operator=(const AMateria &rhs)
 {

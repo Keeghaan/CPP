@@ -6,7 +6,7 @@
 /*   By: jcourtoi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 10:46:23 by jcourtoi          #+#    #+#             */
-/*   Updated: 2022/11/26 12:21:54 by jcourtoi         ###   ########.fr       */
+/*   Updated: 2022/11/30 13:35:44 by jcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,15 +22,16 @@ int	main(void)
 	ICharacter* me = new Character("me");
 	AMateria* tmp;
 
-	std::cout << std::endl;
 	tmp = src->createMateria("ice");
 	me->equip(tmp);
 	tmp = src->createMateria("cure");
 	me->equip(tmp);
+
 	ICharacter* bob = new Character("bob");
+	
 	me->use(0, *bob);
 	me->use(1, *bob);
-	std::cout << std::endl;
+	
 	delete bob;
 	delete me;
 	delete src;

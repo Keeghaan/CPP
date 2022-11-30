@@ -6,7 +6,7 @@
 /*   By: jcourtoi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 12:29:49 by jcourtoi          #+#    #+#             */
-/*   Updated: 2022/11/26 12:57:25 by jcourtoi         ###   ########.fr       */
+/*   Updated: 2022/11/30 13:35:11 by jcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,16 @@
 
 MateriaSource::MateriaSource(void): _nMateria(0)
 {
-	std::cout << "MateriaSource default constructor" << std::endl;
+	if (DEBUG)
+		std::cout << "MateriaSource default constructor" << std::endl;
 	for (int i = 0; i < INV; i++)
 		this->_materias[i] = NULL;
 }
 
 MateriaSource::MateriaSource(const MateriaSource &copy)
 {
-	std::cout << "MateriaSource copy constructor" << std::endl;
+	if (DEBUG)
+		std::cout << "MateriaSource copy constructor" << std::endl;
 	for (unsigned int i = 0; i < this->_nMateria; i++)
 		delete this->_materias[i];
 	*this = copy;
@@ -31,7 +33,8 @@ MateriaSource::~MateriaSource(void)
 {
 	for (unsigned int i = 0; i < this->_nMateria; i++)
 		delete this->_materias[i];
-	std::cout << "MateriaSource destructor" << std::endl;
+	if (DEBUG)
+		std::cout << "MateriaSource destructor" << std::endl;
 }
 
 unsigned int	MateriaSource::getN(void) const
@@ -48,7 +51,6 @@ void	MateriaSource::learnMateria(AMateria *source)
 	{
 		this->_materias[this->_nMateria] = source;
 		this->_nMateria++;
-		std::cout << (*source).getType() << " learnt" << std::endl;
 	}
 	else
 		std::cout << "Cannot learn materia anymore" << std::endl;
