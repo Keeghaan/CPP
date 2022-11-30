@@ -28,10 +28,10 @@ class	Form
 
 		Form	&operator=(const Form&);
 	private:
-		std::string	_name;
-		bool		_signed;
-		unsigned int	_signGrade;
-		unsigned int	_execGrade;	 
+		const std::string	_name;
+		bool				_signed;
+		unsigned int		_signGrade;
+		unsigned int		_execGrade;
 };
 
 std::ostream	&operator<<(std::ostream&, const Form&);
