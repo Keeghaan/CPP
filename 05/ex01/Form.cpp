@@ -13,7 +13,7 @@ Form::Form(const std::string &name, int signG, int execG): _name(name),
 		std::cout << "Form parametric constructor" << std::endl;
 }
 
-Form::Form(const Form &copy)
+Form::Form(const Form &copy): _signGrade(50), _execGrade(10)
 {
 	if (DEBUG)
 		std::cout << "Form copy constructor" << std::endl;
@@ -53,7 +53,7 @@ unsigned int	Form::whichExecGrade(void) const
 void	Form::beSigned(Bureaucrat &b)
 {
 	if (b.getGrade() > this->_signGrade)
-		throw GradeTooLowException();
+		throw Form::GradeTooLowException();
 	else
 		this->_signed = 1;
 }
@@ -67,8 +67,6 @@ const char	*Form::GradeTooLowException::what(void) const throw()
 
 Form	&Form::operator=(const Form &rhs)
 {
-	this->_signGrade = rhs.whichSignGrade();
-	this->_execGrade = rhs.whichExecGrade();
 	this->_signed = rhs.isSigned();
 	return (*this);
 }
