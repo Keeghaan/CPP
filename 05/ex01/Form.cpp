@@ -6,14 +6,11 @@ Form::Form(void): _name("Default"), _signed(0), _signGrade(50), _execGrade(10)
 		std::cout << "Form default constructor" << std::endl;
 }
 
-Form::Form(const std::string &name, int signG, int execG): _signGrade(signG), _execGrade(execG)
+Form::Form(const std::string &name, int signG, int execG): _name(name),
+	_signGrade(signG), _execGrade(execG)
 {
 	if (DEBUG)
 		std::cout << "Form parametric constructor" << std::endl;
-	if (name.empty())
-		this->_name = "Default";
-	else
-		this->_name = name;
 }
 
 Form::Form(const Form &copy)
@@ -59,13 +56,7 @@ void	Form::beSigned(Bureaucrat &b)
 		throw GradeTooLowException();
 	else
 		this->_signed = 1;
-/*
-	b.signForm(*this);
-	if (b.getGrade() > this->_signGrade)
-		throw	Bureaucrat::GradeTooLowException();
-	else
-		this->_signed = 1;
-*/}
+}
 
 const char	*Form::GradeTooLowException::what(void) const throw()
 {
@@ -76,7 +67,6 @@ const char	*Form::GradeTooLowException::what(void) const throw()
 
 Form	&Form::operator=(const Form &rhs)
 {
-	this->_name = rhs.getName();
 	this->_signGrade = rhs.whichSignGrade();
 	this->_execGrade = rhs.whichExecGrade();
 	this->_signed = rhs.isSigned();

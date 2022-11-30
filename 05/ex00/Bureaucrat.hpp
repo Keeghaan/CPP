@@ -6,7 +6,7 @@
 /*   By: jcourtoi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 14:20:35 by jcourtoi          #+#    #+#             */
-/*   Updated: 2022/11/26 15:55:31 by jcourtoi         ###   ########.fr       */
+/*   Updated: 2022/11/30 18:33:04 by jcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include <string>
 # include <stdexcept>
 
-# define DEBUG 1
+# define DEBUG 0
 
 class	Bureaucrat
 {
