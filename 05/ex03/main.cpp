@@ -6,7 +6,7 @@
 /*   By: jcourtoi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 14:18:02 by jcourtoi          #+#    #+#             */
-/*   Updated: 2022/11/30 17:13:18 by jcourtoi         ###   ########.fr       */
+/*   Updated: 2022/11/30 18:31:19 by jcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,20 +55,21 @@ int	main(int ac, char **av)
 			std::cout << test << " " << shForm << std::endl;
 			try
 			{
-				shForm.beSigned(ref);
-				prForm.beSigned(refA);
-				rForm.beSigned(refA);
-				prff = newbie.makePrForm("Hyde");
+			//	shForm.beSigned(ref);
+			//	prForm.beSigned(refA);
+			//	rForm.beSigned(refA);
+				
+				prff = newbie.makeForm("presidential pardon", "Hyde");
 		
 				prff->execute(refA);
 				prff->beSigned(refA);
 				prff->execute(refA);
-				
-				shff = newbie.makeShForm("kitchen");
+
+				shff = newbie.makeForm("shrubbery creation", "kitchen");
 				shff->beSigned(ref);
 				shff->execute(ref);
 
-				rff = newbie.makeRForm("Arthur");
+				rff = newbie.makeForm("robotomy request", "Arthur");
 				rff->beSigned(ref);
 				rff->execute(refA);
 
