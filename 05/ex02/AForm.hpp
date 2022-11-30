@@ -16,8 +16,8 @@ class	AForm
 		AForm(const AForm&);
 		~AForm(void);
 	
-		std::string	getName(void) const;
-		bool		isSigned(void) const;
+		std::string		getName(void) const;
+		bool			isSigned(void) const;
 		unsigned int	whichSignGrade(void) const;
 		unsigned int	whichExecGrade(void) const;
 
@@ -37,10 +37,10 @@ class	AForm
 	
 		AForm	&operator=(const AForm&);
 	protected:
-		std::string	_name;
-		bool		_signed;
-		unsigned int	_signGrade;
-		unsigned int	_execGrade;
+		const std::string	_name;
+		bool				_signed;
+		unsigned int		_signGrade;
+		unsigned int		_execGrade;
 };
 
 std::ostream	&operator<<(std::ostream&, const AForm&);

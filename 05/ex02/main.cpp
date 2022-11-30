@@ -6,7 +6,7 @@
 /*   By: jcourtoi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 14:18:02 by jcourtoi          #+#    #+#             */
-/*   Updated: 2022/11/26 15:56:11 by jcourtoi         ###   ########.fr       */
+/*   Updated: 2022/11/30 18:57:44 by jcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,8 @@ int	main(int ac, char **av)
 			const Bureaucrat		&ref = test;
 			Bureaucrat			testAussi("Truc", 2);
 			const Bureaucrat		&refA = testAussi;
-			ShrubberyCreationForm		shForm("garden");
+			ShrubberyCreationForm		shForm("kitchen");
+			PresidentialPardonForm		testForm;
 			PresidentialPardonForm		prForm("Ford Prefect");
 			RobotomyRequestForm		rForm("Slartibartfast");
 	
@@ -49,6 +50,8 @@ int	main(int ac, char **av)
 			std::cout << test << " " << shForm << std::endl;
 			try
 			{
+				testForm.beSigned(ref);
+				testForm.execute(refA);
 				shForm.beSigned(ref);
 				prForm.beSigned(refA);
 				rForm.beSigned(refA);

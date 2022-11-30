@@ -4,7 +4,6 @@ PresidentialPardonForm::PresidentialPardonForm(void): AForm::AForm()
 {
 	if (DEBUG)
 		std::cout << "PresidentialPardonForm default constructor" << std::endl;
-	this->AForm::_name = "target";
 	this->AForm::_signGrade = 25;
 	this->AForm::_execGrade = 5;
 	this->AForm::_signed = 0;
@@ -14,10 +13,6 @@ PresidentialPardonForm::PresidentialPardonForm(const std::string &target): AForm
 {
 	if (DEBUG)
 		std::cout << "PresidentialPardonForm default constructor" << std::endl;
-	if (target.empty())
-		this->AForm::_name = "target";
-	else
-		this->AForm::_name = target;
 	this->AForm::_signGrade = 25;
 	this->AForm::_execGrade = 5;
 	this->AForm::_signed = 0;

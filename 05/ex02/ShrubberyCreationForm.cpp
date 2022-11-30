@@ -4,19 +4,15 @@ ShrubberyCreationForm::ShrubberyCreationForm(void): AForm::AForm()
 {
 	if (DEBUG)
 		std::cout << "ShrubberyCreationForm default constructor" << std::endl;
-	this->AForm::_name = "target";
 	this->AForm::_signGrade = 145;
 	this->AForm::_execGrade = 137;
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(const std::string &target): AForm::AForm(target, 145, 137)
+ShrubberyCreationForm::ShrubberyCreationForm(const std::string &target):
+AForm::AForm(target, 145, 137)
 {
 	if (DEBUG)
 		std::cout << "ShrubberyCreationForm default constructor" << std::endl;
-	if (target.empty())
-		this->_name = "target";
-	else
-		this->_name = target;
 	this->AForm::_signGrade = 145;
 	this->AForm::_execGrade = 137;
 }
@@ -37,8 +33,9 @@ ShrubberyCreationForm::~ShrubberyCreationForm(void)
 void	ShrubberyCreationForm::createShrub(void)
 {
 	std::ofstream	outfile;
+	std::string		namefile = this->_name;
 
-	outfile.open(this->_name.append("_shrubbery").c_str(),
+	outfile.open(namefile.append("_shrubbery").c_str(),
 		std::fstream::in | std::ifstream::trunc);
 	if (outfile.is_open())
 	{

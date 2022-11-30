@@ -10,9 +10,9 @@ class	ShrubberyCreationForm: public AForm
 		ShrubberyCreationForm(const std::string&);
 		ShrubberyCreationForm(const ShrubberyCreationForm&);
 		virtual ~ShrubberyCreationForm(void);
-		
-		virtual void		execute(const Bureaucrat&);		
-		void		createShrub(void);
+
+		void			createShrub(void);
+		virtual void	execute(const Bureaucrat&);
 };
 
 #endif
