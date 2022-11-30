@@ -6,7 +6,7 @@
 /*   By: jcourtoi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 14:18:02 by jcourtoi          #+#    #+#             */
-/*   Updated: 2022/11/30 18:57:44 by jcourtoi         ###   ########.fr       */
+/*   Updated: 2022/11/30 19:15:46 by jcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int	main(int ac, char **av)
 	{
 		try
 		{
-			Bureaucrat			test("Edgar", 1);
+			Bureaucrat			test("Edgar", 150);
 			const Bureaucrat		&ref = test;
 			Bureaucrat			testAussi("Truc", 2);
 			const Bureaucrat		&refA = testAussi;

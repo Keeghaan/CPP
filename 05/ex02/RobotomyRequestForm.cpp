@@ -1,25 +1,22 @@
 #include "RobotomyRequestForm.hpp"
 
-RobotomyRequestForm::RobotomyRequestForm(void): AForm::AForm()
+RobotomyRequestForm::RobotomyRequestForm(void): AForm::AForm(), _signGrade(72),
+	_execGrade(45)
 {
 	if (DEBUG)
 		std::cout << "RobotomyRequestForm default constructor" << std::endl;
-	this->AForm::_signGrade = 72;
-	this->AForm::_execGrade = 45;
 	this->AForm::_signed = 0;
 }
 
-RobotomyRequestForm::RobotomyRequestForm(const std::string &target): AForm::AForm(target, 72, 45)
+RobotomyRequestForm::RobotomyRequestForm(const std::string &target): AForm::AForm(target, 72, 45), _signGrade(72), _execGrade(45)
 {
 	if (DEBUG)
 		std::cout << "RobotomyRequestForm parametric constructor" << std::endl;
-	this->AForm::_signGrade = 72;
-	this->AForm::_execGrade = 45;
 	this->AForm::_signed = 0;
 }
 
 RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &copy):
-	AForm::AForm(copy)
+	AForm::AForm(copy), _signGrade(72), _execGrade(45)
 {
 	if (DEBUG)
 		std::cout << "RobotomyRequestForm copy constructor" << std::endl;
@@ -34,6 +31,7 @@ RobotomyRequestForm::~RobotomyRequestForm(void)
 
 void	RobotomyRequestForm::execute(const Bureaucrat &executor)
 {
+	std::cout << this->_signGrade << std::endl;
 	if (this->_signed)
 	{
 		if (executor.getGrade() <= this->_execGrade)

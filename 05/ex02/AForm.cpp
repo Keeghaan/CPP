@@ -13,7 +13,7 @@ AForm::AForm(const std::string &name, int signG, int execG): _name(name),
 		std::cout << "AForm parametric constructor" << std::endl;
 }
 
-AForm::AForm(const AForm &copy)
+AForm::AForm(const AForm &copy): _signGrade(0), _execGrade(10)
 {
 	if (DEBUG)
 		std::cout << "AForm copy constructor" << std::endl;
@@ -72,8 +72,6 @@ const char	*AForm::GradeTooLowException::what(void) const throw()
 
 AForm	&AForm::operator=(const AForm &rhs)
 {
-	this->_signGrade = rhs.whichSignGrade();
-	this->_execGrade = rhs.whichExecGrade();
 	this->_signed = rhs.isSigned();
 	return (*this);
 }

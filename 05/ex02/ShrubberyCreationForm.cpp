@@ -1,24 +1,21 @@
 #include "ShrubberyCreationForm.hpp"
 
-ShrubberyCreationForm::ShrubberyCreationForm(void): AForm::AForm()
+ShrubberyCreationForm::ShrubberyCreationForm(void): AForm::AForm(),
+	_signGrade(145), _execGrade(137)
 {
 	if (DEBUG)
 		std::cout << "ShrubberyCreationForm default constructor" << std::endl;
-	this->AForm::_signGrade = 145;
-	this->AForm::_execGrade = 137;
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(const std::string &target):
-AForm::AForm(target, 145, 137)
+AForm::AForm(target, 145, 137), _signGrade(145), _execGrade(137)
 {
 	if (DEBUG)
 		std::cout << "ShrubberyCreationForm default constructor" << std::endl;
-	this->AForm::_signGrade = 145;
-	this->AForm::_execGrade = 137;
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &copy):
-	AForm::AForm(copy)
+	AForm::AForm(copy), _signGrade(145), _execGrade(137)
 {
 	if (DEBUG)
 		std::cout << "ShrubberyCreationForm copy constructor" << std::endl;
@@ -75,6 +72,7 @@ void	ShrubberyCreationForm::createShrub(void)
 
 void	ShrubberyCreationForm::execute(const Bureaucrat &executor)
 {
+	std::cout << this->_signGrade << std::endl;
 	if (this->_signed)
 	{
 		if (executor.getGrade() <= this->_execGrade)

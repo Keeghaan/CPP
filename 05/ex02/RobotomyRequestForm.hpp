@@ -12,6 +12,10 @@ class	RobotomyRequestForm: public AForm
 		virtual ~RobotomyRequestForm(void);
 
 		virtual void	execute(const Bureaucrat&);
+	
+	private:
+		const unsigned int	_signGrade;
+		const unsigned int	_execGrade;
 };
 
 #endif

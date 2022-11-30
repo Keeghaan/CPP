@@ -1,25 +1,22 @@
 #include "PresidentialPardonForm.hpp"
 
-PresidentialPardonForm::PresidentialPardonForm(void): AForm::AForm()
+PresidentialPardonForm::PresidentialPardonForm(void): AForm::AForm(), _signGrade(25),
+	_execGrade(5)
 {
 	if (DEBUG)
 		std::cout << "PresidentialPardonForm default constructor" << std::endl;
-	this->AForm::_signGrade = 25;
-	this->AForm::_execGrade = 5;
 	this->AForm::_signed = 0;
 }
 
-PresidentialPardonForm::PresidentialPardonForm(const std::string &target): AForm::AForm(target, 25, 5)
+PresidentialPardonForm::PresidentialPardonForm(const std::string &target): AForm::AForm(target, 25, 5), _signGrade(25), _execGrade(5)
 {
 	if (DEBUG)
 		std::cout << "PresidentialPardonForm default constructor" << std::endl;
-	this->AForm::_signGrade = 25;
-	this->AForm::_execGrade = 5;
 	this->AForm::_signed = 0;
 }
 
 PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &copy):
-	AForm::AForm(copy)
+	AForm::AForm(copy), _signGrade(25), _execGrade(5)
 {
 	if (DEBUG)
 		std::cout << "PresidentialPardonForm copy constructor" << std::endl;
@@ -34,6 +31,7 @@ PresidentialPardonForm::~PresidentialPardonForm(void)
 
 void	PresidentialPardonForm::execute(const Bureaucrat &executor)
 {
+	std::cout << this->_signGrade << std::endl;
 	if (this->_signed)
 	{
 		if (executor.getGrade() <= this->_execGrade)
