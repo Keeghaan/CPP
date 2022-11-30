@@ -49,3 +49,4 @@ void	PresidentialPardonForm::execute(const Bureaucrat &executor)
 	else
 		std::cout << "The must be signed first" << std::endl;
 }
+

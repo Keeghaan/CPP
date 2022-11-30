@@ -6,7 +6,7 @@
 /*   By: jcourtoi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 14:18:02 by jcourtoi          #+#    #+#             */
-/*   Updated: 2022/11/26 15:56:11 by jcourtoi         ###   ########.fr       */
+/*   Updated: 2022/11/30 15:38:19 by jcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include "ShrubberyCreationForm.hpp"
 #include "PresidentialPardonForm.hpp"
 #include "RobotomyRequestForm.hpp"
+#include "Intern.hpp"
 
 int	main(int ac, char **av)
 {
@@ -44,7 +45,9 @@ int	main(int ac, char **av)
 			ShrubberyCreationForm		shForm("garden");
 			PresidentialPardonForm		prForm("Ford Prefect");
 			RobotomyRequestForm		rForm("Slartibartfast");
-	
+			Intern					newbie;
+			AForm					*prff;
+
 			std::cout << std::endl;
 			std::cout << test << " " << shForm << std::endl;
 			try
@@ -52,17 +55,22 @@ int	main(int ac, char **av)
 				shForm.beSigned(ref);
 				prForm.beSigned(refA);
 				rForm.beSigned(refA);
-				shForm.execute(refA);
+				prff = newbie.makePrForm("Hyde");
+
+			/*	shForm.execute(refA);
 				prForm.execute(refA);
 				rForm.execute(refA);
 				rForm.execute(refA);
 				rForm.execute(refA);
-				rForm.execute(refA);
+				rForm.execute(refA);*/
 			}
 			catch (std::exception &ef)
 			{
+				delete prff;
 				std::cerr << ef.what() << std::endl;
 			}
+
+			delete prff;
 			std::cout << std::endl;
 			std::cout << testAussi << std::endl;
 			test.promote();
