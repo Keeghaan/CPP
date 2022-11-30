@@ -6,7 +6,7 @@
 /*   By: jcourtoi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 10:59:17 by jcourtoi          #+#    #+#             */
-/*   Updated: 2022/11/30 13:32:38 by jcourtoi         ###   ########.fr       */
+/*   Updated: 2022/11/30 13:55:24 by jcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,15 +58,29 @@ void	Character::equip(AMateria *m)
 
 void	Character::unequip(int idx)
 {
-	if (this->_inventory[idx])
+	if (unsigned(idx) < this->_idx)
 	{
+		unsigned int i = 0;
 		std::cout << "Unequip " << this->_inventory[idx]->getType() << std::endl;
 		this->_onFloor[this->_nFloor] = this->_inventory[idx];
 		this->_nFloor++;
-		this->_inventory[idx] = 0;
-		this->_idx--;
-		std::cout << "Slot " << idx << " of the inventory is free" << std::endl;
+		if (this->_idx == 1)
+		{
+			this->_inventory[idx] = 0;
+			this->_idx--;
+			std::cout << "The inventory is now empty" << std::endl;
+		}
+		else
+		{
+			this->_idx--;
+			for (i = idx; i < this->_idx - 1; i++)
+				this->_inventory[i] = this->_inventory[i + 1];
+			this->_inventory[i + 1] = 0;
+			std::cout << "There is/are " << this->_idx << " items left" << std::endl;
+		}
 	}
+	else
+		std::cout << "There is already no items here" << std::endl;
 }
 
 void	Character::use(int idx, ICharacter &target)
@@ -78,9 +92,15 @@ void	Character::use(int idx, ICharacter &target)
 	else
 	{
 		if (this->_inventory[idx])
+		{
+			std::cout << this->getName() << " uses "
+				<< this->_inventory[idx]->getType() << " on "
+				<< target.getName() << ": " << std::endl;
 			this->_inventory[idx]->use(target);
+		}
 		else
-			std::cout << "Use nothing on " << target.getName() << std::endl;
+			std::cout << this->getName() << " uses nothing on "
+				<< target.getName() << std::endl;
 	}
 }
 
