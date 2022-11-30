@@ -6,13 +6,13 @@
 #    By: jcourtoi <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/24 21:25:32 by jcourtoi          #+#    #+#              #
-#    Updated: 2022/11/26 09:40:42 by jcourtoi         ###   ########.fr        #
+#    Updated: 2022/11/30 13:07:59 by jcourtoi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME =	Aclass
 
-SRCS =	main.cpp Animal.cpp Dog.cpp Cat.cpp Brain.cpp
+SRCS =	main.cpp AAnimal.cpp Dog.cpp Cat.cpp Brain.cpp
 
 CXX =	c++
 
