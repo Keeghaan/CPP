@@ -6,7 +6,7 @@
 /*   By: jcourtoi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 12:29:49 by jcourtoi          #+#    #+#             */
-/*   Updated: 2022/11/30 13:35:11 by jcourtoi         ###   ########.fr       */
+/*   Updated: 2022/11/30 14:31:04 by jcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,6 @@ MateriaSource::MateriaSource(const MateriaSource &copy)
 {
 	if (DEBUG)
 		std::cout << "MateriaSource copy constructor" << std::endl;
-	for (unsigned int i = 0; i < this->_nMateria; i++)
-		delete this->_materias[i];
 	*this = copy;
 }
 
@@ -71,13 +69,19 @@ AMateria	*MateriaSource::createMateria(const std::string &type)
 
 MateriaSource	&MateriaSource::operator=(const MateriaSource &rhs)
 {
-	this->_nMateria = rhs.getN();
-	for (unsigned int i = 0; i < INV; i++) 
+
+	if (this->_nMateria)
 	{
-		if (i < this->_nMateria) 
-			this->_materias[i] = rhs._materias[i]->clone();
-		else
-			this->_materias[i] = NULL;
+		for (unsigned int i = 0; i < this->_nMateria; i++)
+			delete this->_materias[i];
+		for (unsigned int i = 0; i < this->_nMateria; i++) 
+		{
+			if (i < this->_nMateria) 
+				this->_materias[i] = rhs._materias[i]->clone();
+			else
+				this->_materias[i] = NULL;
+		}
 	}
+	this->_nMateria = rhs.getN();
 	return (*this);
 }
