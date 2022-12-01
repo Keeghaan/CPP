@@ -29,16 +29,32 @@ PresidentialPardonForm::~PresidentialPardonForm(void)
 		std::cout << "PresidentialPardonForm destructor" << std::endl;
 }
 
+void	PresidentialPardonForm::beSigned(const Bureaucrat &toSign)
+{
+	if (this->_signGrade >= toSign.getGrade())
+		this->_signed = 1;
+	else
+		throw AForm::GradeTooLowException();
+}
+
 void	PresidentialPardonForm::execute(const Bureaucrat &executor)
 {
-	std::cout << this->_signGrade << std::endl;
 	if (this->_signed)
 	{
 		if (executor.getGrade() <= this->_execGrade)
 			std::cout << this->_name << " has been pardoned by Zaphod Beeblebrox" << std::endl;
 		else
-			throw GradeTooLowException();
+			throw AForm::GradeTooLowException();
 	}
 	else
-		std::cout << "The must be signed first" << std::endl;
+		throw AForm::FormNotSignedException();
+}
+
+//OVERLOAD
+
+PresidentialPardonForm	&PresidentialPardonForm::operator=(const PresidentialPardonForm &rhs)
+{
+	this->_signed = rhs.isSigned();
+	this->_target = rhs.getTarget();
+	return (*this);
 }

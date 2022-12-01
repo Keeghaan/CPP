@@ -29,9 +29,16 @@ RobotomyRequestForm::~RobotomyRequestForm(void)
 		std::cout << "RobotomyRequestForm destructor" << std::endl;
 }
 
+void	RobotomyRequestForm::beSigned(const Bureaucrat &toSign)
+{
+	if (this->_signGrade >= toSign.getGrade())
+		this->_signed = 1;
+	else
+		throw AForm::GradeTooLowException();
+}
+
 void	RobotomyRequestForm::execute(const Bureaucrat &executor)
 {
-	std::cout << this->_signGrade << std::endl;
 	if (this->_signed)
 	{
 		if (executor.getGrade() <= this->_execGrade)
@@ -42,13 +49,18 @@ void	RobotomyRequestForm::execute(const Bureaucrat &executor)
 			if (succeed % 2 == 0)
 				std::cout << this->_name << " has been robotomised" << std::endl;
 			else
-				std::cout << "The robotomy didnt work" << std::endl;
+				std::cout << "Robotomy didnt work" << std::endl;
+				//throw RobotomyRequestForm::RobotomyNotWorkingException();
 			succeed++;
 		}
 		else
-			throw GradeTooLowException();
+			throw AForm::GradeTooLowException();
 	}
 	else
-		std::cerr << "This has to be signed first" << std::endl;		
-	
+		throw AForm::FormNotSignedException();
+}
+
+const char	*RobotomyRequestForm::RobotomyNotWorkingException::what(void) const throw()
+{
+	return ("Robotomy didnt work");
 }

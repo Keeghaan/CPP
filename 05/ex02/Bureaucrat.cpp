@@ -6,7 +6,7 @@
 /*   By: jcourtoi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 14:26:39 by jcourtoi          #+#    #+#             */
-/*   Updated: 2022/11/26 15:57:19 by jcourtoi         ###   ########.fr       */
+/*   Updated: 2022/12/01 11:59:06 by jcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,6 +119,7 @@ const char	*Bureaucrat::GradeTooLowException::what(void) const throw()
 Bureaucrat	&Bureaucrat::operator=(const Bureaucrat &rhs)
 {
 	(void)rhs;
+	this->_grade = rhs.getGrade();
 	return (*this);
 }
 

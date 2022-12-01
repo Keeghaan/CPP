@@ -11,9 +11,18 @@ class	RobotomyRequestForm: public AForm
 		RobotomyRequestForm(const RobotomyRequestForm&);
 		virtual ~RobotomyRequestForm(void);
 
+		virtual void	beSigned(const Bureaucrat&);
 		virtual void	execute(const Bureaucrat&);
-	
+
+		class	RobotomyNotWorkingException: public std::exception
+		{
+			public:
+				const char	*what(void) const throw();
+		};
+
 	private:
+		const std::string	_name;
+//		const std::string	_target;
 		const unsigned int	_signGrade;
 		const unsigned int	_execGrade;
 };

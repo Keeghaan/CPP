@@ -17,12 +17,13 @@ class	AForm
 		~AForm(void);
 	
 		std::string		getName(void) const;
+		std::string		getTarget(void) const;
 		bool			isSigned(void) const;
 		unsigned int	whichSignGrade(void) const;
 		unsigned int	whichExecGrade(void) const;
 
 		virtual void	execute(const Bureaucrat&) = 0;
-		virtual void	beSigned(const Bureaucrat&);
+		virtual void	beSigned(const Bureaucrat&) = 0;
 		
 		class	GradeTooHighException: public std::exception
 		{
@@ -34,11 +35,20 @@ class	AForm
 			public:
 				virtual const char *what(void) const throw();
 		};
-	
+		class	FormNotSignedException: public std::exception
+		{
+			public:
+				virtual const char	*what(void) const throw();
+		};
+
 		AForm	&operator=(const AForm&);
+	
 	protected:
+		bool		_signed;
+		std::string	_target;
+
+	private:
 		const std::string	_name;
-		bool				_signed;
 		const unsigned int		_signGrade;
 		const unsigned int		_execGrade;
 };
