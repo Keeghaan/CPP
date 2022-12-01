@@ -64,3 +64,10 @@ const char	*RobotomyRequestForm::RobotomyNotWorkingException::what(void) const t
 {
 	return ("Robotomy didnt work");
 }
+
+RobotomyRequestForm	&RobotomyRequestForm::operator=(const RobotomyRequestForm &rhs)
+{
+	this->_signed = rhs.isSigned();
+	this->_target = rhs.getTarget();
+	return (*this);
+}

@@ -20,6 +20,7 @@ class	RobotomyRequestForm: public AForm
 				const char	*what(void) const throw();
 		};
 
+		RobotomyRequestForm	&operator=(const RobotomyRequestForm&);
 	private:
 		const std::string	_name;
 //		const std::string	_target;
