@@ -14,7 +14,7 @@ class	AForm
 		AForm(void);
 		AForm(const std::string&, int, int);
 		AForm(const AForm&);
-		~AForm(void);
+		virtual ~AForm(void);
 	
 		std::string		getName(void) const;
 		std::string		getTarget(void) const;
