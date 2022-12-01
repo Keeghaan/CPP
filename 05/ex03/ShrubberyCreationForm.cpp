@@ -37,51 +37,13 @@ const char	*ShrubberyCreationForm::FileDoesntOpenException::what(void) const thr
 	return (CRED("File doesnt open"));
 }
 
-void	ShrubberyCreationForm::createShrub(void)
-{
-	std::ofstream	outfile;
-
-	outfile.open(this->_target.append("_shrubbery").c_str(),
-		std::fstream::in | std::ifstream::trunc);
-	if (outfile.is_open())
-	{
-		outfile << " ;"
-"     .              .              ;%     ;;
-"        ,           ,                :;%  %;
-"         :         ;                   :;%;'     .,
-",.        %;     %;            ;        %;'    ,;
-"  ;       ;%;  %%;        ,     %;    ;%;    ,%'
-"   %;       %;%;      ,  ;       %;  ;%;   ,%;'
-"    ;%;      %;        ;%;        % ;%;  ,%;'
-"     `%;.     ;%;     %;'         `;%%;.%;'
-"      `:;%.    ;%%. %@;        %; ;@%;%'
-"         `:%;.  :;bd%;          %;@%;'
-"           `@%:.  :;%.         ;@@%;'
-"             `@%.  `;@%.      ;@@%;
-"               `@%%. `@%%    ;@@%;
-"                 ;@%. :@%%  %@@%;
-"                   %@bd%%%bd%%:;
-"                     #@%%%%%:;;
-"                     %@@%%%::;
-"                     %@@@%(o);  . '
-"                     %@@@o%;:(.,'
-"                 `.. %@@@o%::;
-"                    `)@@@o%::;
-"                     %@@(o)::;
-"                    .%@@@@%::;
-"                    ;%@@@@%::;.
-"                   ;%@@@@%%:;;;.
-"               ...;%@@@@@%%:;;;;,..%     ";
-		outfile.close();
-	}
-	else
-		throw	ShrubberyCreationForm::FileDoesntOpenException();
-}
-
 void	ShrubberyCreationForm::beSigned(const Bureaucrat &b)
 {
 	if (b.getGrade() <= this->_signGrade)
+	{
 		this->_signed = 1;
+		std::cout << CGRN("ShrubberyCreationForm has been signed") << std::endl;
+	}	
 	else
 		throw AForm::GradeTooLowException();
 }
@@ -91,7 +53,47 @@ void	ShrubberyCreationForm::execute(const Bureaucrat &executor)
 	if (this->_signed)
 	{
 		if (executor.getGrade() <= this->_execGrade)
-			createShrub();
+		{
+			std::ofstream	outfile;
+
+			outfile.open(this->_target.append("_shrubbery").c_str(),
+			std::fstream::in | std::ifstream::app);
+			if (outfile.is_open())
+			{
+				outfile <<"                                            .\n"
+						"                                   .         ;\n"
+						"      .              .              ;%     ;;\n"
+						"        ,           ,                :;%  %;\n"
+						"         :         ;                   :;%;'     .,\n"
+						",.        %;     %;            ;        %;'    ,;\n"
+						"  ;       ;%;  %%;        ,     %;    ;%;    ,%'\n"
+						"   %;       %;%;      ,  ;       %;  ;%;   ,%;'\n"
+						"    ;%;      %;        ;%;        % ;%;  ,%;'\n"
+						"     `%;.     ;%;     %;'         `;%%;.%;'\n"
+						"      `:;%.    ;%%. %@;        %; ;@%;%'\n"
+						"         `:%;.  :;bd%;          %;@%;'\n"
+						"           `@%:.  :;%.         ;@@%;'\n"
+						"             `@%.  `;@%.      ;@@%;\n"
+						"               `@%%. `@%%    ;@@%;\n"
+						"                 ;@%. :@%%  %@@%;\n"
+						"                   %@bd%%%bd%%:;\n"
+						"                     #@%%%%%:;;\n"
+						"                     %@@%%%::;\n"
+						"                     %@@@%(o);  . '\n"
+						"                     %@@@o%;:(.,'\n"
+						"                 `.. %@@@o%::;\n"
+						"                    `)@@@o%::;\n"
+						"                     %@@(o)::;\n"
+						"                    .%@@@@%::;\n"
+						"                    ;%@@@@%::;.\n"
+						"                   ;%@@@@%%:;;;.\n"
+						"               ...;%@@@@@%%:;;;;,..";
+			}
+			else
+				throw ShrubberyCreationForm::FileDoesntOpenException();
+			outfile.close();
+			std::cout << CGRN("ShrubberyCreationForm has been executed") << std::endl;
+		}
 		else
 			throw AForm::GradeTooLowException();
 	}

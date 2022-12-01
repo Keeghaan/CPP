@@ -38,7 +38,10 @@ PresidentialPardonForm::~PresidentialPardonForm(void)
 void	PresidentialPardonForm::beSigned(const Bureaucrat &toSign)
 {
 	if (this->_signGrade >= toSign.getGrade())
+	{
 		this->_signed = 1;
+		std::cout << CGRN("PresidentialPardonForm has been signed") << std::endl;
+	}
 	else
 		throw AForm::GradeTooLowException();
 }
@@ -48,7 +51,10 @@ void	PresidentialPardonForm::execute(const Bureaucrat &executor)
 	if (this->_signed)
 	{
 		if (executor.getGrade() <= this->_execGrade)
-			std::cout << this->_name << " has been pardoned by Zaphod Beeblebrox" << std::endl;
+		{
+			std::cout << YEL << this->_target << " has been pardoned by Zaphod Beeblebrox" << NC << std::endl;
+			std::cout << CGRN("PresidentialPardonForm has been executed") << std::endl;
+		}
 		else
 			throw AForm::GradeTooLowException();
 	}

@@ -11,10 +11,8 @@ class	ShrubberyCreationForm: public AForm
 		ShrubberyCreationForm(const ShrubberyCreationForm&);
 		virtual ~ShrubberyCreationForm(void);
 
-//		std::string	getTarget(void) const;
 
 		virtual void	beSigned(const Bureaucrat&);
-		void			createShrub(void);
 		virtual void	execute(const Bureaucrat&);
 		
 		class	FileDoesntOpenException: public std::exception
@@ -26,7 +24,6 @@ class	ShrubberyCreationForm: public AForm
 		ShrubberyCreationForm	&operator=(const ShrubberyCreationForm&);
 	private:
 		const std::string	_name;
-//		std::string			_target;
 		const unsigned int	_signGrade;
 		const unsigned int	_execGrade;
 };
