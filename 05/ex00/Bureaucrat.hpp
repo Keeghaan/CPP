@@ -6,7 +6,7 @@
 /*   By: jcourtoi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 14:20:35 by jcourtoi          #+#    #+#             */
-/*   Updated: 2022/11/30 18:33:04 by jcourtoi         ###   ########.fr       */
+/*   Updated: 2022/12/01 10:46:19 by jcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <iostream>
 # include <string>
 # include <stdexcept>
+# include <climits>
 
 # define DEBUG 0
 
