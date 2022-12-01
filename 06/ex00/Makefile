@@ -5,15 +5,14 @@
 #                                                     +:+ +:+         +:+      #
 #    By: jcourtoi <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/11/26 14:17:04 by jcourtoi          #+#    #+#              #
-#    Updated: 2022/11/26 14:17:40 by jcourtoi         ###   ########.fr        #
+#    Created: 2022/12/01 14:39:31 by jcourtoi          #+#    #+#              #
+#    Updated: 2022/12/01 14:39:33 by jcourtoi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME =	ActiveForm
+NAME =	cast
 
-SRCS =	main.cpp Bureaucrat.cpp AForm.cpp ShrubberyCreationForm.cpp \
-	RobotomyRequestForm.cpp PresidentialPardonForm.cpp
+SRCS =	main.cpp 
 
 CXX =	c++
 
@@ -24,7 +23,7 @@ _END=	$'\033[0m
 OBJS = ${SRCS:.cpp=.o}
 DEPS = ${OBJS:.o=.d}
 
-CXXFLAGS = -Wall -Wextra -Werror -Wshadow -std=c++98 
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98 
 
 RM = rm -rf
 
@@ -49,7 +48,7 @@ re: fclean
 	@make all
 
 vtest: ${NAME}
-	-valgrind --leak-check=full --show-leak-kinds=all ./${NAME}
+	-valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./${NAME}
 
 test: ${NAME}
 	./${NAME}
