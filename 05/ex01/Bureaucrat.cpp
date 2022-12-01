@@ -6,7 +6,7 @@
 /*   By: jcourtoi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 14:26:39 by jcourtoi          #+#    #+#             */
-/*   Updated: 2022/11/30 15:23:24 by jcourtoi         ###   ########.fr       */
+/*   Updated: 2022/12/01 11:06:08 by jcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,15 +70,7 @@ void	Bureaucrat::signForm(Form &f)
 		std::cout << "Bureaucrat " << this->_name << " couldnt sign "
 			<< f.getName() << " form because of " << e.what() << std::endl;
 	}
-/*
-	if (f.isSigned())
-		std::cout << "Form " << f.getName() << " already signed" << std::endl;
-	else if (f.whichSignGrade() > this->_grade)
-		std::cout << this->_name << " couldn't sign the form "
-			<< f.getName() << " because his grade if too low" << std::endl;
-	else
-		std::cout << this->_name << " signed the form " << f.getName() << std::endl;
-*/}
+}
 
 void	Bureaucrat::promote(void)
 {
@@ -98,12 +90,12 @@ void	Bureaucrat::demote(void)
 
 const char	*Bureaucrat::GradeTooHighException::what(void) const throw()
 {
-	return ("Grade too high");
+	return ("Bureaucrat : Grade too high");
 }
 
 const char	*Bureaucrat::GradeTooLowException::what(void) const throw()
 {
-	return ("Grade too low");
+	return ("Bureaucrat : Grade too low");
 }
 
 //OVERLOAD

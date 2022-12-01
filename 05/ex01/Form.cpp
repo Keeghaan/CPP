@@ -11,6 +11,10 @@ Form::Form(const std::string &name, int signG, int execG): _name(name),
 {
 	if (DEBUG)
 		std::cout << "Form parametric constructor" << std::endl;
+	if (this->_signGrade > 150 || this->_execGrade > 150)
+		throw Form::GradeTooLowException();
+	if (this->_signGrade < 1 || this->_execGrade < 1)
+		throw Form::GradeTooHighException();
 }
 
 Form::Form(const Form &copy): _signGrade(50), _execGrade(10)
@@ -60,7 +64,12 @@ void	Form::beSigned(Bureaucrat &b)
 
 const char	*Form::GradeTooLowException::what(void) const throw()
 {
-	return ("Grade too low");
+	return ("Form : Grade too low");
+}
+
+const char	*Form::GradeTooHighException::what(void) const throw()
+{
+	return ("Form : Grade too high");
 }
 
 //OVERLOAD

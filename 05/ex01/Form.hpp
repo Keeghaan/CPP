@@ -23,6 +23,11 @@ class	Form
 			public:
 				const char	*what(void) const throw();
 		};
+		class	GradeTooHighException: public std::exception
+		{
+			public:
+				const char	*what(void) const throw();
+		};
 
 		void	beSigned(Bureaucrat&);
 
