@@ -6,7 +6,7 @@
 /*   By: jcourtoi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 14:20:35 by jcourtoi          #+#    #+#             */
-/*   Updated: 2022/11/26 15:55:31 by jcourtoi         ###   ########.fr       */
+/*   Updated: 2022/12/01 12:49:09 by jcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <string>
 # include <stdexcept>
 # include "AForm.hpp"
+# include "colors.hpp"
 
 # define DEBUG 1
 

@@ -1,33 +1,31 @@
 #include "PresidentialPardonForm.hpp"
 
-PresidentialPardonForm::PresidentialPardonForm(void): AForm::AForm()
+PresidentialPardonForm::PresidentialPardonForm(void): AForm::AForm(),
+	_name("president pardon"), _signGrade(25), _execGrade(5)
 {
 	if (DEBUG)
 		std::cout << "PresidentialPardonForm default constructor" << std::endl;
-	this->AForm::_name = "target";
-	this->AForm::_signGrade = 25;
-	this->AForm::_execGrade = 5;
-	this->AForm::_signed = 0;
+	this->_signed = 0;
+	this->_target = "default";
 }
 
-PresidentialPardonForm::PresidentialPardonForm(const std::string &target): AForm::AForm(target, 25, 5)
+PresidentialPardonForm::PresidentialPardonForm(const std::string &target): AForm::AForm(target, 25, 5), _name("president pardon"), _signGrade(25), _execGrade(5)
 {
 	if (DEBUG)
 		std::cout << "PresidentialPardonForm default constructor" << std::endl;
-	if (target.empty())
-		this->AForm::_name = "target";
+	this->_signed = 0;
+	if (!target.empty())
+		this->_target = target;
 	else
-		this->AForm::_name = target;
-	this->AForm::_signGrade = 25;
-	this->AForm::_execGrade = 5;
-	this->AForm::_signed = 0;
+		this->_target = "default";
 }
 
 PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &copy):
-	AForm::AForm(copy)
+	AForm::AForm(copy), _name("president pardon"),  _signGrade(25), _execGrade(5)
 {
 	if (DEBUG)
 		std::cout << "PresidentialPardonForm copy constructor" << std::endl;
+	*this = copy;
 }
 
 
@@ -37,6 +35,14 @@ PresidentialPardonForm::~PresidentialPardonForm(void)
 		std::cout << "PresidentialPardonForm destructor" << std::endl;
 }
 
+void	PresidentialPardonForm::beSigned(const Bureaucrat &toSign)
+{
+	if (this->_signGrade >= toSign.getGrade())
+		this->_signed = 1;
+	else
+		throw AForm::GradeTooLowException();
+}
+
 void	PresidentialPardonForm::execute(const Bureaucrat &executor)
 {
 	if (this->_signed)
@@ -44,9 +50,17 @@ void	PresidentialPardonForm::execute(const Bureaucrat &executor)
 		if (executor.getGrade() <= this->_execGrade)
 			std::cout << this->_name << " has been pardoned by Zaphod Beeblebrox" << std::endl;
 		else
-			throw GradeTooLowException();
+			throw AForm::GradeTooLowException();
 	}
 	else
-		std::cout << "The must be signed first" << std::endl;
+		throw AForm::FormNotSignedException();
 }
 
+//OVERLOAD
+
+PresidentialPardonForm	&PresidentialPardonForm::operator=(const PresidentialPardonForm &rhs)
+{
+	this->_signed = rhs.isSigned();
+	this->_target = rhs.getTarget();
+	return (*this);
+}

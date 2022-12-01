@@ -10,9 +10,16 @@ class	PresidentialPardonForm: public AForm
 		PresidentialPardonForm(const std::string&);
 		PresidentialPardonForm(const PresidentialPardonForm&);
 		virtual ~PresidentialPardonForm(void);
-
+		
+		virtual void	beSigned(const Bureaucrat&);
 		virtual void	execute(const Bureaucrat&);
 
+		PresidentialPardonForm	&operator=(const PresidentialPardonForm&);
+	private:
+		const std::string	_name;
+//		const std::string	_target;
+		const unsigned int	_signGrade;
+		const unsigned int	_execGrade;
 };
 
 #endif

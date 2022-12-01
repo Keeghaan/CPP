@@ -1,25 +1,30 @@
 #include "AForm.hpp"
 
-AForm::AForm(void): _name("Default"), _signed(0), _signGrade(50), _execGrade(10)
+AForm::AForm(void): _signed(0), _name("Default"), _signGrade(50), _execGrade(10)
 {
 	if (DEBUG)
 		std::cout << "AForm default constructor" << std::endl;
 }
 
-AForm::AForm(const std::string &name, int signG, int execG): _signGrade(signG), _execGrade(execG)
+AForm::AForm(const std::string &name, int signG, int execG):_signed(0), _name(name),
+	_signGrade(signG), _execGrade(execG)
 {
 	if (DEBUG)
 		std::cout << "AForm parametric constructor" << std::endl;
-	if (name.empty())
-		this->_name = "Default";
-	else
-		this->_name = name;
+	if (this->_signGrade > 150 || this->_execGrade > 150)
+		throw AForm::GradeTooLowException();
+	if (this->_signGrade < 1 || this->_execGrade < 1)
+		throw AForm::GradeTooHighException();
 }
 
-AForm::AForm(const AForm &copy)
+AForm::AForm(const AForm &copy): _signGrade(0), _execGrade(10)
 {
 	if (DEBUG)
 		std::cout << "AForm copy constructor" << std::endl;
+	if (this->_signGrade > 150 || this->_execGrade > 150)
+		throw AForm::GradeTooLowException();
+	if (this->_signGrade < 1 || this->_execGrade < 1)
+		throw AForm::GradeTooHighException();
 	*this = copy;
 }
 
@@ -34,6 +39,11 @@ AForm::~AForm(void)
 std::string	AForm::getName(void) const
 {
 	return (this->_name);
+}
+
+std::string	AForm::getTarget(void) const
+{
+	return (this->_target);
 }
 
 bool	AForm::isSigned(void) const
@@ -53,32 +63,28 @@ unsigned int	AForm::whichExecGrade(void) const
 
 //OTHER FUNC
 
-void	AForm::beSigned(const Bureaucrat &b)
-{
-	if (b.getGrade() > this->_signGrade)
-		throw AForm::GradeTooLowException();
-	else
-		this->_signed = 1;
-}
 
 const char	*AForm::GradeTooHighException::what(void) const throw()
 {
-	return ("Grade too high");
+	return (CRED("AForm : Grade too high"));
 }
 
 const char	*AForm::GradeTooLowException::what(void) const throw()
 {
-	return ("Grade too low");
+	return (CRED("AForm : Grade too low"));
+}
+
+const char	*AForm::FormNotSignedException::what(void) const throw()
+{
+	return (CRED("AForm : Form not signed"));
 }
 
 //OVERLOAD
 
 AForm	&AForm::operator=(const AForm &rhs)
 {
-	this->_name = rhs.getName();
-	this->_signGrade = rhs.whichSignGrade();
-	this->_execGrade = rhs.whichExecGrade();
 	this->_signed = rhs.isSigned();
+	this->_target = rhs.getTarget();
 	return (*this);
 }
 

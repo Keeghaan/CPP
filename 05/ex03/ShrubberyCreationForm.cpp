@@ -1,31 +1,29 @@
 #include "ShrubberyCreationForm.hpp"
 
-ShrubberyCreationForm::ShrubberyCreationForm(void): AForm::AForm()
+ShrubberyCreationForm::ShrubberyCreationForm(void): AForm::AForm(),
+	_name("shrubbery creation"), _signGrade(145), _execGrade(137)
 {
 	if (DEBUG)
 		std::cout << "ShrubberyCreationForm default constructor" << std::endl;
-	this->AForm::_name = "target";
-	this->AForm::_signGrade = 145;
-	this->AForm::_execGrade = 137;
+	this->_target = "garden";
+	this->_signed = 0;
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(const std::string &target): AForm::AForm(target, 145, 137)
+ShrubberyCreationForm::ShrubberyCreationForm(const std::string &target):
+AForm::AForm(target, 145, 137), _name("shrubbery creation"), _signGrade(145),
+	_execGrade(137)
 {
 	if (DEBUG)
 		std::cout << "ShrubberyCreationForm default constructor" << std::endl;
-	if (target.empty())
-		this->_name = "target";
-	else
-		this->_name = target;
-	this->AForm::_signGrade = 145;
-	this->AForm::_execGrade = 137;
+	this->_target = target;
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &copy):
-	AForm::AForm(copy)
+	AForm::AForm(copy), _signGrade(145), _execGrade(137)
 {
 	if (DEBUG)
 		std::cout << "ShrubberyCreationForm copy constructor" << std::endl;
+	*this = copy;
 }
 
 ShrubberyCreationForm::~ShrubberyCreationForm(void)
@@ -34,46 +32,58 @@ ShrubberyCreationForm::~ShrubberyCreationForm(void)
 		std::cout << "ShrubberyCreationForm destructor" << std::endl;
 }
 
+const char	*ShrubberyCreationForm::FileDoesntOpenException::what(void) const throw()
+{
+	return (CRED("File doesnt open"));
+}
+
 void	ShrubberyCreationForm::createShrub(void)
 {
 	std::ofstream	outfile;
 
-	outfile.open(this->_name.append("_shrubbery").c_str(),
+	outfile.open(this->_target.append("_shrubbery").c_str(),
 		std::fstream::in | std::ifstream::trunc);
 	if (outfile.is_open())
 	{
-		outfile <<" 	                                             .\n"
-				"                                   .         ;\n"
-				"      .              .              ;%     ;;\n"
-				"        ,           ,                :;%  %;\n"
-				"         :         ;                   :;%;'     .,\n"
-				",.        %;     %;            ;        %;'    ,;\n"
-				"  ;       ;%;  %%;        ,     %;    ;%;    ,%'\n"
-				"   %;       %;%;      ,  ;       %;  ;%;   ,%;'\n"
-				"    ;%;      %;        ;%;        % ;%;  ,%;'\n"
-				"     `%;.     ;%;     %;'         `;%%;.%;'\n"
-				"      `:;%.    ;%%. %@;        %; ;@%;%'\n"
-				"         `:%;.  :;bd%;          %;@%;'\n"
-				"           `@%:.  :;%.         ;@@%;'\n"
-				"             `@%.  `;@%.      ;@@%;\n"
-				"               `@%%. `@%%    ;@@%;\n"
-				"                 ;@%. :@%%  %@@%;\n"
-				"                   %@bd%%%bd%%:;\n"
-				"                     #@%%%%%:;;\n"
-				"                     %@@%%%::;\n"
-				"                     %@@@%(o);  . '\n"
-				"                     %@@@o%;:(.,'\n"
-				"                 `.. %@@@o%::;\n"
-				"                    `)@@@o%::;\n"
-				"                     %@@(o)::;\n"
-				"                    .%@@@@%::;\n"
-				"                    ;%@@@@%::;.\n"
-				"                   ;%@@@@%%:;;;.\n"
-				"               ...;%@@@@@%%:;;;;,..";
+		outfile << " ;"
+"     .              .              ;%     ;;
+"        ,           ,                :;%  %;
+"         :         ;                   :;%;'     .,
+",.        %;     %;            ;        %;'    ,;
+"  ;       ;%;  %%;        ,     %;    ;%;    ,%'
+"   %;       %;%;      ,  ;       %;  ;%;   ,%;'
+"    ;%;      %;        ;%;        % ;%;  ,%;'
+"     `%;.     ;%;     %;'         `;%%;.%;'
+"      `:;%.    ;%%. %@;        %; ;@%;%'
+"         `:%;.  :;bd%;          %;@%;'
+"           `@%:.  :;%.         ;@@%;'
+"             `@%.  `;@%.      ;@@%;
+"               `@%%. `@%%    ;@@%;
+"                 ;@%. :@%%  %@@%;
+"                   %@bd%%%bd%%:;
+"                     #@%%%%%:;;
+"                     %@@%%%::;
+"                     %@@@%(o);  . '
+"                     %@@@o%;:(.,'
+"                 `.. %@@@o%::;
+"                    `)@@@o%::;
+"                     %@@(o)::;
+"                    .%@@@@%::;
+"                    ;%@@@@%::;.
+"                   ;%@@@@%%:;;;.
+"               ...;%@@@@@%%:;;;;,..%     ";
 		outfile.close();
 	}
 	else
-		std::cerr << "Something went bad with the outfile" << std::endl;
+		throw	ShrubberyCreationForm::FileDoesntOpenException();
+}
+
+void	ShrubberyCreationForm::beSigned(const Bureaucrat &b)
+{
+	if (b.getGrade() <= this->_signGrade)
+		this->_signed = 1;
+	else
+		throw AForm::GradeTooLowException();
 }
 
 void	ShrubberyCreationForm::execute(const Bureaucrat &executor)
@@ -83,8 +93,15 @@ void	ShrubberyCreationForm::execute(const Bureaucrat &executor)
 		if (executor.getGrade() <= this->_execGrade)
 			createShrub();
 		else
-			throw GradeTooLowException();
+			throw AForm::GradeTooLowException();
 	}
 	else
-		std::cout << "This has to be signed first" << std::endl;
+		throw AForm::FormNotSignedException();
+}
+
+ShrubberyCreationForm	&ShrubberyCreationForm::operator=(const ShrubberyCreationForm &rhs)
+{
+	this->_signed = rhs.isSigned();
+	this->_target = rhs.getTarget();
+	return (*this);
 }
