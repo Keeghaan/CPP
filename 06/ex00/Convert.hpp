@@ -6,7 +6,7 @@
 /*   By: jcourtoi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 15:10:15 by jcourtoi          #+#    #+#             */
-/*   Updated: 2022/12/02 15:19:48 by jcourtoi         ###   ########.fr       */
+/*   Updated: 2022/12/02 16:33:46 by jcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ class	Convert
 	private:
 		std::string	_toConvert;	
 		int			_which;
+		int			_special;
 };
 
 std::ostream &operator<<(std::ostream&, Convert&);

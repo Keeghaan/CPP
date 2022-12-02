@@ -6,7 +6,7 @@
 /*   By: jcourtoi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 14:55:26 by jcourtoi          #+#    #+#             */
-/*   Updated: 2022/12/02 15:37:32 by jcourtoi         ###   ########.fr       */
+/*   Updated: 2022/12/02 16:34:20 by jcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	main(int ac, char **av)
 	}
 	else*/
 	{
-		std::string	intS("0");
+		std::string	intS("56");
 		Convert	intTest(intS);
 		std::string	charS("j");
 		Convert	charTest(charS);
@@ -36,8 +36,10 @@ int	main(int ac, char **av)
 		Convert	floatTest(floatS);
 		std::string	doubleS("47.2");
 		Convert	doubleTest(doubleS);
-	//	Convert	weirdFloat("+inff");
-	//	Convert	weirdDouble("nan");
+		std::string	weirdF("nanf");
+		Convert	weirdFloat(weirdF);
+		std::string	weirdD("nan");
+		Convert	weirdDouble(weirdD);
 
 		std::cout << intTest << std::endl;
 		intTest.converter();
@@ -51,12 +53,12 @@ int	main(int ac, char **av)
 		std::cout << doubleTest << std::endl;
 		doubleTest.converter();
 		std::cout << std::endl;
-	/*	std::cout << weirdFloat << std::endl;
+		std::cout << weirdFloat << std::endl;
 		weirdFloat.converter();
 		std::cout << std::endl;
 		std::cout << weirdDouble << std::endl << std::endl;
 		weirdDouble.converter();
-		std::cout << std::endl;*/
+		std::cout << std::endl;
 	}
 	return (0);
 }

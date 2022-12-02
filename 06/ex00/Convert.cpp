@@ -6,7 +6,7 @@
 /*   By: jcourtoi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 15:14:21 by jcourtoi          #+#    #+#             */
-/*   Updated: 2022/12/02 16:02:27 by jcourtoi         ###   ########.fr       */
+/*   Updated: 2022/12/02 16:33:25 by jcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ Convert::Convert(void)
 		std::cout << "Convert default constructor" << std::endl;
 	this->_toConvert = "c";
 	this->_which = 0;
+	this->_special = 0;
 }
 
 Convert::Convert(std::string &s)
@@ -29,6 +30,7 @@ Convert::Convert(std::string &s)
 	else
 		this->_toConvert = s;
 	this->_which = 0;
+	this->_special = 0;
 }
 
 Convert::~Convert(void)
@@ -50,7 +52,23 @@ int	Convert::isDigit(void)
 	int	result = -1;
 	int	dot = 0;
 	unsigned long int	j = 0;
+	std::string	check[] = { "nan", "+inf", "-inf", "nanf", "+inff", "-inff" };
 
+	for (int j = 0; j < 6; j++)
+	{
+		if (!check[j].compare(this->_toConvert))
+		{
+			if (j < 3)
+				this->_which = 3;
+			else
+				this->_which = 2;
+			if (!j || j == 3)
+				this->_special = 2;
+			else
+				this->_special = 1;
+			return (0);
+		}
+	}
 	while (std::isdigit(this->_toConvert[j]) || this->_toConvert[j] == '.'
 		|| this->_toConvert[0] == '-'
 		|| this->_toConvert[this->_toConvert.length() - 1] == 'f')
@@ -162,13 +180,27 @@ void	Convert::convertFloat(void)
 	char	ctmp = ftmp;
 	double	dtmp = ftmp;
 
-	std::cout << "Int : " << tmp << std::endl;
-	if (ctmp < 32)
-		std::cout << "Char : " << "Non displayable" << std::endl;
+	std::cout << this->_special << std::endl;
+	if (this->_special)
+	{
+		if (this->_special == 2)
+				std::cout << "Int : impossible" << std::endl;
+		else
+			std::cout << "Int : " << tmp << std::endl;
+		std::cout << "Char : impossible" << std::endl;
+		std::cout << "Float : " << ftmp << "f" << std::endl;
+		std::cout << "Double : " << dtmp << std::endl;
+	}
 	else
-		std::cout << "Char : " << ctmp << std::endl;
-	std::cout << "Float : " << ftmp << ".0f" << std::endl;
-	std::cout << "Double : " << dtmp << ".0" << std::endl;
+	{
+		std::cout << "Int : " << tmp << std::endl;
+		if (ctmp < 32 || ctmp > 126)
+			std::cout << "Char : " << "Non displayable" << std::endl;
+		else
+			std::cout << "Char : " << ctmp << std::endl;
+		std::cout << "Float : " << ftmp << ".0f" << std::endl;
+		std::cout << "Double : " << dtmp << ".0" << std::endl;
+	}
 }
 
 void	Convert::convertDouble(void)
@@ -178,14 +210,31 @@ void	Convert::convertDouble(void)
 	int		tmp = dtmp;
 	char	ctmp = dtmp;
 	float	ftmp = dtmp;
-
-	std::cout << "Int : " << tmp << std::endl;
-	if (ctmp < 32)
-		std::cout << "Char : " << "Non displayable" << std::endl;
+	
+	std::cout << this->_special << std::endl;
+	if (this->_special)
+	{
+		if (this->_special == 2)
+			std::cout << "Int : impossible" << std::endl;
+		else
+			std::cout << "Int : " << tmp << std::endl;
+		if (ctmp < 32 || ctmp > 126)
+			std::cout << "Char : impossible" << std::endl;
+		else
+			std::cout << "Char : " << ctmp << std::endl;
+		std::cout << "Float : " << ftmp << "f" << std::endl;
+		std::cout << "Double : " << dtmp << std::endl;
+	}
 	else
-		std::cout << "Char : " << ctmp << std::endl;
-	std::cout << "Float : " << ftmp << "f" << std::endl;
-	std::cout << "Double : " << dtmp << std::endl;
+	{
+		std::cout << "Int : " << tmp << std::endl;
+		if (ctmp < 32 || ctmp > 126)
+			std::cout << "Char : " << "Non displayable" << std::endl;
+		else
+			std::cout << "Char : " << ctmp << std::endl;
+		std::cout << "Float : " << ftmp << "f" << std::endl;
+		std::cout << "Double : " << dtmp << std::endl;
+	}
 }
 
 void	Convert::converter(void)
