@@ -6,7 +6,7 @@
 /*   By: jcourtoi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 16:53:45 by jcourtoi          #+#    #+#             */
-/*   Updated: 2022/12/02 17:25:44 by jcourtoi         ###   ########.fr       */
+/*   Updated: 2022/12/02 18:04:35 by jcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,28 +15,15 @@
 Base	*generate(void)
 {
 	std::srand(std::time(NULL));
-	double	tmp = rand() / static_cast<double>(RAND_MAX);
-	int	nRand = 1 + static_cast<int>(tmp * (10 - 1));
+	int	nRand = rand() % 3;
 	Base	*base;
 	
-	std::cout << nRand << std::endl;
 	switch (nRand)
 	{
 		case (1):
 			base = new A;
 			break ;
 		case (2):
-			base = new B;
-			break ;
-		case (3):
-			base = new A;
-			break ;
-		case (4):
-			base = new A;
-		case (5):
-			base = new B;
-			break ;
-		case (6):
 			base = new B;
 			break ;
 		default:
@@ -66,8 +53,22 @@ void	identify(Base *p)
 
 void	identify(Base &p)
 {
-	std::string	tmp = typeid(p).name();
-
-	tmp.erase(tmp.begin());
-	std::cout << "This is a class " << tmp << std::endl;
+	try
+	{
+		A tmpA = dynamic_cast<A&>(p);
+		std::cout << "This is a class A" << std::endl;
+	}
+	catch (const std::exception &eA) {}
+	try
+	{
+		B tmpB = dynamic_cast<B&>(p);
+		std::cout << "This is a class B" << std::endl;
+	}
+	catch (const std::exception &eB) {}
+	try
+	{
+		C tmpC = dynamic_cast<C&>(p);
+		std::cout << "This is a class C" << std::endl;
+	}
+	catch (const std::exception &eC) {}
 }

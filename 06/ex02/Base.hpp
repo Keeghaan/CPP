@@ -6,7 +6,7 @@
 /*   By: jcourtoi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 16:49:33 by jcourtoi          #+#    #+#             */
-/*   Updated: 2022/12/02 16:57:12 by jcourtoi         ###   ########.fr       */
+/*   Updated: 2022/12/02 18:02:48 by jcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 # define BASE_HPP
 
 # include <iostream>
-# include <typeinfo>
 # include <ctime>
 # include <cstdlib>
-
+# include <cstring>
+# include <exception>
 class	Base
 {
 	public:
