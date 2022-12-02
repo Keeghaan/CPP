@@ -6,7 +6,7 @@
 /*   By: jcourtoi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 15:10:15 by jcourtoi          #+#    #+#             */
-/*   Updated: 2022/12/01 15:45:35 by jcourtoi         ###   ########.fr       */
+/*   Updated: 2022/12/01 16:17:46 by jcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,6 @@ class	Convert
 		std::string	_toConvert;	
 };
 
-std::ostream &operator<<(std::ostream&, Convert&) const;
+std::ostream &operator<<(std::ostream&, Convert&);
 
 #endif

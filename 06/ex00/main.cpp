@@ -6,7 +6,7 @@
 /*   By: jcourtoi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 14:55:26 by jcourtoi          #+#    #+#             */
-/*   Updated: 2022/12/01 15:42:52 by jcourtoi         ###   ########.fr       */
+/*   Updated: 2022/12/01 16:26:30 by jcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,19 @@
 
 int	main(int ac, char **av)
 {
-	if (ac > 2)
+	if (ac > 1)
 	{
 		std::cerr << "Too many arguments" << std::endl;
 		return (1);
 	}
-	if (ac == 2)
+	(void)av;
+/*	if (ac == 2)
 	{
-		Convert(av[1]);
+		std::string	a = av[1];
+
+		Convert(a);
 	}
-	else
+	else*/
 	{
 		Convert	intTest("42");
 		Convert	charTest("j");
