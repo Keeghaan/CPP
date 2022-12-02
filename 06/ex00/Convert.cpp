@@ -6,7 +6,7 @@
 /*   By: jcourtoi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 15:14:21 by jcourtoi          #+#    #+#             */
-/*   Updated: 2022/12/02 15:30:37 by jcourtoi         ###   ########.fr       */
+/*   Updated: 2022/12/02 16:02:27 by jcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,16 +53,21 @@ int	Convert::isDigit(void)
 
 	while (std::isdigit(this->_toConvert[j]) || this->_toConvert[j] == '.'
 		|| this->_toConvert[0] == '-'
-		|| this->_toConvert[this->_toConvert.length()] == 'f')
+		|| this->_toConvert[this->_toConvert.length() - 1] == 'f')
 	{
-		if (j != 0 && j != this->_toConvert.length()
+		if (this->_toConvert.length() == 1 && std::isdigit(this->_toConvert[0]))
+		{
+			this->_which = 1;
+			break ;
+		}	
+		if (j != 0 && j != this->_toConvert.length() - 1
 			&& this->_toConvert[j] == '.')
 		{
 			result = 0;
 			j++;
 			dot++;
 		}
-		if (this->_toConvert[this->_toConvert.length()] == 'f'
+		if (this->_toConvert[this->_toConvert.length() - 1] == 'f'
 			&& !result && dot == 1)
 			this->_which = 2;
 		else if (dot == 1 && !result)
@@ -80,6 +85,8 @@ int	Convert::isValid(void)
 {
 	int	j = 0;
 
+	if (this->_which > 0)
+		return (0);
 	while (this->_toConvert[j])
 	{
 		if (this->_toConvert[j] < 32 || this->_toConvert[j] > 126)
@@ -96,6 +103,7 @@ void	Convert::whichType(void)
 {
 	if (isDigit())
 		isValid();
+	std::cout << this->_which << std::endl;
 	switch (this->_which)
 	{
 		case (1):
@@ -117,15 +125,15 @@ void	Convert::whichType(void)
 
 void	Convert::convertChar(void)
 {
-	char	ctmp = this->_toConvert[0];
+	char	ctmp = static_cast<char>(this->_toConvert[0]);
 	int		tmp = ctmp; 
-	float	ftmp = ctmp;
-	double	dtmp = ctmp;
+	float	ftmp = static_cast<float>(ctmp);
+	double	dtmp = static_cast<double>(ctmp);
 
 	std::cout << "Int : " << tmp << std::endl;
 	std::cout << "Char : " << ctmp << std::endl;
-	std::cout << "Float : " << ftmp << std::endl;
-	std::cout << "Double : " << dtmp << std::endl;
+	std::cout << "Float : " << ftmp << ".0f" << std::endl;
+	std::cout << "Double : " << dtmp << ".0" <<  std::endl;
 }
 
 void	Convert::convertInt(void) const
@@ -142,8 +150,8 @@ void	Convert::convertInt(void) const
 		std::cout << "Char : " << "Non displayable" << std::endl;
 	else
 		std::cout << "Char : " << ctmp << std::endl;
-	std::cout << "Float : " << ftmp << std::endl;
-	std::cout << "Double : " << dtmp << std::endl;
+	std::cout << "Float : " << ftmp << ".0f" << std::endl;
+	std::cout << "Double : " << dtmp << ".0" << std::endl;
 }
 
 void	Convert::convertFloat(void)
@@ -159,8 +167,8 @@ void	Convert::convertFloat(void)
 		std::cout << "Char : " << "Non displayable" << std::endl;
 	else
 		std::cout << "Char : " << ctmp << std::endl;
-	std::cout << "Float : " << ftmp << std::endl;
-	std::cout << "Double : " << dtmp << std::endl;
+	std::cout << "Float : " << ftmp << ".0f" << std::endl;
+	std::cout << "Double : " << dtmp << ".0" << std::endl;
 }
 
 void	Convert::convertDouble(void)
@@ -176,7 +184,7 @@ void	Convert::convertDouble(void)
 		std::cout << "Char : " << "Non displayable" << std::endl;
 	else
 		std::cout << "Char : " << ctmp << std::endl;
-	std::cout << "Float : " << ftmp << std::endl;
+	std::cout << "Float : " << ftmp << "f" << std::endl;
 	std::cout << "Double : " << dtmp << std::endl;
 }
 
