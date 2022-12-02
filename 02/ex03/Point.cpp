@@ -6,7 +6,7 @@
 /*   By: jcourtoi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 13:01:19 by jcourtoi          #+#    #+#             */
-/*   Updated: 2022/11/23 14:12:13 by jcourtoi         ###   ########.fr       */
+/*   Updated: 2022/12/02 13:45:07 by jcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,5 +61,6 @@ Point	&Point::operator=(const Point &rhs)
 		std::cout << "Point assignment overload called" << std::endl;
 	*const_cast<Fixed*> (&_x)= rhs.getX();
 	*const_cast<Fixed*> (&_y)= rhs.getY();
+	//(void)rhs;
 	return (*this);
 }
