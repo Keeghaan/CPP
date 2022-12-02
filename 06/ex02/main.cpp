@@ -6,7 +6,7 @@
 /*   By: jcourtoi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 17:00:55 by jcourtoi          #+#    #+#             */
-/*   Updated: 2022/12/02 17:08:12 by jcourtoi         ###   ########.fr       */
+/*   Updated: 2022/12/02 17:24:41 by jcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,9 @@
 int	main(void)
 {
 	Base	*test = generate();
+	Base	&ref = *test;
 
 	identify(test);
+	identify(ref);
 	return (0);
 }

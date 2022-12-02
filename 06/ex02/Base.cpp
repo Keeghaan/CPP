@@ -6,7 +6,7 @@
 /*   By: jcourtoi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 16:53:45 by jcourtoi          #+#    #+#             */
-/*   Updated: 2022/12/02 17:16:42 by jcourtoi         ###   ########.fr       */
+/*   Updated: 2022/12/02 17:25:44 by jcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,10 +49,16 @@ void	identify(Base *p)
 {
 	A	*tmpA = dynamic_cast<A*>(p);
 	if (tmpA)
+	{
 		std::cout << "This is a class A" << std::endl;
+		return ;
+	}
 	B	*tmpB = dynamic_cast<B*>(p);
 	if (tmpB)
+	{
 		std::cout << "This is a class B" << std::endl;
+		return ;
+	}
 	C	*tmpC = dynamic_cast<C*>(p);
 	if (tmpC)
 		std::cout << "This is a class C" << std::endl;
@@ -60,5 +66,8 @@ void	identify(Base *p)
 
 void	identify(Base &p)
 {
-(void)p;
+	std::string	tmp = typeid(p).name();
+
+	tmp.erase(tmp.begin());
+	std::cout << "This is a class " << tmp << std::endl;
 }
