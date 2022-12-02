@@ -6,13 +6,13 @@
 #    By: jcourtoi <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/01 14:39:31 by jcourtoi          #+#    #+#              #
-#    Updated: 2022/12/01 14:39:33 by jcourtoi         ###   ########.fr        #
+#    Updated: 2022/12/02 14:56:48 by jcourtoi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME =	cast
 
-SRCS =	main.cpp 
+SRCS =	main.cpp Convert.cpp
 
 CXX =	c++
 
