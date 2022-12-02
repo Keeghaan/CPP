@@ -6,7 +6,7 @@
 /*   By: jcourtoi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 14:55:26 by jcourtoi          #+#    #+#             */
-/*   Updated: 2022/12/02 16:34:20 by jcourtoi         ###   ########.fr       */
+/*   Updated: 2022/12/02 18:28:12 by jcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,22 +41,22 @@ int	main(int ac, char **av)
 		std::string	weirdD("nan");
 		Convert	weirdDouble(weirdD);
 
-		std::cout << intTest << std::endl;
+		std::cout << intTest;
 		intTest.converter();
 		std::cout << std::endl;
-		std::cout << charTest << std::endl;
+		std::cout << charTest;
 		charTest.converter();
 		std::cout << std::endl;
-		std::cout << floatTest << std::endl;
+		std::cout << floatTest;
 		floatTest.converter();
 		std::cout << std::endl;
-		std::cout << doubleTest << std::endl;
+		std::cout << doubleTest;
 		doubleTest.converter();
 		std::cout << std::endl;
-		std::cout << weirdFloat << std::endl;
+		std::cout << weirdFloat;
 		weirdFloat.converter();
 		std::cout << std::endl;
-		std::cout << weirdDouble << std::endl << std::endl;
+		std::cout << weirdDouble;
 		weirdDouble.converter();
 		std::cout << std::endl;
 	}
