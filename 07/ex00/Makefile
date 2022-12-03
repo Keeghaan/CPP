@@ -12,7 +12,7 @@
 
 NAME =	startT
 
-SRCS =	main.cpp whatever.cpp
+SRCS =	main.cpp
 
 CXX =	c++
 
