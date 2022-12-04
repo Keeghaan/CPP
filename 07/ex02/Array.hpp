@@ -5,6 +5,11 @@
 # include <exception>
 
 # define DEBUG 1
+# define RED "\e[0;31m"
+# define YL "\e[0;33m"
+# define GRN "\e[0;32m"
+# define NC "\033[0m"
+# define CRED(x) RED x NC 
 
 template <typename T>
 class	Array
@@ -17,7 +22,7 @@ class	Array
 
 		T		*getArray(void) const;
 		T		getArray(unsigned int) const;		
-		unsigned int	getSize(void) const;
+		unsigned int	size(void) const;
 		class	NotAccessibleCaseException: public std::exception
 		{
 			public:
