@@ -12,7 +12,7 @@
 
 NAME =	serialKiller
 
-SRCS =	main.cpp func.cpp
+SRCS =	main.cpp Data.cpp
 
 CXX =	c++
 

@@ -10,21 +10,21 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "func.hpp"
+#include "Data.hpp"
 
 int	main(void)
 {
 	Data	test;
-	Data	*testTmp;
+	Data	*tmp = &test;
 
 	test.n = 23;
 	test.s = "Hello Sunshine";
 
-	std::cout << test.n << " " << test.s << std::endl;
-	uintptr_t	tmp = serialize(&test);
-	std::cout << test.n << " " << test.s << std::endl;
-	testTmp = deserialize(tmp);
-	std::cout << test.n << " " << test.s << std::endl;
-
+	std::cout << "tmp : " << tmp->n << " " << tmp->s << std::endl;
+	uintptr_t	uiTmp = serialize(&test);
+	std::cout << "uiTmp : "  << uiTmp << std::endl;
+	Data *dTmp = deserialize(uiTmp);
+	std::cout << "dTmp : " << dTmp->n << " " << dTmp->s << std::endl;
+	
 	return (0);
 }
