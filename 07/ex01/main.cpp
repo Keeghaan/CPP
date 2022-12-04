@@ -64,6 +64,13 @@ static void fillArray(char &i)
 	i = n++;
 }
 
+void	squareCase(char &i)
+{
+	if (i + i > 126)
+		std::cout << "not printable" << std::endl;
+	i += i;
+}
+
 //STD::STRING
 static void	initArray(std::string &i)
 {
@@ -75,8 +82,13 @@ static void fillArray(std::string &i)
 	i = std::string("Im not gonna iterate a string");
 }
 
+void	squareCase(std::string &i)
+{
+	i = std::string("Cannot get a string square");
+}
+
 int	main(void)
-{	
+{
 	//INT
 	std::cout << "-----------------INT-----------------" << std::endl;
 	{
@@ -87,6 +99,9 @@ int	main(void)
 		iter(array, size, printArray);
 		std::cout << std::endl;
 		iter<int>(array, size, fillArray);
+		iter<int>(array, size, printArray);
+		std::cout << std::endl;
+		iter<int>(array, size, squareCase);
 		iter(array, size, printArray);
 	}
 	std::cout << std::endl;
@@ -100,6 +115,9 @@ int	main(void)
 		iter(array, size, printArray);
 		std::cout << std::endl;
 		iter<float>(array, size, fillArray);
+		iter<float>(array, size, printArray);
+		std::cout << std::endl;
+		iter<float>(array, size, squareCase);
 		iter(array, size, printArray);
 	}
 	std::cout << std::endl;
@@ -113,6 +131,9 @@ int	main(void)
 		iter(array, size, printArray);
 		std::cout << std::endl;
 		iter<double>(array, size, fillArray);
+		iter<double>(array, size, printArray);
+		std::cout << std::endl;
+		iter<double>(array, size, squareCase);
 		iter(array, size, printArray);
 	}
 	std::cout << std::endl;
@@ -126,6 +147,10 @@ int	main(void)
 		iter(array, size, printArray);
 		std::cout << std::endl;
 		iter<char>(array, size, fillArray);
+		iter<char>(array, size, printArray);
+		std::cout << std::endl;
+		std::cout << "A square of printable char won't be printable so we're gonna sum it with itself instead" << std::endl;
+		iter<char>(array, size, squareCase);
 		iter(array, size, printArray);
 	}
 	std::cout << std::endl;
@@ -139,6 +164,9 @@ int	main(void)
 		iter(array, size, printArray);
 		std::cout << std::endl;
 		iter<std::string>(array, size, fillArray);
+		iter<std::string>(array, size, printArray);
+		std::cout << std::endl;
+		iter<std::string>(array, size, squareCase);
 		iter(array, size, printArray);
 	}
 	std::cout << std::endl;
