@@ -19,5 +19,7 @@ int	main(void)
 
 	identify(test);
 	identify(ref);
+	
+	delete test;
 	return (0);
 }
