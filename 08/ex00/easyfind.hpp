@@ -3,16 +3,20 @@
 
 # include <iostream>
 # include <exception>
-# include <array>
 # include <vector>
 # include <list>
+# include <algorithm>
 
-class	NotFoundException: public std::exception()
+# define RED "\e[0;31m"
+# define GRN "\e[0;32m"
+# define NC "\033[0m"
+# define CRED(x) RED x NC
+class	NotFoundException: public std::exception
 {
 	public:
 		const char *what(void) const throw()
 		{
-			return ("Int not found");
+			return (CRED("Int not found"));
 		};
 };
 
