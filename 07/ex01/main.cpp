@@ -2,6 +2,8 @@
 #include <cfloat>
 #include "iter.hpp"
 
+#define SIZE 10
+
 //INT
 static void	initArray(int &i)
 {
@@ -25,7 +27,7 @@ static void	initArray(float &i)
 
 static void fillArray(float &i)
 {
-	static int	n = 0.1f;
+	static float n = 0.1f;
 
 	if (n >= FLT_MAX - 1)
 		n = 0.1f;
@@ -41,7 +43,7 @@ static void	initArray(double &i)
 
 static void fillArray(double &i)
 {
-	static int	n = 0.1;
+	static double	n = 0.1;
 
 	if (n >= DBL_MAX - 1)
 		n = 0.1;
@@ -57,7 +59,7 @@ static void	initArray(char &i)
 
 static void fillArray(char &i)
 {
-	static int	n = 32;
+	static char	n = 32;
 
 	if (n == 126)
 		n = 32;
@@ -92,82 +94,77 @@ int	main(void)
 	//INT
 	std::cout << "-----------------INT-----------------" << std::endl;
 	{
-		std::size_t	size = 10;
-		int		array[size] = { 0 };
+		int		array[SIZE] = { 0 };
 	
-		iter<int>(array, size, initArray);
-		iter(array, size, printArray);
+		iter<int>(array, SIZE, initArray);
+		iter(array, SIZE, printArray);
 		std::cout << std::endl;
-		iter<int>(array, size, fillArray);
-		iter<int>(array, size, printArray);
+		iter<int>(array, SIZE, fillArray);
+		iter<int>(array, SIZE, printArray);
 		std::cout << std::endl;
-		iter<int>(array, size, squareCase);
-		iter(array, size, printArray);
+		iter<int>(array, SIZE, squareCase);
+		iter(array, SIZE, printArray);
 	}
 	std::cout << std::endl;
 	//FLOAT
 	std::cout << "-----------------FLOAT-----------------" << std::endl;
 	{
-		std::size_t	size = 10;
-		float		array[size] = { 0.0f };
+		float	array[SIZE] = { 0.0f };
 	
-		iter<float>(array, size, initArray);
-		iter(array, size, printArray);
+		iter<float>(array, SIZE, initArray);
+		iter(array, SIZE, printArray);
 		std::cout << std::endl;
-		iter<float>(array, size, fillArray);
-		iter<float>(array, size, printArray);
+		iter<float>(array, SIZE, fillArray);
+		iter<float>(array, SIZE, printArray);
 		std::cout << std::endl;
-		iter<float>(array, size, squareCase);
-		iter(array, size, printArray);
+		iter<float>(array, SIZE, squareCase);
+		iter(array, SIZE, printArray);
 	}
 	std::cout << std::endl;
 	//DOUBLE
 	std::cout << "-----------------DOUBLE-----------------" << std::endl;
 	{
-		std::size_t	size = 10;
-		double		array[size] = { 0.0 };
+		double	array[SIZE] = { 0.0 };
 	
-		iter<double>(array, size, initArray);
-		iter(array, size, printArray);
+		iter<double>(array, SIZE, initArray);
+		iter(array, SIZE, printArray);
 		std::cout << std::endl;
-		iter<double>(array, size, fillArray);
-		iter<double>(array, size, printArray);
+		iter<double>(array, SIZE, fillArray);
+		iter<double>(array, SIZE, printArray);
 		std::cout << std::endl;
-		iter<double>(array, size, squareCase);
-		iter(array, size, printArray);
+		iter<double>(array, SIZE, squareCase);
+		iter(array, SIZE, printArray);
 	}
 	std::cout << std::endl;
 	//CHAR
 	std::cout << "-----------------CHAR-----------------" << std::endl;
 	{
-		std::size_t	size = 10;
-		char		array[size] = {};
+		char	array[SIZE] = {};
 	
-		iter<char>(array, size, initArray);
-		iter(array, size, printArray);
+		iter<char>(array, SIZE, initArray);
+		iter(array, SIZE, printArray);
 		std::cout << std::endl;
-		iter<char>(array, size, fillArray);
-		iter<char>(array, size, printArray);
+		iter<char>(array, SIZE, fillArray);
+		iter<char>(array, SIZE, printArray);
 		std::cout << std::endl;
 		std::cout << "A square of printable char won't be printable so we're gonna sum it with itself instead" << std::endl;
-		iter<char>(array, size, squareCase);
-		iter(array, size, printArray);
+		iter<char>(array, SIZE, squareCase);
+		iter(array, SIZE, printArray);
 	}
 	std::cout << std::endl;
 	//STD::STRING
 	std::cout << "-----------------STD::STRING-----------------" << std::endl;
 	{
-		std::size_t	size = 10;
-		std::string	array[size] = {};
+		std::string	array[SIZE] = {};
 	
-		iter<std::string>(array, size, initArray);
-		iter(array, size, printArray);
+		iter<std::string>(array, SIZE, initArray);
+		iter(array, SIZE, printArray);
 		std::cout << std::endl;
-		iter<std::string>(array, size, fillArray);
-		iter<std::string>(array, size, printArray);
+		iter<std::string>(array, SIZE, fillArray);
+		iter<std::string>(array, SIZE, printArray);
 		std::cout << std::endl;
-		iter<std::string>(array, size, squareCase);
-		iter(array, size, printArray);
+		iter<std::string>(array, SIZE, squareCase);
+		iter(array, SIZE, printArray);
 	}
 	std::cout << std::endl;
 	return (0);
