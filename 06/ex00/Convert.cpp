@@ -6,7 +6,7 @@
 /*   By: jcourtoi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 15:14:21 by jcourtoi          #+#    #+#             */
-/*   Updated: 2022/12/02 18:29:00 by jcourtoi         ###   ########.fr       */
+/*   Updated: 2022/12/05 13:48:29 by jcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -155,9 +155,9 @@ void	Convert::convertInt(void) const
 	char	*pos;
 	float	tmpTmp = std::strtof(this->_toConvert.c_str(), &pos);
 	int		tmp = static_cast<int>(tmpTmp);
-	char	ctmp = tmp;
-	float	ftmp = tmp;
-	double	dtmp = tmp;
+	char	ctmp = static_cast<char>(tmp);
+	float	ftmp = static_cast<float>(tmp);
+	double	dtmp = static_cast<double>(tmp);
 
 	std::cout << "Int : " << tmp << std::endl;
 	if (ctmp < 32)
@@ -172,9 +172,9 @@ void	Convert::convertFloat(void)
 {
 	char	*pos;
 	float	ftmp = std::strtof(this->_toConvert.c_str(), &pos);
-	int		tmp = ftmp;
-	char	ctmp = ftmp;
-	double	dtmp = ftmp;
+	int		tmp = static_cast<int>(ftmp);
+	char	ctmp = static_cast<char>(ftmp);
+	double	dtmp = static_cast<double>(ftmp);
 
 	if (this->_special)
 	{
@@ -199,9 +199,9 @@ void	Convert::convertDouble(void)
 {
 	char	*pos;
 	double	dtmp = std::strtod(this->_toConvert.c_str(), &pos);
-	int		tmp = dtmp;
-	char	ctmp = dtmp;
-	float	ftmp = dtmp;
+	int		tmp = static_cast<int>(dtmp);
+	char	ctmp = static_cast<char>(dtmp);
+	float	ftmp = static_cast<float>(dtmp);
 	
 	if (this->_special)
 	{
