@@ -1,8 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Array.hpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jcourtoi <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/12/05 12:36:50 by jcourtoi          #+#    #+#             */
+/*   Updated: 2022/12/05 12:36:51 by jcourtoi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef ARRAY_HPP
 # define ARRAY_HPP
 
 # include <iostream>
 # include <exception>
+# include <ctime>
+# include <cstdlib>
 
 # define DEBUG 1
 # define RED "\e[0;31m"

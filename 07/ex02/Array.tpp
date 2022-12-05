@@ -1,3 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+/*   Tarray.hpp                                         :+:      :+:    :+:   */
+#                                                     +:+ +:+         +:+      #
+#    By: jcourtoi <marvin@42.fr>                    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2022/12/05 12:36:44 by jcourtoi          #+#    #+#              #
+/*   Updated: 2022/12/05 12:37:55 by jcourtoi         ###   ########.fr       */
+#                                                                              #
+# **************************************************************************** #
+
 #ifndef ARRAY_TPP
 # define ARRAY_TPP
 
@@ -8,7 +20,7 @@ Array<T>::Array(void): _size(0)
 {
 	if (DEBUG)
 		std::cout << YL << "Array default constructor" << NC << std::endl;
-	this->_array = new T[0](); //
+	this->_array = new T[0]();
 }
 
 template <typename T>
