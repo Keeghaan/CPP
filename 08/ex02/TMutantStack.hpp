@@ -1,12 +1,14 @@
 # include "MutantStack.hpp"
 
-MutantStack::MutantStack(void)
+template <class T>
+MutantStack::MutantStack(void): std::stack<T>()
 {
 	if (DEBUG)
 		std::cout << "MutantStack default constructor" << std::endl;
 }
 
-MutantStack::MutantStack(const MutantStack &copy)
+template <typename T>
+MutantStack::MutantStack(const MutantStack &copy): std::stack<T>(copy)
 {
 	if (DEBUG)
 		std::cout << "MutantStack copy constructor" << std::endl;
@@ -19,14 +21,19 @@ MutantStack::~MutantStack(void)
 		std::cout << "MutantStack destructor" << std::endl;
 }
 
-int	*MutantStack::iterator(int *p)
+iterator	MutantStack::begin(void)
 {
-	
+	return (this->c.begin());
+}
+
+iterator	MutantStack::end(void)
+{
+	return (this->c.end());
 }
 
 //OVERLOAD
 MutantStack	&MutantStack::operator=(const MutantStack &rhs)
 {
-	(void)rhs;
+	this->c = rhs.c;
 	return (*this);
 }
