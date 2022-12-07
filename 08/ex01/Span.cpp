@@ -6,19 +6,19 @@
 /*   By: jcourtoi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 14:45:18 by jcourtoi          #+#    #+#             */
-/*   Updated: 2022/12/07 13:59:19 by jcourtoi         ###   ########.fr       */
+/*   Updated: 2022/12/07 17:03:38 by jcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Span.hpp"
 
-Span::Span(unsigned int n): _nMax(n)
+Span::Span(unsigned int n): _nMax(n), _size(0)
 {
 	if (DEBUG)
 		std::cout << "Span parametric constructor" << std::endl;
 }
 
-Span::Span(const Span &copy): _nMax(copy.getMax())
+Span::Span(const Span &copy): _nMax(copy.getMax()), _size(copy.getSize())
 {
 	if (DEBUG)
 		std::cout << "Span copy constructor" << std::endl;
@@ -37,6 +37,15 @@ unsigned int	Span::getMax(void) const
 	return (this->_nMax);
 }
 
+unsigned int	Span::getSize(void) const
+{
+	return (this->_size);
+}
+
+int	Span::getContent(unsigned int index) const
+{
+	return (this->_stock.at(index));
+}
 
 void	Span::addNumber(unsigned int n)
 {
@@ -45,6 +54,7 @@ void	Span::addNumber(unsigned int n)
 		if (this->_stock.size() == this->_nMax)
 			throw MaxReachedException();
 		this->_stock.push_back(n);
+		this->_size++;
 	}
 	catch (std::exception &e)
 	{
@@ -71,9 +81,11 @@ unsigned int	Span::shortestSpan(void) const
 		}
 		else
 		{
-			sdMin = std::min_element(this->_stock.begin(), min - 1);	
+			sdMin = std::min_element(this->_stock.begin(), min - 1);
 			dist = std::distance(sdMin, min);
 		}
+		if (DEBUG > 1)
+			std::cout << "MIN : " << *min << " Second min : " << *sdMin << std::endl;
 	}
 	catch (std::exception &e)
 	{
@@ -99,12 +111,43 @@ unsigned int	Span::longestSpan(void) const
 			dist = std::distance(min, max);
 		else
 			dist = std::distance(max, min);
+		if (DEBUG > 1)
+			std::cout << "Max : " << *max << " min : " << *min << std::endl;
 	}
 	catch (std::exception &e)
 	{
 		std::cout << e.what() << std::endl;
 	}
 	return (dist);
+}
+
+void	Span::addMoreNumber(unsigned int count)
+{
+	std::srand(std::time(0));
+	try
+	{
+		if (count > this->_nMax)
+		{
+			for (unsigned int i = 0; i < this->_nMax; i++)
+			{
+				this->_stock.push_back(std::rand() % 1000 - 500);
+				this->_size++;
+			}
+			throw MaxReachedException();
+		}
+		else
+		{
+			for (unsigned int i = 0; i < count; i++)
+			{
+				this->_stock.push_back(std::rand() % 1000 - 500);
+				this->_size++;
+			}
+		}
+	}
+	catch (std::exception &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
 }
 
 const char	*Span::MaxReachedException::what(void) const throw()
@@ -129,4 +172,11 @@ Span	&Span::operator=(const Span &rhs)
 	if (this != &rhs)
 		this->_stock = rhs._stock;
 	return (*this);
+}
+
+std::ostream	&operator<<(std::ostream &out, const Span &rhs)
+{
+	for (unsigned int i = 0; i != rhs.getSize(); i++)
+		out << rhs.getContent(i) << std::endl;
+	return (out);
 }

@@ -6,7 +6,7 @@
 /*   By: jcourtoi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 14:09:41 by jcourtoi          #+#    #+#             */
-/*   Updated: 2022/12/07 13:42:27 by jcourtoi         ###   ########.fr       */
+/*   Updated: 2022/12/07 16:51:51 by jcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,17 @@
 # include <vector>
 # include <span>
 # include <utility>
+# include <climits>
+# include <ctime>
+# include <cstdlib>
 
 # define RED "\e[0;31m"
 # define NC "\033[0m"
 # define CRED(x) RED x NC
-# define DEBUG 1
-
+# define DEBUG 2 //0 No debug msg | 1 Constructor & Destructor | 2 Other debug msgs
+# define MAX 10000
+# define MAXRAND 50
+# define MINRAND -50
 //template <class T, size_t Extent=std::dynamic_extent>
 class	Span
 {
@@ -34,14 +39,13 @@ class	Span
 		Span(const Span&);
 		virtual ~Span(void);
 
-		
+		unsigned int	getSize(void) const;
 		unsigned int	getMax(void) const;
-
+		int				getContent(unsigned int) const;
 		void			addNumber(unsigned int);
 		unsigned int	shortestSpan(void) const;
 		unsigned int	longestSpan(void) const;
-
-		void	search2ndSmallest(unsigned int);
+		void			addMoreNumber(unsigned int);
 
 		class	MaxReachedException: public std::exception
 		{
@@ -63,7 +67,10 @@ class	Span
 	private:
 		const unsigned int	_nMax;
 		std::vector<int>	_stock;
+		unsigned int		_size;
 		Span(void);
 };
+
+std::ostream	&operator<<(std::ostream&, const Span&);
 
 #endif
