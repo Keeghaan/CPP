@@ -6,7 +6,7 @@
 /*   By: jcourtoi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 14:45:18 by jcourtoi          #+#    #+#             */
-/*   Updated: 2022/12/07 13:02:59 by jcourtoi         ###   ########.fr       */
+/*   Updated: 2022/12/07 13:26:30 by jcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,22 +47,46 @@ unsigned int	Span::shortestSpan(void) const
 {
 	if (this->_stock.size() < 2)
 		throw NotEnoughToCompareException();
-	//unsigned int	sdSmallest;
-//	std::vector<unsigned int>::iterator it; 
-	std::vector<int>::const_iterator min = std::min_element(this->_stock.begin(), this->_stock.end());
+	unsigned int	dist;
+	std::vector<int>::const_iterator sdMin;
+	std::vector<int>::const_iterator min = std::min_element(this->_stock.begin(),
+		this->_stock.end());
 	
-
-	std::cout << /*sdSmallest*/*min << std::endl;
-	return (*min);
-//	std::vector<unsigned int>::iterator min = std::min_element(this->_stock.begin(), this->_stock.end());
-//	std::for_each(this->_stock.begin(), this->_stock.end(), Span::search2ndSmallest(min));
+	if (min == this->_stock.begin())
+	{
+		sdMin = std::min_element(min + 1, this->_stock.end());
+		dist = std::distance(min, sdMin);
+	}
+	else
+	{
+		sdMin = std::min_element(this->_stock.begin(), min - 1);	
+		dist = std::distance(sdMin, min);
+	}
+	std::cout << "Min : " << *min << " SdMin : " << *sdMin << std::endl;
+	return (dist);
 }
 
 unsigned int	Span::longestSpan(void) const
 {
 	if (this->_stock.size() < 2)
 		throw NotEnoughToCompareException();
-	return (56);
+	unsigned int	dist;
+	std::vector<int>::const_iterator sdMax;
+	std::vector<int>::const_iterator max = std::max_element(this->_stock.begin(),
+		this->_stock.end());
+	
+	if (max == this->_stock.begin())
+	{
+		sdMax = std::max_element(max + 1, this->_stock.end());
+		dist = std::distance(max, sdMax);
+	}
+	else
+	{
+		sdMax = std::max_element(this->_stock.begin(), max - 1);
+		dist = std::distance(sdMax, max);
+	}
+	std::cout << "Max : " << *max << " SdMax : " << *sdMax << std::endl;
+	return (dist);
 }
 
 const char	*Span::MaxReachedException::what(void) const throw()
