@@ -6,7 +6,7 @@
 /*   By: jcourtoi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 14:09:41 by jcourtoi          #+#    #+#             */
-/*   Updated: 2022/12/07 12:56:41 by jcourtoi         ###   ########.fr       */
+/*   Updated: 2022/12/07 13:42:27 by jcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <list>
 # include <vector>
 # include <span>
+# include <utility>
 
 # define RED "\e[0;31m"
 # define NC "\033[0m"
