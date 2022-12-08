@@ -6,7 +6,7 @@
 /*   By: jcourtoi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 17:15:36 by jcourtoi          #+#    #+#             */
-/*   Updated: 2022/12/07 19:20:49 by jcourtoi         ###   ########.fr       */
+/*   Updated: 2022/12/08 13:08:09 by jcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int main()
 
 		mstack.push_back(5);
 		mstack.push_back(17);
-		std::cout << mstack.front() << std::endl;
+		std::cout << mstack.back() << std::endl;
 		mstack.pop_back();
 		std::cout << mstack.size() << std::endl;
 		mstack.push_back(3);
@@ -70,7 +70,7 @@ int main()
 
 		mstack.push_back(5);
 		mstack.push_back(17);
-		std::cout << mstack.front() << std::endl;
+		std::cout << mstack.back() << std::endl;
 		mstack.pop_back();
 		std::cout << mstack.size() << std::endl;
 		mstack.push_back(3);
