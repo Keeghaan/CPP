@@ -6,7 +6,7 @@
 /*   By: jcourtoi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 14:45:18 by jcourtoi          #+#    #+#             */
-/*   Updated: 2022/12/07 17:10:35 by jcourtoi         ###   ########.fr       */
+/*   Updated: 2022/12/08 13:29:39 by jcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,6 +126,8 @@ void	Span::addMoreNumber(unsigned int count)
 	std::srand(std::time(0));
 	try
 	{
+		if (count > MAXIMUM)
+			throw TooMuchException();
 		if (count > this->_nMax)
 		{
 			for (unsigned int i = 0; i < this->_nMax; i++)
@@ -155,9 +157,9 @@ const char	*Span::MaxReachedException::what(void) const throw()
 	return (CRED("You can't add any more"));
 }
 
-const char	*Span::EmptyException::what(void) const throw()
+const char	*Span::TooMuchException::what(void) const throw()
 {
-	return (CRED("There is nothing in here"));
+	return (CRED("I don't accept that much"));
 }
 
 const char	*Span::NotEnoughToCompareException::what(void) const throw()

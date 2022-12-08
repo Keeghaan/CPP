@@ -6,11 +6,13 @@
 /*   By: jcourtoi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 14:44:31 by jcourtoi          #+#    #+#             */
-/*   Updated: 2022/12/07 17:04:33 by jcourtoi         ###   ########.fr       */
+/*   Updated: 2022/12/08 13:30:13 by jcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Span.hpp"
+
+# define MAX 20
 
 int	main(void)
 {
@@ -27,10 +29,10 @@ int	main(void)
 	}
 	std::cout << std::endl;
 	{
-		Span sp = Span(5);
+		Span sp = Span(MAX);
 	//	Span test = sp;
 
-		sp.addMoreNumber(6);
+		sp.addMoreNumber(MAX);
 		std::cout << sp << std::endl;
 	/*	sp.addNumber(-2147483648);
 		sp.addNumber(3);

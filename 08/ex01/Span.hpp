@@ -6,7 +6,7 @@
 /*   By: jcourtoi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 14:09:41 by jcourtoi          #+#    #+#             */
-/*   Updated: 2022/12/07 16:51:51 by jcourtoi         ###   ########.fr       */
+/*   Updated: 2022/12/08 13:29:52 by jcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,8 @@
 # define NC "\033[0m"
 # define CRED(x) RED x NC
 # define DEBUG 2 //0 No debug msg | 1 Constructor & Destructor | 2 Other debug msgs
-# define MAX 10000
-# define MAXRAND 50
-# define MINRAND -50
-//template <class T, size_t Extent=std::dynamic_extent>
+# define MAXIMUM 200000
+
 class	Span
 {
 	public:
@@ -52,7 +50,7 @@ class	Span
 			public:
 				const char	*what(void) const throw();
 		};
-		class	EmptyException: public std::exception
+		class	TooMuchException: public std::exception
 		{
 			public:
 				const char	*what(void) const throw();
