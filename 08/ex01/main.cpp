@@ -13,7 +13,6 @@
 #include "Span.hpp"
 
 # define MAX 20
-
 int	main(void)
 {
 	{	
@@ -29,19 +28,27 @@ int	main(void)
 	}
 	std::cout << std::endl;
 	{
+		Span tmp = Span(MAX);
 		Span sp = Span(MAX);
 	//	Span test = sp;
 
-		sp.addMoreNumber(MAX);
-		std::cout << sp << std::endl;
+		tmp.randInit(MAX);
+		std::vector<int> vtmp = tmp.getVector();
+	//	randInit(&tmp, MAX);
+		sp.addMoreNumber(vtmp.begin(), vtmp.end());
+
 	/*	sp.addNumber(-2147483648);
 		sp.addNumber(3);
 		sp.addNumber(17);
 		sp.addNumber(53);
 		sp.addNumber(110);
 		sp.addNumber(2147483647);*/
+
+
 		std::cout << sp.shortestSpan() << std::endl;
 		std::cout << sp.longestSpan() << std::endl;
+
+		std::cout << std::endl << "Content : " << std::endl << sp << std::endl;
 	}
 	return 0;
 }

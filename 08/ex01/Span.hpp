@@ -37,14 +37,18 @@ class	Span
 		Span(const Span&);
 		virtual ~Span(void);
 
-		unsigned int	getSize(void) const;
-		unsigned int	getMax(void) const;
-		int		getContent(unsigned int) const;
+		unsigned int		getSize(void) const;
+		unsigned int		getMax(void) const;
+		int			getContent(unsigned int) const;
+		std::vector<int>	getVector(void) const;
+		
 		void		addNumber(unsigned int);
-		unsigned int		shortestSpan(void) const;
-		unsigned int		longestSpan(void) const;
-		void		addMoreNumber(unsigned int);
+		unsigned int	shortestSpan(void) const;
+		unsigned int	longestSpan(void) const;
+		void		addMoreNumber(std::vector<int>::iterator, std::vector<int>::iterator);
 
+		void		randInit(unsigned int count);
+	
 		class	MaxReachedException: public std::exception
 		{
 			public:
@@ -65,7 +69,6 @@ class	Span
 	private:
 		const unsigned int	_nMax;
 		std::vector<int>	_stock;
-		unsigned int		_size;
 		Span(void);
 };
 

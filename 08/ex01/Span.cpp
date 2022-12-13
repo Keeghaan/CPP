@@ -12,13 +12,13 @@
 
 #include "Span.hpp"
 
-Span::Span(unsigned int n): _nMax(n), _size(0)
+Span::Span(unsigned int n): _nMax(n)
 {
 	if (DEBUG)
 		std::cout << "Span parametric constructor" << std::endl;
 }
 
-Span::Span(const Span &copy): _nMax(copy.getMax()), _size(copy.getSize())
+Span::Span(const Span &copy): _nMax(copy.getMax())
 {
 	if (DEBUG)
 		std::cout << "Span copy constructor" << std::endl;
@@ -39,12 +39,29 @@ unsigned int	Span::getMax(void) const
 
 unsigned int	Span::getSize(void) const
 {
-	return (this->_size);
+	return (this->_stock.size());
+}
+
+std::vector<int>	Span::getVector(void) const
+{
+	return (this->_stock);
 }
 
 int	Span::getContent(unsigned int index) const
 {
-	return (this->_stock.at(index));
+	try
+	{
+		if (index > this->_nMax)
+			throw MaxReachedException();
+		if (this->_stock.empty())
+			throw NotEnoughToCompareException();
+		return (this->_stock.at(index));
+	}
+	catch (std::exception &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+	return (0);
 }
 
 void	Span::addNumber(unsigned int n)
@@ -54,7 +71,6 @@ void	Span::addNumber(unsigned int n)
 		if (this->_stock.size() == this->_nMax)
 			throw MaxReachedException();
 		this->_stock.push_back(n);
-		this->_size++;
 	}
 	catch (std::exception &e)
 	{
@@ -108,29 +124,38 @@ unsigned int	Span::longestSpan(void) const
 	return (dist);
 }
 
-void	Span::addMoreNumber(unsigned int count)
+void	Span::addMoreNumber(std::vector<int>::iterator begin, std::vector<int>::iterator end)
+{
+	try
+	{
+		if (std::distance(begin, end) > this->_nMax)
+			throw MaxReachedException();
+		else
+			this->_stock.insert(this->_stock.end(), begin, end);
+	}
+	catch (std::exception &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+}
+
+void	Span::randInit(unsigned int count)
 {
 	std::srand(std::time(0));
 	try
 	{
 		if (count > MAXIMUM)
-			throw TooMuchException();
+			throw Span::TooMuchException();
 		if (count > this->_nMax)
 		{
 			for (unsigned int i = 0; i < this->_nMax; i++)
-			{
 				this->_stock.push_back(std::rand() % 1000 - 500);
-				this->_size++;
-			}
 			throw MaxReachedException();
 		}
 		else
 		{
 			for (unsigned int i = 0; i < count; i++)
-			{
 				this->_stock.push_back(std::rand() % 1000 - 500);
-				this->_size++;
-			}
 		}
 	}
 	catch (std::exception &e)
@@ -138,6 +163,7 @@ void	Span::addMoreNumber(unsigned int count)
 		std::cout << e.what() << std::endl;
 	}
 }
+
 
 const char	*Span::MaxReachedException::what(void) const throw()
 {
