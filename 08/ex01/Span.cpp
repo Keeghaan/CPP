@@ -70,22 +70,15 @@ unsigned int	Span::shortestSpan(void) const
 	{
 		if (this->_stock.size() < 2)
 			throw NotEnoughToCompareException();
-		std::vector<int>::const_iterator sdMin;
-		std::vector<int>::const_iterator min = std::min_element(this->_stock.begin(),
-			this->_stock.end());
+		std::vector<int>	tmp(this->_stock);
 		
-		if (min == this->_stock.begin())
+		std::sort(tmp.begin(), tmp.end());
+		dist = *(tmp.begin() + 1) - *tmp.begin();
+		for (std::vector<int>::iterator it = tmp.begin(); it != tmp.end() - 1; ++it)
 		{
-			sdMin = std::min_element(min + 1, this->_stock.end());
-			dist = std::distance(min, sdMin);
-		}
-		else
-		{
-			sdMin = std::min_element(this->_stock.begin(), min - 1);
-			dist = std::distance(sdMin, min);
-		}
-		if (DEBUG > 1)
-			std::cout << "MIN : " << *min << " Second min : " << *sdMin << std::endl;
+			if (*(it + 1) - *it < int(dist))
+				dist = *(it + 1) - *it;
+		}	
 	}
 	catch (std::exception &e)
 	{
@@ -102,17 +95,11 @@ unsigned int	Span::longestSpan(void) const
 	{
 		if (this->_stock.size() < 2)
 			throw NotEnoughToCompareException();
-		std::vector<int>::const_iterator max;
+		std::vector<int>::const_iterator max = std::max_element(this->_stock.begin(),
+			this->_stock.end());
 		std::vector<int>::const_iterator min = std::min_element(this->_stock.begin(),
 			this->_stock.end());
-		
-		max = std::max_element(this->_stock.begin(), this->_stock.end());
-		if (max > min)
-			dist = std::distance(min, max);
-		else
-			dist = std::distance(max, min);
-		if (DEBUG > 1)
-			std::cout << "Max : " << *max << " min : " << *min << std::endl;
+		dist = *max - *min;
 	}
 	catch (std::exception &e)
 	{

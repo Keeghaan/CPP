@@ -39,11 +39,11 @@ class	Span
 
 		unsigned int	getSize(void) const;
 		unsigned int	getMax(void) const;
-		int				getContent(unsigned int) const;
-		void			addNumber(unsigned int);
-		unsigned int	shortestSpan(void) const;
-		unsigned int	longestSpan(void) const;
-		void			addMoreNumber(unsigned int);
+		int		getContent(unsigned int) const;
+		void		addNumber(unsigned int);
+		unsigned int		shortestSpan(void) const;
+		unsigned int		longestSpan(void) const;
+		void		addMoreNumber(unsigned int);
 
 		class	MaxReachedException: public std::exception
 		{
